@@ -8,6 +8,7 @@ describe('This scenario is to test post creation', () => {
     const postPage = new PostPage();
 
     it('login to Ghost', () => {
+        loginPage.visitPage();
         loginPage.login();
         loginPage.navigateToPostsPage();
         postPage.clickNewPost();
