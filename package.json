@@ -1,0 +1,22 @@
+{
+  "name": "pruebas-ghost",
+  "version": "1.0.0",
+  "description": "Pruebas E2E de la aplicacion Ghost V3.3.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/geherrera2/pruebas-ghost.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/geherrera2/pruebas-ghost/issues"
+  },
+  "homepage": "https://github.com/geherrera2/pruebas-ghost#readme",
+  "dependencies": {
+    "cypress": "^7.2.0"
+  }
+}
