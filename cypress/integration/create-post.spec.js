@@ -11,5 +11,6 @@ describe('This scenario is to test post creation', () => {
         loginPage.login();
         loginPage.navigateToPostsPage();
         postPage.clickNewPost();
+        postPage.fillPostTitle();
     })
 });
