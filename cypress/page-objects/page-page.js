@@ -9,6 +9,10 @@ export class PagePage {
         cy.contains('New page').first().click();
     }
 
+    clickOnNewPage() {
+        cy.contains('New page').first().click();
+    }
+
     fillPageTitle(valueTitlePage) {
         cy.get('[placeholder="Page Title"]').click().type(valueTitlePage);
         cy.wait(1000);
