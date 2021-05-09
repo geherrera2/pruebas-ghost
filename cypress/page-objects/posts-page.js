@@ -29,11 +29,21 @@ export class PostPage {
         cy.get('a').contains(`${postMenuText}`).first().click();
     }
 
-    clickFirstElementPost(){
+    /*clickFirstElementPage(){
         cy.get('ol.posts-list').children('.gh-posts-list-item').each(($el, index, $list) => {
             if(index === 0){
                 let idElemento = $el.attr('id');
                 cy.get(`#${idElemento} a[title*="Edit this post"]`).first().click({force: true})
+            }
+        })
+    }*/
+
+    clickFirstElementPost() {
+        cy.get('ol.posts-list').children('.gh-posts-list-item').each(($el, index, $list) => {
+            if (index === 0) {
+                let element = $el.children('a').first().attr('id');
+                cy.wait(500);
+                cy.get(`#${element}`).click({force: true});
             }
         })
     }
@@ -60,7 +70,14 @@ export class PostPage {
 
     openSettings(){
         cy.wait(500);
-        cy.get('.post-settings').click();
+        cy.get('[title=Settings]').click();
+    }
+
+    clickDeletePage() {
+        cy.wait(500);
+        cy.get('.gh-btn.settings-menu-delete-button').click();
+        cy.wait(500);
+        cy.get('button.gh-btn.gh-btn-red').click();
     }
 
     closeSettings() {
