@@ -1,26 +1,26 @@
-import {environment, userLoginData} from '../env';
-import {postMenuText} from '../page-objects/posts-page';
+import { environment, userLoginData } from '../env';
+import { postMenuText } from '../page-objects/posts-page';
 
 export class LoginPage {
 
     loginURL = 'signin/'
 
-    visitPage(){
+    visitPage() {
         cy.visit(`${environment.baseURL}${this.loginURL}`);
     }
 
 
     login() {
-       
+
         cy.wait(1000)
         cy.get('input[name=identification]').type(userLoginData.username)
         cy.get('input[name=password]').type(`${userLoginData.password}{enter}`)
         cy.wait(500)
     }
 
-    logOut(){
+    logOut() {
         cy.wait(500);
-        cy.get('.gh-nav-bottom .ember-basic-dropdown-trigger').click({force: true})
+        cy.get('.gh-nav-bottom .ember-basic-dropdown-trigger').click({ force: true })
         cy.get('a[href*="#/signout/"]').first().click()
     }
 
