@@ -1,4 +1,5 @@
 import faker from 'faker';
+
 export class PostPage {
 
     postMenuText = 'posts';
@@ -30,10 +31,11 @@ export class PostPage {
     }
 
     /*clickFirstElementPage(){
+    clickFirstElementPost() {
         cy.get('ol.posts-list').children('.gh-posts-list-item').each(($el, index, $list) => {
-            if(index === 0){
+            if (index === 0) {
                 let idElemento = $el.attr('id');
-                cy.get(`#${idElemento} a[title*="Edit this post"]`).first().click({force: true})
+                cy.get(`#${idElemento} a[title*="Edit this post"]`).first().click({ force: true })
             }
         })
     }*/
@@ -43,7 +45,7 @@ export class PostPage {
             if (index === 0) {
                 let element = $el.children('a').first().attr('id');
                 cy.wait(500);
-                cy.get(`#${element}`).click({force: true});
+                cy.get(`#${element}`).click({ force: true });
             }
         })
     }
@@ -68,7 +70,7 @@ export class PostPage {
         });
     }
 
-    openSettings(){
+    openSettings() {
         cy.wait(500);
         cy.get('[title=Settings]').click();
     }
@@ -81,16 +83,16 @@ export class PostPage {
     }
 
     closeSettings() {
-        cy.get('.hidden').contains('Close').click({force: true});
+        cy.get('.hidden').contains('Close').click({ force: true });
     }
 
-    addTag(value){
+    addTag(value) {
         cy.wait(100);
-        cy.get('#tag-input').click({force: true});
+        cy.get('#tag-input').click({ force: true });
         cy.wait(100);
-        cy.get('.ember-basic-dropdown-content-wormhole-origin ul li').contains(value).click({force: true});
+        cy.get('.ember-basic-dropdown-content-wormhole-origin ul li').contains(value).click({ force: true });
         cy.wait(100);
-        cy.get('.settings-menu-header-action').click({force: true});
+        cy.get('.settings-menu-header-action').click({ force: true });
     }
 
     addAuthor() {
@@ -116,6 +118,10 @@ export class PostPage {
 
     assertThisPostContainsAuthor(postTitle, authorAdded) {
         expect(postTitle).to.be.oneOf(cy.get('ol.posts-list').children('.gh-posts-list-item').children('a').children('h3').value);
+    }
+
+    assertPostPublished() {
+        cy.get('a').parent('div').should('contain', 'Published!')
     }
 }
 export const postMenuText = 'Post';
