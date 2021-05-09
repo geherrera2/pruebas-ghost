@@ -13,12 +13,12 @@ context('escenario-2', () => {
 
         loginPage.visitPage();
         loginPage.login();
-        loginPage.navigateToPostsPage();
+        postPage.navigateToPostsPage();
         postPage.clickFirstElementPost();
         postPage.openSettings();
         postPage.addTag('prueba tag');
         postPage.clickUpdatePost();
-        loginPage.navigateToPostsPage();
+        postPage.navigateToPostsPage();
         loginPage.logOut(); 
     
     })
