@@ -46,7 +46,6 @@ export class PostPage {
     }
 
     updateTitlePost(value) {
-        console.log(value);
         cy.wait(500);
         cy.get('textarea.gh-editor-title').clear().type(value);
     }
