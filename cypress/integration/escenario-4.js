@@ -7,8 +7,8 @@ context('Scenario 2 - Publish Post', () => {
     const loginPage = new LoginPage();
     const postPage = new PostPage();
 
-    it('Create post', () => {
-        const pageTitle = faker.lorem.text();
+    it('Publish post', () => {
+        const pageTitle = faker.lorem.words();
 
         loginPage.visitPage();
         loginPage.login();
@@ -19,7 +19,7 @@ context('Scenario 2 - Publish Post', () => {
         postPage.clickFirstElementPost();
         postPage.updateTitlePost(pageTitle);
         postPage.clickOnPublishPost();
+        postPage.assertPostPublished();
         postPage.navigateToPostsPage();
-        // postPage.assertPostPublished();
     })
 })
