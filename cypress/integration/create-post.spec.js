@@ -21,8 +21,8 @@ describe('This scenario is to test post creation', () => {
     it('write some sentences in the body', () => {
         loginPage.visitPage();
         loginPage.login();
-        loginPage.navigateToPostsPage();
-        postPage.clickFirstElementPage();
+        postPage.navigateToPostsPage();
+        postPage.clickFirstElementPost();
         postPage.fillPostBody();
 
     });

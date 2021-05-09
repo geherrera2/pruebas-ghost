@@ -16,7 +16,7 @@ context('Scenario 2 - Publish Post', () => {
         postPage.clickNewPost();
         postPage.clickOnPostTitle();
         postPage.navigateToPostsPage();
-        postPage.clickFirstElementPage();
+        postPage.clickFirstElementPost();
         postPage.updateTitlePage(pageTitle);
         postPage.clickOnPublishPost();
         postPage.navigateToPostsPage();

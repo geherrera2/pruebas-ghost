@@ -13,11 +13,11 @@ context('escenario-2', () => {
 
         loginPage.visitPage();
         loginPage.login();
-        loginPage.navigateToPostsPage();
+        postPage.navigateToPostsPage();
         postPage.clickFirstElementPost();
         postPage.updateTitlePost(valueTitlePost);
         postPage.clickUpdatePost();
-        loginPage.navigateToPostsPage();
+        postPage.navigateToPostsPage();
         postPage.assertUpdatePost(valueTitlePost);
         loginPage.logOut();
     

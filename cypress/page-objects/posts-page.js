@@ -27,7 +27,7 @@ export class PostPage {
         cy.get('a').contains(`${postMenuText}`).first().click();
     }
 
-    clickFirstElementPage(){
+    clickFirstElementPost(){
         cy.get('ol.posts-list').children('.gh-posts-list-item').each(($el, index, $list) => {
             if(index === 0){
                 let idElemento = $el.attr('id');
@@ -36,7 +36,7 @@ export class PostPage {
         })
     }
 
-    clickFirstElementPage() {
+    clickFirstElementPost() {
         cy.get('ol.posts-list').children('.gh-posts-list-item').each(($el, index, $list) => {
             if (index === 0) {
                 let idElemento = $el.attr('id');
@@ -45,13 +45,13 @@ export class PostPage {
         })
     }
 
-    updateTitlePage(value) {
+    updateTitlePost(value) {
         console.log(value);
         cy.wait(500);
         cy.get('textarea.gh-editor-title').clear().type(value);
     }
 
-    clickUpdatePage() {
+    clickUpdatePost() {
         cy.wait(500);
         cy.get('.gh-publishmenu-trigger').click();
 
@@ -59,7 +59,7 @@ export class PostPage {
         cy.get('.gh-publishmenu-button').click();
     }
 
-    assertUpdatePage(value) {
+    assertUpdatePost(value) {
         cy.get('ol.posts-list .gh-posts-list-item').should(($lis) => {
             console.log($lis);
             expect($lis.eq(0)).to.contain(value)
