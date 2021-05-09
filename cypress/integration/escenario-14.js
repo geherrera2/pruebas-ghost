@@ -5,17 +5,29 @@ import { PagePage } from '../page-objects/page-page';
 import { TagPage } from '../page-objects/tag-page';
 
 context('escenario-14-eliminar tag', () => {
-    let listaPost = [];
+    let valueNameTag = '';
 
-    it('Eliminar Tag', () => {
-
+    it('Crear Tag', () => {
+        valueNameTag = faker.lorem.word();
         const loginPage = new LoginPage();
         const tagPage = new TagPage();
 
         loginPage.visitPage();
         loginPage.login();
         loginPage.naviateToPage('Tags');
-        tagPage.selectFirstTag();
+        tagPage.clickNewTag();
+        tagPage.insertName(valueNameTag);
     
+    })
+
+
+    it('Eliminar Tag', () => {
+        const loginPage = new LoginPage();
+        const tagPage = new TagPage();
+
+        loginPage.visitPage();
+        loginPage.login();
+        loginPage.naviateToPage('Tags');
+        tagPage.validateTag(valueNameTag);
     })
   })

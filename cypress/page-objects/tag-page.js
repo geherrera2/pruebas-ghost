@@ -1,6 +1,14 @@
 export class TagPage{
-    clickNewPost() {
+    clickNewTag() {
         cy.contains('New tag').first().click();
+    }
+
+    insertName(value){
+        
+        // cy.get('#tag-name').type(value);
+        cy.get('input[name=name]').click({force: true}).type(value);
+        cy.get('.gh-btn-blue').click({force: true});
+        // cy.get('input[name=name]').type(`${value}{enter}`)
     }
 
     clickFirstElementPost(){
@@ -12,10 +20,9 @@ export class TagPage{
         })
     }
 
-    selectFirstTag(){
+    validateTag(value){
         cy.get('ol.tags-list .gh-tags-list-item').should(($lis) => {
-            $lis.eq(0).click();
-            // expect($lis.eq(0)).to.contain(value)
-          });
+            expect($lis).to.contain(value);
+        });
     }
 }
