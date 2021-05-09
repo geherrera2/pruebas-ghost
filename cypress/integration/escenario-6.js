@@ -4,22 +4,22 @@ import {PostPage} from '../page-objects/posts-page';
 import faker from 'faker';
 
 context('escenario-2', () => {
+    let listaPost = [];
 
-    const loginPage = new LoginPage();
-    const postPage = new PostPage();
+    it('Asociar tag a un post', () => {
 
-    it('Editar Post', () => {
-        const valueTitlePost = faker.lorem.sentence();
+        const loginPage = new LoginPage();
+        const postPage = new PostPage();
 
         loginPage.visitPage();
         loginPage.login();
         loginPage.navigateToPostsPage();
         postPage.clickFirstElementPost();
-        postPage.updateTitlePost(valueTitlePost);
+        postPage.openSettings();
+        postPage.addTag('prueba tag');
         postPage.clickUpdatePost();
         loginPage.navigateToPostsPage();
-        postPage.assertUpdatePost(valueTitlePost);
-        loginPage.logOut();
+        loginPage.logOut(); 
     
     })
   })
