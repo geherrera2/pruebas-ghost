@@ -8,7 +8,7 @@ context('Scenario 2 - Publish Post', () => {
     const postPage = new PostPage();
 
     it('Publish post', () => {
-        const pageTitle = faker.lorem.words();
+        const postTitle = faker.lorem.words();
 
         loginPage.visitPage();
         loginPage.login();
@@ -17,7 +17,7 @@ context('Scenario 2 - Publish Post', () => {
         postPage.clickOnPostTitle();
         postPage.navigateToPostsPage();
         postPage.clickFirstElementPost();
-        postPage.updateTitlePost(pageTitle);
+        postPage.updateTitlePost(postTitle);
         postPage.clickOnPublishPost();
         postPage.assertPostPublished();
         postPage.navigateToPostsPage();

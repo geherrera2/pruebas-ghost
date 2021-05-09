@@ -120,7 +120,7 @@ export class PostPage {
         expect(postTitle).to.be.oneOf(cy.get('ol.posts-list').children('.gh-posts-list-item').children('a').children('h3').value);
     }
 
-    assertPostPublished(value) {
+    assertPostPublished() {
         cy.get('a').parent('div').should('contain', 'Published!')
     }
 }

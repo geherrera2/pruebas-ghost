@@ -1,4 +1,4 @@
-export class PagePage{
+export class PagePage {
 
     navigateToPagesPage() {
         cy.get('a').contains(`${pageMenuText}`).click();
@@ -23,50 +23,85 @@ export class PagePage{
             if (index === 0) {
                 let element = $el.children('a').first().attr('id');
                 cy.wait(500);
-                cy.get(`#${element}`).click({force: true});
+                cy.get(`#${element}`).click({ force: true });
             }
         })
     }
 
-    fillPageBody(valueBodyPage){
+    clickNewPost() {
+        cy.contains('New page').first().click();
+    }
+
+    clickOnPageTitle() {
+        cy.get('[placeholder="Page Title"]').click();
+    }
+
+    clickOnFirstElementPages() {
+        cy.get('ol.gh-list').children('.gh-posts-list-item').each(($el, index, $list) => {
+            if (index === 0) {
+                let idElemento = $el.attr('id');
+                cy.get(`#${idElemento} a[title*="Edit this post"]`).first().click({ force: true })
+            }
+        })
+    }
+
+    fillPageBody(valueBodyPage) {
         cy.get('[data-kg="editor"]').click().type(valueBodyPage);
         cy.wait(1000);
     }
 
-    openPublish(){
+    openPublish() {
         cy.wait(500);
         cy.get('.gh-publishmenu.ember-view').click();
     }
 
-    publish(){
+    publish() {
         cy.wait(500);
         cy.get('button.gh-publishmenu-button').click();
     }
 
-    openSettings(){
+    openSettings() {
         cy.wait(500);
         cy.get('[title=Settings]').click();
     }
 
-    closeSettings(){
+    closeSettings() {
         cy.wait(500);
         cy.get('.close.settings-menu-header-action').click();
     }
 
-    filterTag(){
+    filterTag() {
         cy.wait(500);
         cy.get('.gh-contentfilter-tag').click();
         cy.wait(500);
         cy.get('#ember-basic-dropdown-content-ember716>ul>li[data-option-index="1"]').click();
     }
 
-    addTag(){
+    addTag() {
         cy.wait(500);
         cy.get('#ember-power-select-multiple-options-ember218 > input').click()
         cy.wait(500);
         cy.get('#ember-power-select-options-ember218 > LI').click();
     }
 
+    updateTitlePage(value) {
+        cy.wait(500);
+        cy.get('textarea.gh-editor-title').clear().type(value);
+    }
+
+    clickOnPublishPage() {
+        cy.wait(500);
+        cy.get('.gh-publishmenu-trigger').click();
+        cy.wait(500);
+        cy.get('.gh-publishmenu-button').click();
+    }
+
+    assertPageEdited(value) {
+        cy.get('ol.gh-list .gh-posts-list-item').should(($lis) => {
+            console.log($lis);
+            expect($lis.eq(0)).to.contain(value)
+        });
+    }
 }
 
 export const pageMenuText = 'Page';
