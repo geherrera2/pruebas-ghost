@@ -40,36 +40,46 @@ export class PagePage {
         cy.get('[placeholder="Page Title"]').click();
     }
 
-    clickOnFirstElementPages() {
+    fillPageTitle(valueTitlePage) {
+        cy.get('[placeholder="Page Title"]').click().type(valueTitlePage);
+        cy.wait(1000);
+    }
+
+    returnList() {
+        cy.get('a').contains(`${pageMenuText}`).first().click();
+    }
+
+    clickFirstElementPage() {
         cy.get('ol.gh-list').children('.gh-posts-list-item').each(($el, index, $list) => {
             if (index === 0) {
-                let idElemento = $el.attr('id');
-                cy.get(`#${idElemento} a[title*="Edit this post"]`).first().click({ force: true })
+                let element = $el.children('a').first().attr('id');
+                cy.wait(500);
+                cy.get(`#${element}`).click({force: true});
             }
         })
     }
 
-    fillPageBody(valueBodyPage) {
+    fillPageBody(valueBodyPage){
         cy.get('[data-kg="editor"]').click().type(valueBodyPage);
         cy.wait(1000);
     }
 
-    openPublish() {
+    openPublish(){
         cy.wait(500);
         cy.get('.gh-publishmenu.ember-view').click();
     }
 
-    publish() {
+    publish(){
         cy.wait(500);
         cy.get('button.gh-publishmenu-button').click();
     }
 
-    openSettings() {
+    openSettings(){
         cy.wait(500);
         cy.get('[title=Settings]').click();
     }
 
-    closeSettings() {
+    closeSettings(){
         cy.wait(500);
         cy.get('.close.settings-menu-header-action').click();
     }
@@ -91,7 +101,7 @@ export class PagePage {
         cy.get('#ember-basic-dropdown-content-ember716>ul>li[data-option-index="1"]').click();
     }
 
-    addTag() {
+    addTag(){
         cy.wait(500);
         cy.get('#ember-power-select-multiple-options-ember218 > input').click()
         cy.wait(500);
@@ -116,6 +126,29 @@ export class PagePage {
             expect($lis.eq(0)).to.contain(value)
         });
     }
+
+    selectPage(value){
+        cy.get('ol.gh-list ').children('.gh-posts-list-item').each(($el, index, $list) => {
+
+            let texto = $el.children('.gh-post-list-title').children('h3').text().trim() ;
+            if(texto === value){
+                let idElemento = $el.attr('id');
+                cy.get(`#${idElemento} a[title*="Edit this post"]`).first().click({force: true})
+            }
+        })
+    }
+
+    validatePage(value){
+        cy.get('ol.gh-list ').children('.gh-posts-list-item').each(($el, index, $list) => {
+
+            let texto = $el.children('.gh-post-list-title').children('h3').text().trim() ;
+            if(texto === value){
+                let idElemento = $el.attr('id');
+                cy.get(`#${idElemento} .gh-post-list-status`).should('not.contain', 'Draft');
+            }
+        })
+    }
+
 }
 
 export const pageMenuText = 'Page';

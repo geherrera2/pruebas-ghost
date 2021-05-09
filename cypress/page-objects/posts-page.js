@@ -30,16 +30,6 @@ export class PostPage {
         cy.get('a').contains(`${postMenuText}`).first().click();
     }
 
-    /*clickFirstElementPage(){
-    clickFirstElementPost() {
-        cy.get('ol.posts-list').children('.gh-posts-list-item').each(($el, index, $list) => {
-            if (index === 0) {
-                let idElemento = $el.attr('id');
-                cy.get(`#${idElemento} a[title*="Edit this post"]`).first().click({ force: true })
-            }
-        })
-    }*/
-
     clickFirstElementPost() {
         cy.get('ol.posts-list').children('.gh-posts-list-item').each(($el, index, $list) => {
             if (index === 0) {

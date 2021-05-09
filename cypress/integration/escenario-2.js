@@ -3,7 +3,7 @@ import {LoginPage} from '../page-objects/login-page';
 import {PostPage} from '../page-objects/posts-page';
 import faker from 'faker';
 
-context('escenario-2', () => {
+context('escenario-2:Editar Post', () => {
 
     const loginPage = new LoginPage();
     const postPage = new PostPage();
