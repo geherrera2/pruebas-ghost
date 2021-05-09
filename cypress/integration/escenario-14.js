@@ -16,6 +16,7 @@ context('escenario-14-eliminar tag', () => {
         loginPage.login();
         loginPage.naviateToPage('Tags');
         tagPage.clickNewTag();
+        expect('Tags').to.equal('Tags');
         tagPage.insertName(valueNameTag);
     
     })
@@ -28,6 +29,8 @@ context('escenario-14-eliminar tag', () => {
         loginPage.visitPage();
         loginPage.login();
         loginPage.naviateToPage('Tags');
+        tagPage.selectTag(valueNameTag);
+        tagPage.deleteTag();
         tagPage.validateTag(valueNameTag);
     })
   })

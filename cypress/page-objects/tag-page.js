@@ -20,9 +20,30 @@ export class TagPage{
         })
     }
 
+    selectTag(value){
+        cy.get('ol.tags-list').children('.gh-tags-list-item').each(($el, index, $list) => {
+            let texto = $el.children('.gh-tag-list-title').text().trim() ;
+            if(texto === value){
+                let idElemento = $el.attr('id');
+                cy.get(`#${idElemento} .gh-tag-list-title`).first().click({force: true})
+            }
+        })
+    }
+
     validateTag(value){
         cy.get('ol.tags-list .gh-tags-list-item').should(($lis) => {
-            expect($lis).to.contain(value);
+            console.log($lis);
+            if($lis.length > 0){
+                expect($lis).to.not.contain(value);
+            }else{
+                expect($lis.length).to.equal(0);
+            }
         });
+    }
+    
+    deleteTag(){
+        cy.get('.gh-btn-red').contains('Delete tag').click();
+        cy.wait(500);
+        cy.get('.modal-content  .modal-footer .gh-btn-red').contains('Delete').click();
     }
 }
