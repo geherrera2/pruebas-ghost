@@ -80,6 +80,10 @@ export class PostPage {
         cy.get('button.gh-btn.gh-btn-red').click();
     }
 
+    closeSettings() {
+        cy.get('.hidden').contains('Close').click({force: true});
+    }
+
     addTag(value){
         cy.wait(100);
         cy.get('#tag-input').click({force: true});
@@ -87,6 +91,16 @@ export class PostPage {
         cy.get('.ember-basic-dropdown-content-wormhole-origin ul li').contains(value).click({force: true});
         cy.wait(100);
         cy.get('.settings-menu-header-action').click({force: true});
+    }
+
+    addAuthor() {
+        cy.wait(100);
+        cy.get('[id="author-list"]').click();
+        cy.wait(100);
+        let authorName = cy.get('[data-option-index="0"]').value;
+        cy.get('[data-option-index="0"]').click();
+        cy.wait(100);
+        return authorName;
     }
 
     clickOnPostTitle() {
@@ -98,6 +112,10 @@ export class PostPage {
         cy.get('.gh-publishmenu-trigger').click();
         cy.wait(500);
         cy.get('.gh-publishmenu-button').click();
+    }
+
+    assertThisPostContainsAuthor(postTitle, authorAdded) {
+        expect(postTitle).to.be.oneOf(cy.get('ol.posts-list').children('.gh-posts-list-item').children('a').children('h3').value);
     }
 }
 export const postMenuText = 'Post';

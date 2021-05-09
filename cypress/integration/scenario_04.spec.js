@@ -17,7 +17,7 @@ context('Scenario 2 - Publish Post', () => {
         postPage.clickOnPostTitle();
         postPage.navigateToPostsPage();
         postPage.clickFirstElementPost();
-        postPage.updateTitlePage(pageTitle);
+        postPage.updateTitlePost(pageTitle);
         postPage.clickOnPublishPost();
         postPage.navigateToPostsPage();
         // postPage.assertPostPublished();
