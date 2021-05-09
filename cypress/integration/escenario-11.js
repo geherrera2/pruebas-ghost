@@ -1,6 +1,6 @@
 /// <reference types="cypress" />
-import {LoginPage} from '../page-objects/login-page';
-import {PagePage} from '../page-objects/page-page';
+import { LoginPage } from '../page-objects/login-page';
+import { PagePage } from '../page-objects/page-page';
 import faker from 'faker';
 
 context('escenario-11', () => {
@@ -20,7 +20,7 @@ context('escenario-11', () => {
         pagePage.publish();
         pagePage.returnList();
         cy.wait(1000);
-        //cy.get('ol.gh-list').children('.gh-posts-list-item').should('have.length', count+1);
+        cy.get('ol.gh-list').children('.gh-posts-list-item').should('not.contain.value', 0);
     })
 
-  })
+})

@@ -1,6 +1,6 @@
 /// <reference types="cypress" />
-import {LoginPage} from '../page-objects/login-page';
-import {PostPage} from '../page-objects/posts-page';
+import { LoginPage } from '../page-objects/login-page';
+import { PostPage } from '../page-objects/posts-page';
 
 context('escenario-3', () => {
 
@@ -15,10 +15,10 @@ context('escenario-3', () => {
         postPage.navigateToPostsPage();
         cy.get('ol.posts-list').then(listing => {
             let count = Cypress.$('.gh-posts-list-item').length;
-            postPage.clickFirstElementPage();
+            postPage.clickFirstElementPost();
             postPage.openSettings();
             postPage.clickDeletePage();
-            cy.get('ol.posts-list').children('.gh-posts-list-item').should('have.length', count-1)
+            cy.get('ol.posts-list').children('.gh-posts-list-item').should('have.length', count - 1)
         })
     })
-  })
+})

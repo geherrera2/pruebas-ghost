@@ -16,7 +16,7 @@ context('Scenario 8 - Edit Page', () => {
         pagePage.clickOnNewPage();
         pagePage.clickOnPageTitle();
         pagePage.navigateToPagesPage();
-        pagePage.clickOnFirstElementPages();
+        pagePage.clickFirstElementPage();
         pagePage.updateTitlePage(pageTitle);
         pagePage.clickOnPublishPage();
         pagePage.navigateToPagesPage();
