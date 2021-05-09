@@ -7,8 +7,6 @@ export const environment = {
 export const userLoginData = {
     // 'username': 'carlosriverosv@gmail.com',
     // 'password': 'q1w2e3r4t5'
-    // 'username': 'ge.herrera2@uniandes.edu.co',
-    // 'password': 'bogota2020.'
-    'username': 'm.ortizv2@uniandes.edu.co',
-    'password': 'P@ssworD001'
+    'username': 'ge.herrera2@uniandes.edu.co',
+    'password': 'bogota2020.'
 };
