@@ -24,10 +24,6 @@ export class LoginPage {
         cy.get('a[href*="#/signout/"]').first().click()
     }
 
-    navigateToPostsPage() {
-        cy.get('a').contains(`${postMenuText}`).click();
-        cy.wait(500)
-    }
 
     naviateToPage(value){
         cy.get('a').contains(`${value}`).click();
