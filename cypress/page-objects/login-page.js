@@ -1,5 +1,5 @@
-import { environment, userLoginData } from '../env';
-import { postMenuText } from '../page-objects/posts-page';
+import { environment } from '../env';
+import { userLoginData } from '../env_local';
 
 export class LoginPage {
 

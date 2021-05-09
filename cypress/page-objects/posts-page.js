@@ -1,6 +1,7 @@
-import {environment} from '../env';
 import faker from 'faker';
 export class PostPage {
+
+    postMenuText = 'posts';
 
     clickNewPost() {
         cy.contains('New post').first().click();
@@ -11,6 +12,7 @@ export class PostPage {
         cy.get('[placeholder="Post Title"]').click().type(postTitle);
         cy.wait(1000);
         cy.get('[data-kg="editor"]').first().click();
+        return postTitle;
     }
 
     navigateToPostsPage() {
@@ -36,16 +38,7 @@ export class PostPage {
         })
     }
 
-    clickFirstElementPost() {
-        cy.get('ol.posts-list').children('.gh-posts-list-item').each(($el, index, $list) => {
-            if (index === 0) {
-                let idElemento = $el.attr('id');
-                cy.get(`#${idElemento} a[title*="Edit this post"]`).first().click({ force: true })
-            }
-        })
-    }
-
-    updateTitlePost(value) {
+    updateTitlePage(value) {
         console.log(value);
         cy.wait(500);
         cy.get('textarea.gh-editor-title').clear().type(value);
@@ -81,7 +74,7 @@ export class PostPage {
     }
 
     clickOnPostTitle() {
-        cy.get('gh-editor-title ember-text-area gh-input ember-view').click();
+        cy.get('[placeholder="Post Title"]').click();
     }
 
     clickOnPublishPost() {

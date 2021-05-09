@@ -2,3 +2,4 @@ node_modules/
 cypress/videos/
 /videos
 cypress/screenshots
+env_local.js
