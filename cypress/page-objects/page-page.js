@@ -84,6 +84,16 @@ export class PagePage {
         cy.get('.close.settings-menu-header-action').click();
     }
 
+    clickDeletePage() {
+        cy.get('button').contains('Delete page').click();
+        cy.wait(1000);
+    }
+
+    confirmDeletePage(){
+        cy.get('button.gh-btn.gh-btn-red').click();
+        cy.wait(500);
+    }
+
     filterTag(){
         cy.wait(500);
         cy.get('.gh-contentfilter-tag').click();

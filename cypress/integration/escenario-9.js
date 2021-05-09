@@ -1,20 +1,36 @@
 /// <reference types="cypress" />
 import {LoginPage} from '../page-objects/login-page';
-import faker from 'faker';
 import { PagePage } from '../page-objects/page-page';
+import faker from 'faker';
 
-context('escenario-2', () => {
-    let listaPost = [];
+describe('This is to test the elimination of a page', () => {
 
-    it('Publicar Page', () => {
+    const loginPage = new LoginPage();
+    const pagePage = new PagePage();
+    let pageTitle = '';
 
-        const loginPage = new LoginPage();
-        const pagePage = new PagePage();
-
+    beforeEach(() => {
         loginPage.visitPage();
         loginPage.login();
-        loginPage.naviateToPage('Pages');
-        pagePage.clickNewPost();
+        loginPage.navigateToPage('Pages');
+    });
     
-    })
+
+    it('Create a new page', () => {
+        pagePage.clickNewPage();
+        pageTitle = faker.lorem.sentence();
+        pagePage.fillPageTitle(pageTitle);
+        pagePage.returnList();
+    });
+
+    it('Delete previously created page', () => {
+        let numberPagesBeforeDelete = Cypress.$('.gh-posts-list-item').length;
+        pagePage.clickFirstElementPage();
+        pagePage.openSettings();
+        pagePage.clickDeletePage();
+        pagePage.confirmDeletePage();
+        pagePage.returnList();
+        cy.get('ol.gh-list').children('.gh-posts-list-item').should('have.length', numberPagesBeforeDelete - 1);
+    });
+
   })

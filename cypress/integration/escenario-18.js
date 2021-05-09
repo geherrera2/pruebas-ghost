@@ -13,7 +13,7 @@ context('escenario-18-Editar Title', () => {
 
         loginPage.visitPage();
         loginPage.login();
-        loginPage.naviateToPage('Pages');
+        loginPage.navigateToPage('Pages');
         pagePage.clickNewPost();
     
     })
