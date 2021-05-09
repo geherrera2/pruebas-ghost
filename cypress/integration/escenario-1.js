@@ -9,19 +9,19 @@ describe('This scenario is to test post creation', () => {
     const postPage = new PostPage();
     let title = '';
 
-    it('Create post with title only', () => {
+    beforeEach(() => {
         loginPage.visitPage();
         loginPage.login();
         postPage.navigateToPostsPage();
+    });
+
+    it('Create post with title only', () => {
         postPage.clickNewPost();
         title = postPage.fillPostTitle();
     });
 
     
     it('Test post with this title now exists', () => {
-        loginPage.visitPage();
-        loginPage.login();
-        postPage.navigateToPostsPage();
         postPage.assertUpdatePost(title);
     });
 });
