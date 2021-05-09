@@ -1,6 +1,7 @@
-import {environment} from '../env';
 import faker from 'faker';
 export class PostPage {
+
+    postMenuText = 'posts';
 
     clickNewPost() {
         cy.contains('New post').first().click();
@@ -11,6 +12,7 @@ export class PostPage {
         cy.get('[placeholder="Post Title"]').click().type(postTitle);
         cy.wait(1000);
         cy.get('[data-kg="editor"]').first().click();
+        return postTitle;
     }
 
     navigateToPostsPage() {
@@ -36,7 +38,7 @@ export class PostPage {
         })
     }*/
 
-    clickFirstElementPage() {
+    clickFirstElementPost() {
         cy.get('ol.posts-list').children('.gh-posts-list-item').each(($el, index, $list) => {
             if (index === 0) {
                 let element = $el.children('a').first().attr('id');
@@ -46,13 +48,12 @@ export class PostPage {
         })
     }
 
-    updateTitlePage(value) {
-        console.log(value);
+    updateTitlePost(value) {
         cy.wait(500);
         cy.get('textarea.gh-editor-title').clear().type(value);
     }
 
-    clickUpdatePage() {
+    clickUpdatePost() {
         cy.wait(500);
         cy.get('.gh-publishmenu-trigger').click();
 
@@ -60,7 +61,7 @@ export class PostPage {
         cy.get('.gh-publishmenu-button').click();
     }
 
-    assertUpdatePage(value) {
+    assertUpdatePost(value) {
         cy.get('ol.posts-list .gh-posts-list-item').should(($lis) => {
             console.log($lis);
             expect($lis.eq(0)).to.contain(value)
@@ -89,7 +90,7 @@ export class PostPage {
     }
 
     clickOnPostTitle() {
-        cy.get('gh-editor-title ember-text-area gh-input ember-view').click();
+        cy.get('[placeholder="Post Title"]').click();
     }
 
     clickOnPublishPost() {

@@ -7,23 +7,21 @@ describe('This scenario is to test post creation', () => {
     
     const loginPage = new LoginPage();
     const postPage = new PostPage();
-    
+    let title = '';
 
-    it('login to Ghost', () => {
+    it('Create post with title only', () => {
         loginPage.visitPage();
         loginPage.login();
         postPage.navigateToPostsPage();
         postPage.clickNewPost();
-        postPage.fillPostTitle();
+        title = postPage.fillPostTitle();
     });
 
     
-    it('write some sentences in the body', () => {
+    it('Test post with this title now exists', () => {
         loginPage.visitPage();
         loginPage.login();
-        loginPage.navigateToPostsPage();
-        postPage.clickFirstElementPage();
-        postPage.fillPostBody();
-
+        postPage.navigateToPostsPage();
+        postPage.assertUpdatePost(title);
     });
 });
