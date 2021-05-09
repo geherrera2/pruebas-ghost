@@ -25,7 +25,7 @@ export class LoginPage {
     }
 
 
-    naviateToPage(value){
+    navigateToPage(value){
         cy.get('a').contains(`${value}`).click();
         cy.wait(500)
     }
