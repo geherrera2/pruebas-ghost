@@ -39,6 +39,18 @@ export class PostPage {
         });
     }
 
+    openSettings(){
+        cy.wait(500);
+        cy.get('.post-settings').click();
+    }
 
+    addTag(value){
+        cy.wait(100);
+        cy.get('#tag-input').click({force: true});
+        cy.wait(100);
+        cy.get('.ember-basic-dropdown-content-wormhole-origin ul li').contains(value).click({force: true});
+        cy.wait(100);
+        cy.get('.settings-menu-header-action').click({force: true});
+    }
 }
 export const postMenuText = 'Post';
