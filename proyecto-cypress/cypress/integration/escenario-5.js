@@ -25,11 +25,22 @@ describe('Scenario 5 - This scenario is about adding a new author to a post', ()
     it('Add new author to the post', () => {
         postPage.clickFirstElementPost();
         postPage.openSettings();
-        authorAdded = postPage.addAuthor();
-        postPage.closeSettings();
-        postPage.clickOnPublishPost();
-        postPage.returnToPostList();
-        postPage.assertThisPostContainsAuthor(postTitle, authorAdded);
+
+        cy.wait(100);
+        cy.get('[id="author-list"]').click();
+        cy.wait(100);
+       
+        cy.get('[data-option-index="0"]').then(($span) => {
+            let authorName;
+            authorName = $span.text().trim();
+            cy.get('[data-option-index="0"]').click();
+            cy.wait(100);
+            postPage.closeSettings();
+            postPage.clickOnPublishPost();
+            postPage.returnToPostList();
+            postPage.assertThisPostContainsAuthor(postTitle, authorName);
+        });
+
     });
 
 });
