@@ -106,7 +106,7 @@ export class PagePage {
         cy.wait(500);
         cy.get('#tag-input input.ember-power-select-trigger-multiple-input').click()
         cy.wait(500);
-        cy.get('li.ember-power-select-option').click();
+        cy.get('li.ember-power-select-option').first().click();
     }
 
     updateTitlePage(value) {
