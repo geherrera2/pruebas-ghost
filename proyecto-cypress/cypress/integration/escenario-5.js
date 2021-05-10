@@ -3,7 +3,7 @@
 import {LoginPage} from '../page-objects/login-page';
 import {PostPage} from '../page-objects/posts-page';
 
-describe('This scenario is about adding a new author to a post', () => {
+describe('Scenario 5 - This scenario is about adding a new author to a post', () => {
     
     const loginPage = new LoginPage();
     const postPage = new PostPage();
@@ -29,7 +29,6 @@ describe('This scenario is about adding a new author to a post', () => {
         postPage.closeSettings();
         postPage.clickOnPublishPost();
         postPage.returnToPostList();
-        console.log(authorAdded);
         postPage.assertThisPostContainsAuthor(postTitle, authorAdded);
     });
 

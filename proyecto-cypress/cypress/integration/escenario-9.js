@@ -3,7 +3,7 @@ import {LoginPage} from '../page-objects/login-page';
 import { PagePage } from '../page-objects/page-page';
 import faker from 'faker';
 
-describe('This is to test the elimination of a page', () => {
+describe('Scenario 9 - This is to test the elimination of a page', () => {
 
     const loginPage = new LoginPage();
     const pagePage = new PagePage();

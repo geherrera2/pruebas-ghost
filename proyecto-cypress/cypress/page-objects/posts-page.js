@@ -94,7 +94,10 @@ export class PostPage {
         cy.wait(100);
         cy.get('[id="author-list"]').click();
         cy.wait(100);
-        let authorName = cy.get('[data-option-index="0"]').value;
+        let authorName;
+        cy.get('[data-option-index="0"]').then(($span) => {
+            authorName = $span.text();
+        });
         cy.get('[data-option-index="0"]').click();
         cy.wait(100);
         return authorName;
@@ -111,12 +114,18 @@ export class PostPage {
         cy.get('.gh-publishmenu-button').click();
     }
 
-    assertThisPostContainsAuthor(postTitle, authorAdded) {
-        expect(postTitle).to.be.oneOf(cy.get('ol.posts-list').children('.gh-posts-list-item').children('a').children('h3').value);
-    }
-
     assertPostPublished() {
         cy.get('a').parent('div').should('contain', 'Published!')
+    }
+
+    assertThisPostContainsAuthor(postTitle, authorAdded) {
+        cy.get('.posts-list').children('.gh-posts-list-item').each(($el, index, $list) => {
+            let texto = $el.children('.gh-post-list-title').children('h3').text().trim();
+            if (texto === postTitle) {
+                let idElemento = $el.attr('id');
+                cy.get(`#${idElemento} .gh-content-entry-meta`).should('contain', authorAdded);
+            }
+        })
     }
 }
 export const postMenuText = 'Post';
