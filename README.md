@@ -65,6 +65,7 @@
 | Se presenta un nivel más alto de abstracción de las pruebas , ya que la sintaxis de los archivos es basado en lenguaje gerkin |
 | Permite la interacción de varios usuarios en el mismo escenario de prueba.|
 | Es más sencillo cambiar los entornos de pruebas entre web y móvil |
+
 | Ventajas |
 | :--------------: |
 |La documentación no es lo suficientemente robusta para el desarrollo de las actividades de pruebas|
@@ -74,6 +75,7 @@
 | El proceso de instalación en cypres es más sencillo. |
 | La documentación y soporte de la herramienta es mejor , se puede encontrar información más fácilmente para el desarrollo de las actividades de pruebas.|
 | La comunidad de desarrollo de plugins para cypres es más amplia. |
+
 | Ventajas |
 | :--------------: |
 |Solo permite realizar pruebas en un entorno a la vez|
