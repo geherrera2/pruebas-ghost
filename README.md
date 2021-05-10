@@ -38,7 +38,7 @@
 ## Como correr las pruebas con la herramienta Kraken
 | Paso # | Descripción |
 | :--------------: | :--------- |
-|1| Para ejecutar las pruebas en Kraken se debe ingresar a la carpeta kraken-tests-local |
+|1| Para ejecutar las pruebas en Kraken se debe ingresar a la carpeta proyecto-kraken |
 || Editar el archivo Gemfile y apuntar la gema ‘kraken-mobile’ que tenga instalda en el equipo donde se va a correr la prueba|
 || # Contents of Gemfile |
 || source "https://rubygems.org" |
