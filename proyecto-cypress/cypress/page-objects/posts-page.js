@@ -54,10 +54,14 @@ export class PostPage {
     }
 
     assertUpdatePost(value) {
-        cy.get('ol.posts-list .gh-posts-list-item').should(($lis) => {
-            console.log($lis);
-            expect($lis.eq(0)).to.contain(value)
-        });
+        cy.get('ol.posts-list').children('.gh-posts-list-item').each(($el, index, $list) => {
+      
+            let texto = $el.children('.gh-list-data').children('h3').text().trim();
+ 
+            if (texto === value) {
+                expect($list.eq(index)).to.contain(value)
+            }
+        })
     }
 
     openSettings() {
