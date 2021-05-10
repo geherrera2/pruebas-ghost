@@ -10,6 +10,10 @@ export class StaffPage {
         cy.contains('Invite people').first().click();
     }
 
+    clickRevoke() {
+        cy.contains('Revoke').first().click({ force: true});
+    }
+
     fillEmail(value) {
         cy.get('#new-user-email').click().type(value);
         cy.wait(1000);
