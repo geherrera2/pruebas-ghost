@@ -1,4 +1,4 @@
-/// <reference types="cypress" />
+
 import {LoginPage} from '../page-objects/login-page';
 import {PostPage} from '../page-objects/posts-page';
 import faker from 'faker';
