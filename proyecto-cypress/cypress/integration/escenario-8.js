@@ -16,6 +16,7 @@ context('Scenario 8 - Edit Page', () => {
         pagePage.clickOnNewPage();
         pagePage.clickOnPageTitle();
         pagePage.navigateToPagesPage();
+        cy.wait(500);
         pagePage.clickFirstElementPage();
         pagePage.updateTitlePage(pageTitle);
         pagePage.clickOnPublishPage();
