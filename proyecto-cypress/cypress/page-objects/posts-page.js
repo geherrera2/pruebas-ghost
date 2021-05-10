@@ -54,6 +54,7 @@ export class PostPage {
     }
 
     assertUpdatePost(value) {
+        cy.wait(1000);
         cy.get('ol.posts-list').children('.gh-posts-list-item').each(($el, index, $list) => {
       
             let texto = $el.children('.gh-list-data').children('h3').text().trim();

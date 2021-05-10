@@ -1,5 +1,5 @@
 node_modules/
-cypress/videos/
-/videos
 cypress/screenshots
 env_local.js
+proyecto-cypress/cypress/videos/
+proyecto-cypress/cypress/screenshots/

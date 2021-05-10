@@ -4,7 +4,7 @@ import {PostPage} from '../page-objects/posts-page';
 import { TagPage } from '../page-objects/tag-page';
 import faker from 'faker';
 
-context('escenario-2', () => {
+context('escenario-6', () => {
     let valueNameTag = '';
 
     it('Crear Tag', () => {
@@ -14,7 +14,7 @@ context('escenario-2', () => {
 
         loginPage.visitPage();
         loginPage.login();
-        loginPage.naviateToPage('Tags');
+        loginPage.navigateToPage('Tags');
         tagPage.clickNewTag();
         tagPage.insertName(valueNameTag);
     
