@@ -102,11 +102,11 @@ export class PagePage {
         cy.get('#ember-basic-dropdown-content-ember716>ul>li[data-option-index="1"]').click();
     }
 
-    addTag() {
+    addTag(tag) {
         cy.wait(500);
         cy.get('#tag-input input.ember-power-select-trigger-multiple-input').click()
         cy.wait(500);
-        cy.get('li.ember-power-select-option').first().click();
+        cy.get('li.ember-power-select-option').contains(tag).click();
     }
 
     updateTitlePage(value) {
