@@ -11,11 +11,15 @@ export class TagPage {
         // cy.get('input[name=name]').type(`${value}{enter}`)
     }
 
-    clickFirstElementPost() {
+    clearTextField() {
+        cy.get('input[name=name]').click({ force: true }).clear();
+    }
+
+    clickFirstTagElement() {
         cy.get('ol.tags-list').children('.gh-tags-list-item').each(($el, index, $list) => {
             if (index === 0) {
                 let idElemento = $el.attr('id');
-                cy.get(`#${idElemento} a[title*="Edit this post"]`).first().click({ force: true })
+                cy.get(`#${idElemento} a[title*="Edit tag"]`).first().click({ force: true })
             }
         })
     }
@@ -53,8 +57,7 @@ export class TagPage {
     }
 
     assertTagCreated(tagName) {
-        cy.get('h3').parent('a').should('contain', tagName)
-        //expect(tagName).to.be.oneOf(cy.get('ol.tags-list').children('.gh-tags-list-item').children('a').children('h3').value);
+        cy.get('h3').parent('a').should('contain', tagName);
     }
 
     navigateToTagsList() {
