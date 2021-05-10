@@ -112,6 +112,7 @@ export class PagePage {
     updateTitlePage(value) {
         cy.wait(500);
         cy.get('textarea.gh-editor-title').clear().type(value);
+        cy.wait(500);
     }
 
     clickOnPublishPage() {
@@ -123,8 +124,7 @@ export class PagePage {
 
     assertPageEdited(value) {
         cy.get('ol.gh-list .gh-posts-list-item').should(($lis) => {
-            console.log($lis);
-            expect($lis.eq(0)).to.contain(value)
+            expect($lis).to.contain.text(value)
         });
     }
 

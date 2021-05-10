@@ -1,20 +1,23 @@
-/// <reference types="cypress" />
+
 import {LoginPage} from '../page-objects/login-page';
 import faker from 'faker';
 import { PagePage } from '../page-objects/page-page';
+import { SettingPage } from '../page-objects/setting-page';
 
 context('escenario-18-Editar Title', () => {
-    let listaPost = [];
+    let valueTitle = '';
 
-    it('Publicar Page', () => {
 
+    it('Update title', () => {
+        valueTitle = faker.lorem.word();
         const loginPage = new LoginPage();
-        const pagePage = new PagePage();
+        const settingPage = new SettingPage();
 
         loginPage.visitPage();
         loginPage.login();
-        loginPage.navigateToPage('Pages');
-        pagePage.clickNewPost();
-    
+        loginPage.navigateToPage('General');
+        settingPage.setValueTitle(valueTitle);
+        settingPage.saveSetting();
+        settingPage.validateTitle(valueTitle);
     })
   })
