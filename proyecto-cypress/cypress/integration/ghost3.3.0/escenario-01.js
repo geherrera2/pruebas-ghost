@@ -2,6 +2,7 @@
 
 import {LoginPage} from '../../page-objects/login-page';
 import {PostPage} from '../../page-objects/posts-page';
+import { GeneralPage } from '../../page-objects/general-page';
 
 describe('This scenario is to test post creation', () => {
     
@@ -11,6 +12,7 @@ describe('This scenario is to test post creation', () => {
 
     beforeEach(() => {
         loginPage.visitPage();
+        GeneralPage.stepScreenshot('1');
         loginPage.login();
         postPage.navigateToPostsPage();
     });
