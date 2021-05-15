@@ -27,6 +27,8 @@ export class TagPage {
     selectTag(value) {
         cy.get('ol.tags-list').children('.gh-tags-list-item').each(($el, index, $list) => {
             let texto = $el.children('.gh-tag-list-title').text().trim();
+
+          
             if (texto === value) {
                 let idElemento = $el.attr('id');
                 cy.get(`#${idElemento} .gh-tag-list-title`).first().click({ force: true })
@@ -35,8 +37,9 @@ export class TagPage {
     }
 
     validateTag(value) {
+        cy.wait(500);
         cy.get('ol.tags-list .gh-tags-list-item').should(($lis) => {
-            console.log($lis);
+        
             if ($lis.length > 0) {
                 expect($lis).to.not.contain(value);
             } else {
