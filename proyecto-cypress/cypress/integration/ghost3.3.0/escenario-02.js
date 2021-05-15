@@ -20,6 +20,7 @@ context('escenario-2:Editar Post', () => {
         postPage.navigateToPostsPage();
         postPage.assertUpdatePost(valueTitlePost);
         loginPage.logOut();
+        
     
     })
   })

@@ -17,6 +17,7 @@ export class PostPage {
     }
 
     navigateToPostsPage() {
+        cy.screenshot("pagina page");
         cy.get('a').contains(`${postMenuText}`).click();
         cy.wait(500);
     }
@@ -35,7 +36,7 @@ export class PostPage {
             if (index === 0) {
                 let element = $el.children('a').first().attr('id');
                 cy.wait(500);
-                cy.get(`#${element}`).click({ force: true });
+                cy.get(`#${element}`).screenshot("esto es una prueba").click({ force: true });
             }
         })
     }
