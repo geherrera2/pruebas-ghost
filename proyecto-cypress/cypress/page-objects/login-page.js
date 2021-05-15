@@ -5,13 +5,16 @@ export class LoginPage {
 
     loginURL = 'signin/'
 
-    visitPage() {
-        cy.visit(`${environment.baseURL}${this.loginURL}`);
+    visitPage(version = "3.3.0") {
+        if(version === "3.3.0"){
+            cy.visit(`${environment.baseURL}${this.loginURL}`);
+        }else {
+            cy.visit(`${environment.baseURLNew}${this.loginURL}`);
+        }
     }
 
 
     login() {
-
         cy.wait(1000)
         cy.get('input[name=identification]').type(userLoginData.username)
         cy.get('input[name=password]').type(`${userLoginData.password}{enter}`)
