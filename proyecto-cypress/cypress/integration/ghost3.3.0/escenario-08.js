@@ -1,6 +1,6 @@
-import { LoginPage } from '../page-objects/login-page';
+import { LoginPage } from '../../page-objects/login-page';
 import faker from 'faker';
-import { PagePage } from '../page-objects/page-page';
+import { PagePage } from '../../page-objects/page-page';
 
 context('Scenario 8 - Edit Page', () => {
 

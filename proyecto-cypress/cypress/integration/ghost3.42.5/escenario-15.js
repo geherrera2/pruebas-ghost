@@ -1,7 +1,7 @@
 /// <reference types="cypress" />
-import {LoginPage} from '../page-objects/login-page';
-import {StaffPage} from '../page-objects/staff-page';
-import {PostPage} from '../page-objects/posts-page';
+import {LoginPage} from '../../page-objects/login-page';
+import {StaffPage} from '../../page-objects/staff-page';
+import {PostPage} from '../../page-objects/posts-page';
 import faker from 'faker';
 
 context('escenario-15', () => {

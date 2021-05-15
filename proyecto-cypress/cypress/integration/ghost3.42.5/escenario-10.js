@@ -1,6 +1,6 @@
 
-import {LoginPage} from '../page-objects/login-page';
-import {PagePage} from '../page-objects/page-page';
+import {LoginPage} from '../../page-objects/login-page';
+import {PagePage} from '../../page-objects/page-page';
 import faker from 'faker';
 
 context('escenario-10:Publicar Page', () => {

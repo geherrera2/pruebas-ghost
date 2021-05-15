@@ -1,7 +1,7 @@
 
-import {LoginPage} from '../page-objects/login-page';
+import {LoginPage} from '../../page-objects/login-page';
 import faker from 'faker';
-import { TagPage } from '../page-objects/tag-page';
+import { TagPage } from '../../page-objects/tag-page';
 
 context('escenario-14-eliminar tag', () => {
     let valueNameTag = '';

@@ -1,6 +1,6 @@
 /// <reference types="cypress" />
-import { LoginPage } from '../page-objects/login-page';
-import { DesignPage } from '../page-objects/design-page';
+import { LoginPage } from '../../page-objects/login-page';
+import { DesignPage } from '../../page-objects/design-page';
 import faker from 'faker';
 
 context('escenario-19', () => {

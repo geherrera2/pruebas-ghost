@@ -1,8 +1,7 @@
 
-import {LoginPage} from '../page-objects/login-page';
+import {LoginPage} from '../../page-objects/login-page';
+import { SettingPage } from '../../page-objects/setting-page';
 import faker from 'faker';
-import { PagePage } from '../page-objects/page-page';
-import { SettingPage } from '../page-objects/setting-page';
 
 context('escenario-18-Editar Title', () => {
     let valueTitle = '';

@@ -1,6 +1,6 @@
-import { LoginPage } from '../page-objects/login-page';
+import { LoginPage } from '../../page-objects/login-page';
 import faker from 'faker';
-import { StaffPage } from '../page-objects/staff-page';
+import { StaffPage } from '../../page-objects/staff-page';
 
 
 context('Scenario 16 - Staff - Edit User', () => {

@@ -1,7 +1,7 @@
 /// <reference types="cypress" />
 
-import {LoginPage} from '../page-objects/login-page';
-import {PostPage} from '../page-objects/posts-page';
+import {LoginPage} from '../../page-objects/login-page';
+import {PostPage} from '../../page-objects/posts-page';
 
 describe('Scenario 5 - This scenario is about adding a new author to a post', () => {
     

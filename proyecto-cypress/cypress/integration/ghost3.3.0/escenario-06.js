@@ -1,7 +1,7 @@
 
-import {LoginPage} from '../page-objects/login-page';
-import {PostPage} from '../page-objects/posts-page';
-import { TagPage } from '../page-objects/tag-page';
+import {LoginPage} from '../../page-objects/login-page';
+import {PostPage} from '../../page-objects/posts-page';
+import { TagPage } from '../../page-objects/tag-page';
 import faker from 'faker';
 
 context('escenario-6', () => {

@@ -1,6 +1,6 @@
-import { LoginPage } from '../page-objects/login-page';
+import { LoginPage } from '../../page-objects/login-page';
 import faker from 'faker';
-import { TagPage } from '../page-objects/tag-page';
+import { TagPage } from '../../page-objects/tag-page';
 
 
 context('Scenario 13 - Edit a Tag', () => {

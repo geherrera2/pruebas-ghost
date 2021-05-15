@@ -1,5 +1,5 @@
-import { LoginPage } from '../page-objects/login-page';
-import { PostPage } from '../page-objects/posts-page';
+import { LoginPage } from '../../page-objects/login-page';
+import { PostPage } from '../../page-objects/posts-page';
 import faker from 'faker';
 
 context('Scenario 2 - Publish Post', () => {
