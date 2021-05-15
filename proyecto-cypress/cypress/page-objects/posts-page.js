@@ -17,7 +17,6 @@ export class PostPage {
     }
 
     navigateToPostsPage() {
-        cy.screenshot("pagina page");
         cy.get('a').contains(`${postMenuText}`).click();
         cy.wait(500);
     }
@@ -36,7 +35,7 @@ export class PostPage {
             if (index === 0) {
                 let element = $el.children('a').first().attr('id');
                 cy.wait(500);
-                cy.get(`#${element}`).screenshot("esto es una prueba").click({ force: true });
+                cy.get(`#${element}`).click({ force: true });
             }
         })
     }
@@ -57,9 +56,7 @@ export class PostPage {
     assertUpdatePost(value) {
         cy.wait(1000);
         cy.get('ol.posts-list').children('.gh-posts-list-item').each(($el, index, $list) => {
-      
             let texto = $el.children('.gh-list-data').children('h3').text().trim();
- 
             if (texto === value) {
                 expect($list.eq(index)).to.contain(value)
             }

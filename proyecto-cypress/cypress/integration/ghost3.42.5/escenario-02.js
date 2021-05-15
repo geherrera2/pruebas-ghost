@@ -11,7 +11,7 @@ context('escenario-2:Editar Post', () => {
     it('Editar Post', () => {
         const valueTitlePost = faker.lorem.sentence();
 
-        loginPage.visitPage();
+        loginPage.visitPage("3.42.5");
         loginPage.login();
         postPage.navigateToPostsPage();
         postPage.clickFirstElementPost();

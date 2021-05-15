@@ -9,7 +9,7 @@ context('escenario-3', () => {
 
     it('Eliminar Post', () => {
 
-        loginPage.visitPage();
+        loginPage.visitPage("3.42.5");
         loginPage.login();
         cy.wait(500);
         postPage.navigateToPostsPage();
