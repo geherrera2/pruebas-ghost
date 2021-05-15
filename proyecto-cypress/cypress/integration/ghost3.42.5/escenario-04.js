@@ -19,7 +19,7 @@ context('Scenario 2 - Publish Post', () => {
         postPage.clickFirstElementPost();
         postPage.updateTitlePost(postTitle);
         postPage.clickOnPublishPost();
-        postPage.assertPostPublished();
+        postPage.assertPostPublishedV3_42_5();
         postPage.navigateToPostsPage();
     })
 })
