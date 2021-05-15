@@ -1,4 +1,4 @@
-Feature: Design - Delete Menu
+Feature: Design - Add Menu
 
   @user1 @web
   Scenario: As an admin user I add a menu
@@ -7,7 +7,8 @@ Feature: Design - Delete Menu
     Then I enter "<PASSWORD>" into input field having xpath "/html/body/div[2]/div/main/div/div/section/form/div[2]/span/input"
     Then I click on element having xpath "/html/body/div[2]/div/main/div/div/section/form/button/span"
     Then I click on element having xpath "/html/body/div[2]/div/nav[1]/section/div[1]/ul[3]/li[3]/a"
-    Then I enter "One More Test Menu" into input field having xpath "/html/body/div[2]/div/main/section/section/div[2]/form/div[2]/div/span[1]/input"
+    Then I enter "Test Menu" into input field having xpath "/html/body/div[2]/div/main/section/section/div[2]/form/div[2]/div/span[1]/input"
+    Then I enter "test_menu" into input field having xpath "/html/body/div[2]/div/main/section/section/div[2]/form/div[2]/div/span[2]/input"
     Then I click on element having xpath "/html/body/div[2]/div/main/section/header/section/button/span"
-    Then I click on element having xpath "/html/body/div[2]/div/main/section/section/div[2]/form/div[1]/div[5]/div/button"
-    Then I should see text "Saved"
+    Then I click on element having xpath "/html/body/div[2]/div/nav[1]/section/div[1]/ul[1]/li/span/a"
+    Then I should see text "Test Menu"
