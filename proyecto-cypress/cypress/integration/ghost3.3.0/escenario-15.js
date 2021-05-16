@@ -2,6 +2,7 @@
 import {LoginPage} from '../../page-objects/login-page';
 import {StaffPage} from '../../page-objects/staff-page';
 import {PostPage} from '../../page-objects/posts-page';
+import { GeneralPage } from '../../page-objects/general-page';
 import faker from 'faker';
 
 context('escenario-15', () => {
@@ -13,14 +14,19 @@ context('escenario-15', () => {
     it('Invitar Usuario', () => {
         const email = faker.internet.email();
         loginPage.visitPage();
+        GeneralPage.stepScreenshot('01');
         loginPage.login();
+        GeneralPage.stepScreenshot('02');
         staffPage.navigateToStaffPage();
         staffPage.clickInvitePeople();
+        GeneralPage.stepScreenshot('03');
         staffPage.fillEmail(email);
+        GeneralPage.stepScreenshot('04');
         staffPage.send();
         cy.wait(1000);
         postPage.navigateToPostsPage();
         staffPage.navigateToStaffPage();
+        GeneralPage.stepScreenshot('05');
         cy.wait(1000);
         cy.get('.apps-card-app-title').should('contain', email);
     })

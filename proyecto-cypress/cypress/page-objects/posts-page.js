@@ -69,9 +69,9 @@ export class PostPage {
     }
 
     clickDeletePage() {
-        cy.wait(500);
+        cy.wait(1000);
         cy.get('.gh-btn.settings-menu-delete-button').click();
-        cy.wait(500);
+        cy.wait(1000);
         cy.get('button.gh-btn.gh-btn-red').click();
     }
 
