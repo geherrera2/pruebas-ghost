@@ -12,27 +12,27 @@ context('Scenario 8 - Edit Page', () => {
         const pageTitle = faker.lorem.words();
 
         loginPage.visitPage();
-        GeneralPage.stepScreenshot('step_01');
+        GeneralPage.stepScreenshot('01');
         loginPage.login();
-        GeneralPage.stepScreenshot('step_02');
+        GeneralPage.stepScreenshot('02');
         pagePage.navigateToPagesPage();
-        GeneralPage.stepScreenshot('step_03');
+        GeneralPage.stepScreenshot('03');
         pagePage.clickOnNewPage();
-        GeneralPage.stepScreenshot('step_04');
+        GeneralPage.stepScreenshot('04');
         pagePage.clickOnPageTitle();
-        GeneralPage.stepScreenshot('step_05');
+        GeneralPage.stepScreenshot('05');
         pagePage.navigateToPagesPage();
-        GeneralPage.stepScreenshot('step_06');
+        GeneralPage.stepScreenshot('06');
         cy.wait(500);
         pagePage.clickFirstElementPage();
-        GeneralPage.stepScreenshot('step_07');
+        GeneralPage.stepScreenshot('07');
         pagePage.updateTitlePage(pageTitle);
-        GeneralPage.stepScreenshot('step_08');
+        GeneralPage.stepScreenshot('08');
         pagePage.clickOnPublishPage();
-        GeneralPage.stepScreenshot('step_09');
+        GeneralPage.stepScreenshot('09');
         pagePage.navigateToPagesPage();
-        GeneralPage.stepScreenshot('step_10');
+        GeneralPage.stepScreenshot('10');
         pagePage.assertPageEdited(pageTitle);
-        GeneralPage.stepScreenshot('step_11');
+        GeneralPage.stepScreenshot('11');
     })
 })

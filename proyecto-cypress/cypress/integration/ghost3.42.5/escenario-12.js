@@ -13,18 +13,18 @@ context('Scenario 12 - Create Tag', () => {
         const tagName = faker.lorem.words();
 
         loginPage.visitPage();
-        GeneralPage.stepScreenshot('step_01');
+        GeneralPage.stepScreenshot('01');
         loginPage.login();
-        GeneralPage.stepScreenshot('step_02');
+        GeneralPage.stepScreenshot('02');
         tagPage.navigateToTagsPage();
-        GeneralPage.stepScreenshot('step_03');
+        GeneralPage.stepScreenshot('03');
         tagPage.clickNewTag();
-        GeneralPage.stepScreenshot('step_04');
+        GeneralPage.stepScreenshot('04');
         tagPage.insertName(tagName);
-        GeneralPage.stepScreenshot('step_05');
+        GeneralPage.stepScreenshot('05');
         tagPage.navigateToTagsList();
-        GeneralPage.stepScreenshot('step_06');
+        GeneralPage.stepScreenshot('06');
         tagPage.assertTagCreated(tagName);
-        GeneralPage.stepScreenshot('step_07');
+        GeneralPage.stepScreenshot('07');
     })
 })

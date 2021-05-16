@@ -12,26 +12,26 @@ context('Scenario 2 - Publish Post', () => {
         const postTitle = faker.lorem.words();
 
         loginPage.visitPage();
-        GeneralPage.stepScreenshot('step_01');
+        GeneralPage.stepScreenshot('01');
         loginPage.login();
-        GeneralPage.stepScreenshot('step_02');
+        GeneralPage.stepScreenshot('02');
         postPage.navigateToPostsPage();
-        GeneralPage.stepScreenshot('step_03');
+        GeneralPage.stepScreenshot('03');
         postPage.clickNewPost();
-        GeneralPage.stepScreenshot('step_04');
+        GeneralPage.stepScreenshot('04');
         postPage.clickOnPostTitle();
-        GeneralPage.stepScreenshot('step_05');
+        GeneralPage.stepScreenshot('05');
         postPage.navigateToPostsPage();
-        GeneralPage.stepScreenshot('step_06');
+        GeneralPage.stepScreenshot('06');
         postPage.clickFirstElementPost();
-        GeneralPage.stepScreenshot('step_07');
+        GeneralPage.stepScreenshot('07');
         postPage.updateTitlePost(postTitle);
-        GeneralPage.stepScreenshot('step_08');
+        GeneralPage.stepScreenshot('08');
         postPage.clickOnPublishPost();
-        GeneralPage.stepScreenshot('step_09');
+        GeneralPage.stepScreenshot('09');
         postPage.assertPostPublishedV3_42_5();
-        GeneralPage.stepScreenshot('step_10');
+        GeneralPage.stepScreenshot('10');
         postPage.navigateToPostsPage();
-        GeneralPage.stepScreenshot('step_11');
+        GeneralPage.stepScreenshot('11');
     })
 })

@@ -12,20 +12,20 @@ context('Scenario 20 - Design - Delete Menu', () => {
         const designPage = new DesignPage();
 
         loginPage.visitPage();
-        GeneralPage.stepScreenshot('step_01');
+        GeneralPage.stepScreenshot('01');
         loginPage.login();
-        GeneralPage.stepScreenshot('step_02');
+        GeneralPage.stepScreenshot('02');
         designPage.navigateToDesignPage();
-        GeneralPage.stepScreenshot('step_03');
+        GeneralPage.stepScreenshot('03');
         cy.get('#settings-navigation input').then(listing => {
             designPage.fillMenu(menu);
-            GeneralPage.stepScreenshot('step_04');
+            GeneralPage.stepScreenshot('04');
             designPage.save();
-            GeneralPage.stepScreenshot('step_05');
+            GeneralPage.stepScreenshot('05');
             designPage.deleteMenu(menu);
-            GeneralPage.stepScreenshot('step_06');
+            GeneralPage.stepScreenshot('06');
             cy.get('#settings-navigation input').should('have.length', listing.length)
-            GeneralPage.stepScreenshot('step_07');
+            GeneralPage.stepScreenshot('07');
         });
     })
 
