@@ -1,7 +1,11 @@
 {
     "url": "http://localhost:2368/ghost/",
     "stories": [
-        "04"
+        "04",
+        "08",
+        "12",
+        "16",
+        "20"
     ],
     "options": {
         "output": {
