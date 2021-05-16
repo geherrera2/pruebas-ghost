@@ -78,7 +78,7 @@
 |1| Clonar el repositorio |
 |2| Ingresar en su sistema de archivos a la carpeta resemble |
 |3| (Optional) Editar el archivo config.json y en el nodo stories colocar los escenarios a los cuales desea comparar y obtener el reporte, por defecto este archivo tiene todos los 20 escenarios definidos en la documentación |
-|4| Asegurarse de haber ejecutado los escenarios de prueba usando Cypress en las dos versiones de Ghost (v3.3.0 y v.3.42.5) con la finalidad de tener los screenshots de las pruebas, recuerde que al ejecutar Cypress el tomará screenshots luego de cada pasa por ejecución |
+|4| Asegurarse de haber ejecutado los escenarios de prueba usando Cypress en las dos versiones de Ghost (v3.3.0 y v.3.42.5) con la finalidad de tener los screenshots de las pruebas, recuerde que al ejecutar Cypress el tomará screenshots luego de cada paso o step en la ejecución de un escenario |
 |5| Abrir una consola de comandos dentro de la carpeta resemble |
 |6| Ejecutar el comando node index.js |
 |7| La generación del reporte tomara varios segundos, dependiendo de la cantidad de escenarios que vaya a comparar, así que debe esperar a que el comando previamente ejecutado se complete |
