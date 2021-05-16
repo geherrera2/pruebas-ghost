@@ -56,7 +56,9 @@ export class PostPage {
     assertUpdatePost(value) {
         cy.wait(1000);
         cy.get('ol.posts-list').children('.gh-posts-list-item').each(($el, index, $list) => {
+
             let texto = $el.children('.gh-list-data').children('h3').text().trim();
+
             if (texto === value) {
                 expect($list.eq(index)).to.contain(value)
             }
@@ -113,7 +115,12 @@ export class PostPage {
     }
 
     assertPostPublished() {
-        cy.get('a').parent('div').should('contain', 'Published!')
+        cy.get('a').parent('div').should('contain', 'Published!');
+    }
+
+    assertPostPublishedV3_42_5() {
+        cy.wait(1000);
+        cy.get('header.gh-editor-header').children('div').children('div.flex').children('span').children('div').should('contain', 'Published');
     }
 
     assertThisPostContainsAuthor(postTitle, authorAdded) {
