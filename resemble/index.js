@@ -8,31 +8,23 @@ async function compareWithResembleJS() {
     let resultInfo = Array();
     let datetime = new Date().toISOString().replace(/:/g, ".");
 
-    for (s of stories) {
+    if (!fs.existsSync(`./results/${datetime}`)) {
+        fs.mkdirSync(`./results/${datetime}`, { recursive: true });
+    }
+
+    stories.forEach(s => {
         let screenshots = 0;
         const dirOne = `../proyecto-cypress/cypress/screenshots/ghost3.3.0/escenario-${s}.js`;
         const dirTwo = `../proyecto-cypress/cypress/screenshots/ghost3.42.5/escenario-${s}.js`;
         fs.readdir(dirOne, async (err, files) => {
             if (err) throw err;
 
-            // console.log('files');
-            // console.log(files);
-
             screenshots = files.length;
-            // console.log('screenshots');
-            // console.log(screenshots);
             if (screenshots === 0) {
                 return;
             }
 
-            if (!fs.existsSync(`./results/${datetime}`)) {
-                fs.mkdirSync(`./results/${datetime}`, { recursive: true });
-            }
-
             for (file of files) {
-                // console.log('file');
-                // console.log(file);
-
                 fs.copyFileSync(`${dirOne}/${file}`, `./results/${datetime}/ghost33-${s}-${file}`);
                 fs.copyFileSync(`${dirTwo}/${file}`, `./results/${datetime}/ghost34-${s}-${file}`);
 
@@ -41,8 +33,6 @@ async function compareWithResembleJS() {
                     fs.readFileSync(`${dirTwo}/${file}`),
                     options
                 );
-                // console.log('data');
-                // console.log(data);
                 resultInfo.push({
                     isSameDimensions: data.isSameDimensions,
                     dimensionDifference: data.dimensionDifference,
@@ -53,26 +43,13 @@ async function compareWithResembleJS() {
                     parent: s,
                     file: file
                 })
-                /*resultInfo.[file] = {
-                    isSameDimensions: data.isSameDimensions,
-                    dimensionDifference: data.dimensionDifference,
-                    rawMisMatchPercentage: data.rawMisMatchPercentage,
-                    misMatchPercentage: data.misMatchPercentage,
-                    diffBounds: data.diffBounds,
-                    analysisTime: data.analysisTime,
-                    parent: s,
-                    file: file
-                }*/
                 fs.writeFileSync(`./results/${datetime}/compare-${s}-${file}`, data.getBuffer());
             }
-            // console.log('resultInfo');
-            // console.log(resultInfo);
 
             fs.writeFileSync(`./results/${datetime}/report-${s}.html`, createReport(datetime, resultInfo));
             fs.copyFileSync('./index.css', `./results/${datetime}/index.css`);
         });
-    }
-
+    });
 }
 (async () => console.log(await compareWithResembleJS()))();
 
