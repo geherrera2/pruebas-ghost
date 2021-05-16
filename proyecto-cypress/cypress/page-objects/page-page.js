@@ -103,9 +103,9 @@ export class PagePage {
     }
 
     addTag(tag) {
-        cy.wait(500);
+        cy.wait(1000);
         cy.get('#tag-input input.ember-power-select-trigger-multiple-input').click()
-        cy.wait(500);
+        cy.wait(1000);
         cy.get('li.ember-power-select-option').contains(tag).click();
     }
 
