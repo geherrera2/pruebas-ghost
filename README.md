@@ -48,6 +48,19 @@
 |3| Opcional: Configurar Kraken with 2 dispositivos y dos usuarios web: ( bundle exec kraken-mobile setup )|
 |4| Editar el archivo kraken_properties.json con las credenciales de administrador de la plataforma Ghost |
 |5| Ejecute el siguiente comando para ejecutar kraken: (bundle exec kraken-mobile run --properties=”../kraken-properties.json”)|
+## Ejecutar Escenarios con la versión 3.3.0 y 3.42.5 de Ghost usando Kraken
+| Paso # | Descripción |
+| :--------------: | :--------- |
+|1| Clonar el repositorio |
+|2| Ingresar a la siguiente ruta dentro de su sistema de archivos proyecto-kraken/features/ |
+|3| Dentro de la carpeta features va encontrar dos carpetas llamadas ghost-3.3.0 y ghost-3.42.5 |
+|3a| Si desea ejecutar los escenarios de la versión 3.3.0 de Ghost, se deben copiar todos los archivos .js que se encuentran dentro de la carpeta ghost-3.3.0 a la carpeta features |
+|3b| Si desea ejecutar los escenarios de la versión 3.42.5 de Ghost, se deben copiar todos los archivos .js que se encuentran dentro de la carpeta ghost-3.42.5 a la carpeta features |
+|4| Recuerde previamente tener corriendo la versión de Ghost sobre la cual va ejecutar los escenarios |
+|5| En una consola de comandos ingresar hasta la carpeta proyecto-kraken |
+|6| Ejecutar los escenarios usando el siguiente comando en la consola de comandos: bundle exec kraken-mobile run --properties="../kraken-properties.json" |
+|7| En la consola se podra observar la ejecución de los escenarios y también podrá visualizar la ejecución en un navegador Chromium |
+|8| Al finalizar la ejecución de los escenarios puede revisar los screenshots de cada pasa ingresando en su sistema de archivos a la ruta proyecto-kraken/reports |
 ## Como correr las pruebas con la herramienta Cypress
 | Paso # | Descripción |
 | :--------------: | :--------- |
@@ -59,6 +72,19 @@
 || Colocar el valor de usuario y contraseña en las variables "username" y "password"|
 |2| Ejecutar cypress con el siguiente comando: (cypress open) |
 |3| En la interfaz grafica realizar click en la opción :  Run 20 integration specs|
+## Generar reporte de pruebas visuales de regresión usando ResembleJS
+| Paso # | Descripción |
+| :--------------: | :--------- |
+|1| Clonar el repositorio |
+|2| Ingresar en su sistema de archivos a la carpeta resemble |
+|3| (Optional) Editar el archivo config.json y en el nodo stories colocar los escenarios a los cuales desea comparar y obtener el reporte, por defecto este archivo tiene todos los 20 escenarios definidos en la documentación |
+|4| Asegurarse de haber ejecutado los escenarios de prueba usando Cypress en las dos versiones de Ghost (v3.3.0 y v.3.42.5) con la finalidad de tener los screenshots de las pruebas, recuerde que al ejecutar Cypress el tomará screenshots luego de cada pasa por ejecución |
+|5| Abrir una consola de comandos dentro de la carpeta resemble |
+|6| Ejecutar el comando node index.js |
+|7| La generación del reporte tomara varios segundos, dependiendo de la cantidad de escenarios que vaya a comparar, así que debe esperar a que el comando previamente ejecutado se complete |
+|8| Para ver el reporte ingrese a la carpeta resemble/results en su sistema de archivos |
+|9| Podra observar que dentro de esa carpeta se crea una carpeta por cada ejecución del reporte |
+|10| Ingrese a la carpeta que se generó más reciente y abra el archivo html que corresponda al escenario del cual quiere ver el reporte (Ej: escenario-04.js.html) |
 ## Pros y contras Kraken
 | Pros |
 | :--------------: |
