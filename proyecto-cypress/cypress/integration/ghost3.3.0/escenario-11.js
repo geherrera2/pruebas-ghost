@@ -10,7 +10,6 @@ context('escenario-11', () => {
     const loginPage = new LoginPage();
     const pagePage = new PagePage();
     const tagPage = new TagPage();
-    const generalPage = new GeneralPage();
     const tagName = faker.lorem.word();
 
     it('Create a tag', () => {
@@ -29,20 +28,20 @@ context('escenario-11', () => {
         loginPage.visitPage();
         loginPage.login();
         pagePage.navigateToPagesPage();
-        generalPage.stepScreenshot('01');
+        GeneralPage.stepScreenshot('01');
         pagePage.clickFirstElementPage();
-        generalPage.stepScreenshot('02');
+        GeneralPage.stepScreenshot('02');
         pagePage.openSettings();
-        generalPage.stepScreenshot('03');
+        GeneralPage.stepScreenshot('03');
         pagePage.addTag(tagName);
-        generalPage.stepScreenshot('04');
+        GeneralPage.stepScreenshot('04');
         pagePage.closeSettings();
-        generalPage.stepScreenshot('05');
+        GeneralPage.stepScreenshot('05');
         pagePage.openPublish();
-        generalPage.stepScreenshot('06');
+        GeneralPage.stepScreenshot('06');
         pagePage.publish();
         pagePage.returnList();
-        generalPage.stepScreenshot('07');
+        GeneralPage.stepScreenshot('07');
         cy.wait(1000);
         cy.get('ol.gh-list .gh-posts-list-item').should(($lis) => {
             expect($lis).to.contain.text(tagName)
