@@ -1,4 +1,18 @@
+
 var dataScenarios = [];
+var valueMisMatchThreshold = 0.1;
+var versionFolderGhost = "ghost3.3.0";
+
+process.argv.forEach(function (val, index, array) {
+    if(val === "reference"){
+        versionFolderGhost = "ghost3.3.0";
+    }
+
+    if(val === "approve"){
+        versionFolderGhost = "ghost3.42.5";
+    }
+});
+
 var scenarios = [
     {
         "nombre": "escenario-01.js",
@@ -103,14 +117,13 @@ var scenarios = [
 ]
 
 
-
 scenarios.forEach( (e)=>{
     for (let index = 1; index <= e.step; index++) {
         dataScenarios.push({
             "label": "step0"+index,
-            "url": "../proyecto-cypress/cypress/screenshots/ghost3.3.0/"+e.nombre+"/step0"+index+".png",
-            "referenceUrl": "../proyecto-cypress/cypress/screenshots/ghost3.3.0/"+e.nombre+"/step0"+index+".png",
-            "misMatchThreshold" : 0.1,
+            "url": `../proyecto-cypress/cypress/screenshots/ghost3.3.0/${e.nombre}/${e.prefijo}${index}.png`,
+            "referenceUrl": `../proyecto-cypress/cypress/screenshots/${versionFolderGhost}/${e.nombre}/${e.prefijo}${index}.png`,
+            "misMatchThreshold" : valueMisMatchThreshold,
           })
     }
 });
