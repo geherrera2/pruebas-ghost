@@ -14,6 +14,7 @@ async function compareWithResembleJS() {
 
     stories.forEach(s => {
         let screenshots = 0;
+        resultInfo.splice(0, resultInfo.length);
         const dirOne = `../proyecto-cypress/cypress/screenshots/ghost3.3.0/escenario-${s}.js`;
         const dirTwo = `../proyecto-cypress/cypress/screenshots/ghost3.42.5/escenario-${s}.js`;
         fs.readdir(dirOne, async (err, files) => {
@@ -48,65 +49,38 @@ async function compareWithResembleJS() {
 
             fs.writeFileSync(`./results/${datetime}/report-${s}.html`, createReport(datetime, resultInfo));
             fs.copyFileSync('./index.css', `./results/${datetime}/index.css`);
+            resultInfo.splice(0, resultInfo.length);
         });
     });
 }
 (async () => console.log(await compareWithResembleJS()))();
 
-function browser(b, info) {
+function browser(s, info) {
     return `<div class=" browser" id="test0">
     <div class=" btitle">
-        <h2>Escenario: ${b}</h2>
+        <h2>Escenario: ${s}</h2>
         <p>Data: ${JSON.stringify(info)}</p>
     </div>
     <div class="imgline">
       <div class="imgcontainer">
         <span class="imgname">Reference</span>
-        <img class="img2" src="./ghost33-${info.s}-${info.file}" id="refImage" label="Reference">
+        <img class="img2" src="./ghost33-${s}-${info.file}" id="refImage" label="Reference">
       </div>
       <div class="imgcontainer">
         <span class="imgname">Test</span>
-        <img class="img2" src="./ghost34-${info.s}-${info.file}" id="testImage" label="Test">
+        <img class="img2" src="./ghost34-${s}-${info.file}" id="testImage" label="Test">
       </div>
     </div>
     <div class="imgline">
       <div class="imgcontainer">
         <span class="imgname">Diff</span>
-        <img class="imgfull" src="./compare-${info.s}-${info.file}" id="diffImage" label="Diff">
+        <img class="imgfull" src="./compare-${s}-${info.file}" id="diffImage" label="Diff">
       </div>
     </div>
   </div>`
 }
-
-function browser2() {
-    return `<div class=" browser" id="test0">
-    <div class=" btitle">
-        <h2>Escenario: </h2>
-        <p>Data: </p>
-    </div>
-    <div class="imgline">
-      <div class="imgcontainer">
-        <span class="imgname">Reference</span>
-        <img class="img2" src="./ghost33-" id="refImage" label="Reference">
-      </div>
-      <div class="imgcontainer">
-        <span class="imgname">Test</span>
-        <img class="img2" src="./ghost34-" id="testImage" label="Test">
-      </div>
-    </div>
-    <div class="imgline">
-      <div class="imgcontainer">
-        <span class="imgname">Diff</span>
-        <img class="imgfull" src="./compare-" id="diffImage" label="Diff">
-      </div>
-    </div>
-  </div>`
-}
-
 
 function createReport(datetime, resInfo) {
-    console.log('resInfo');
-    console.log(resInfo);
     return `
     <html>
         <head>
@@ -119,6 +93,7 @@ function createReport(datetime, resInfo) {
             </h1>
             <p>Executed: ${datetime}</p>
             <div id="visualizer">
+            ${resInfo.map(info => browser(info.parent, info))}
         </div >
         </body >
     </html > `
