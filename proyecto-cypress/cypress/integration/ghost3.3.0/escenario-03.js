@@ -8,15 +8,23 @@ context('escenario-3', () => {
     const loginPage = new LoginPage();
     const postPage = new PostPage();
 
-    it('Eliminar Post', () => {
-
+    beforeEach(() => {
         loginPage.visitPage();
         GeneralPage.stepScreenshot('1');
         loginPage.login();
         GeneralPage.stepScreenshot('2');
-        cy.wait(500);
         postPage.navigateToPostsPage();
         GeneralPage.stepScreenshot('3');
+    });
+
+    it('Create post with title only', () => {
+        postPage.clickNewPost();
+        GeneralPage.stepScreenshot('4');
+        postPage.fillPostTitle();
+
+    });
+
+    it('Eliminar Post', () => {
         cy.get('ol.posts-list').then(listing => {
             let count = Cypress.$('.gh-posts-list-item').length;
             postPage.clickFirstElementPost();
@@ -27,5 +35,5 @@ context('escenario-3', () => {
             cy.get('ol.posts-list').children('.gh-posts-list-item').should('have.length', count - 1);
             GeneralPage.stepScreenshot('6');
         })
-    })
+    });
 })
