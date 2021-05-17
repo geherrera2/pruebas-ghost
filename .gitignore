@@ -5,3 +5,5 @@ proyecto-cypress/cypress/videos/
 proyecto-cypress/cypress/screenshots/
 .DS_Store
 cypress/.DS_Store
+resemble/results/
+backstop/results/
