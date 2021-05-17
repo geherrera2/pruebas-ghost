@@ -83,7 +83,25 @@
 |7| La generación del reporte tomara varios segundos, dependiendo de la cantidad de escenarios que vaya a comparar, así que debe esperar a que el comando previamente ejecutado se complete |
 |8| Para ver el reporte ingrese a la carpeta resemble/results en su sistema de archivos |
 |9| Podra observar que dentro de esa carpeta se crea una carpeta por cada ejecución del reporte |
-|10| Ingrese a la carpeta que se generó más reciente y abra el archivo html que corresponda al escenario del cual quiere ver el reporte (Ej: escenario-04.js.html) |
+|10| Ingrese a la carpeta que se generó más reciente y abra el archivo html que corresponda al escenario del cual quiere ver el reporte (Ej: escenario-04.js.html)|
+
+
+## Generar reporte de pruebas visuales de regresión usando BackstopJS
+| Paso # | Descripción |
+| :--------------: | :--------- |
+|1| Clonar el repositorio |
+|2| Configurar las variables de entorno y asegurarse que los dos entornos de Ghost (versión 3.3.0 y 3.42.5) estén ejecutándose y tengan los mismos datos de acceso (usuario/contraseña)
+|3| Ubicarse en la carpeta **proyecto-cypress** |
+|4| Ejecutar el comando **cypress run** |
+|5| Una vez finalizado el paso anterior, deben haberse generado los screenshots respectivos en cada paso de cada escenario  |
+|5| Abrir una consola de comandos dentro de la carpeta backstop |
+|6| Ejecutar el comando **backstop test** |
+|7| Ejectuar el comando **backstop approve** |
+|8| Cambiar el nombre del archivo **backstop.json** por otro nombre |
+|9| Renombrar el archivo **backstop to rename.json** a **backstop.json** |
+|10| Ejecutar el comando **backstop test**|
+|11| Debe desplegarse una ventana en el navegador con el listado de las comparaciones para cado paso y cada escenario (1, 5 y 9)|
+
 ## Pros y contras Kraken
 | Pros |
 | :--------------: |
