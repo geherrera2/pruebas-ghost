@@ -10,10 +10,6 @@ import faker from 'faker';
 context('escenario-6', () => {
     let valueNameTag = '';
 
-    Cypress.on('uncaught:exception', (err, runnable) => {
-        return false;
-      });
-
     it('Crear Tag', () => {
         
         valueNameTag = faker.lorem.word();
