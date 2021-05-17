@@ -40,7 +40,5 @@ context('escenario-6', () => {
         postPage.clickUpdatePost();
         GeneralPage.stepScreenshot('6',100);
         postPage.navigateToPostsPage();
-        loginPage.logOut(); 
-    
     })
   })

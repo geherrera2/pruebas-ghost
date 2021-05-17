@@ -25,9 +25,7 @@ context('escenario-2:Editar Post', () => {
         GeneralPage.stepScreenshot('3',100);
         postPage.clickUpdatePost();
         postPage.navigateToPostsPage();
-        postPage.assertUpdatePost(valueTitlePost);
-        loginPage.logOut();
-        
+        postPage.assertUpdatePost(valueTitlePost);     
     
     })
   })
