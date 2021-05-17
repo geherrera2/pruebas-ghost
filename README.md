@@ -61,17 +61,16 @@
 |6| Ejecutar los escenarios usando el siguiente comando en la consola de comandos: bundle exec kraken-mobile run --properties="../kraken-properties.json" |
 |7| En la consola se podra observar la ejecución de los escenarios y también podrá visualizar la ejecución en un navegador Chromium |
 |8| Al finalizar la ejecución de los escenarios puede revisar los screenshots de cada pasa ingresando en su sistema de archivos a la ruta proyecto-kraken/reports |
-## Como correr las pruebas con la herramienta Cypress
+## Como correr las pruebas con la versión 3.3.0 y 3.42.5 de Ghost con la herramienta Cypress
 | Paso # | Descripción |
 | :--------------: | :--------- |
 |1| Ingresar a la carpeta proyecto-cypress |
 |2| Configuarar los archivos env :|
 || Ingresar a la carpeta cypress y editar el archivo env.js   |
-|| Colocar el valor la url del servidor en la variable "baseURL" |
+|| Colocar el valor la url del servidor en la variable "baseURL" dependiendo de la version a realizar pruebas |
 || Ingresar a la carpeta cypress y crear el archivo env_local.js con la estructura de el archivo  env_local_example.js |
 || Colocar el valor de usuario y contraseña en las variables "username" y "password"|
-|2| Ejecutar cypress con el siguiente comando: (cypress open) |
-|3| En la interfaz grafica realizar click en la opción :  Run 20 integration specs|
+|2| Ejecutar cypress con el siguiente comando: cypress run --spec cypress/integration/ghost3.3.0/*.js* para el caso de ghost3.3.0 para el caso de 3.42.5 cypress run --spec cypress/integration/ghost3.42.5/*.js*  |
 ## Generar reporte de pruebas visuales de regresión usando ResembleJS
 | Paso # | Descripción |
 | :--------------: | :--------- |
@@ -92,7 +91,7 @@
 | Permite la interacción de varios usuarios en el mismo escenario de prueba.|
 | Es más sencillo cambiar los entornos de pruebas entre web y móvil |
 
-| Ventajas |
+| Contras |
 | :--------------: |
 |La documentación no es lo suficientemente robusta para el desarrollo de las actividades de pruebas|
 ## Pros y contras Cypress
@@ -102,6 +101,27 @@
 | La documentación y soporte de la herramienta es mejor , se puede encontrar información más fácilmente para el desarrollo de las actividades de pruebas.|
 | La comunidad de desarrollo de plugins para cypres es más amplia. |
 
-| Ventajas |
+| Contras |
 | :--------------: |
 |Solo permite realizar pruebas en un entorno a la vez|
+
+## Pros y contras Resemble
+| Pros |
+| :--------------: |
+| Permite generar reporter legibles visualmente para comporar dos versiones de la misma herramienta generando mas evidencias |
+| Se genera en background y no demora mas de unos minutos dependiendo de la cantidad de escenarios |
+| Se pueden comparar varios escenarios al mismo tiempo |
+
+| Constras |
+| :--------------: |
+|En caso de no contar con la misma cantidad de imagenes no se puede comparar|
+|Para el reporte se necesita contar con las imagenes en subdirectorios|
+
+## Pros y contras BackStop
+| Pros |
+| :--------------: |
+| |
+
+| Ventajas |
+| :--------------: |
+||
