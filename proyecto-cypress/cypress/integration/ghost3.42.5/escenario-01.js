@@ -23,7 +23,6 @@ describe('This scenario is to test post creation', () => {
         postPage.clickNewPost();
         GeneralPage.stepScreenshot('4');
         title = postPage.fillPostTitle();
-        GeneralPage.stepScreenshot('5');
     });
 
     
