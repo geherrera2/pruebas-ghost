@@ -14,19 +14,19 @@ context('escenario-15', () => {
     it('Invitar Usuario', () => {
         const email = faker.internet.email();
         loginPage.visitPage();
-        GeneralPage.stepScreenshot('01');
+        GeneralPage.stepScreenshot('1');
         loginPage.login();
-        GeneralPage.stepScreenshot('02');
+        GeneralPage.stepScreenshot('2');
         staffPage.navigateToStaffPage();
         staffPage.clickInvitePeople();
-        GeneralPage.stepScreenshot('03');
+        GeneralPage.stepScreenshot('3');
         staffPage.fillEmail(email);
-        GeneralPage.stepScreenshot('04');
+        GeneralPage.stepScreenshot('4');
         staffPage.send();
         cy.wait(1000);
         postPage.navigateToPostsPage();
         staffPage.navigateToStaffPage();
-        GeneralPage.stepScreenshot('05');
+        GeneralPage.stepScreenshot('5');
         cy.wait(1000);
         cy.get('.apps-card-app-title').should('contain', email);
     })

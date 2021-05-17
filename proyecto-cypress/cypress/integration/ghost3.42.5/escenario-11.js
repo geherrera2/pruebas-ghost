@@ -26,20 +26,20 @@ context('escenario-11', () => {
 
     it('Asociar un tag a un page', () => {
         pagePage.navigateToPagesPage();
-        GeneralPage.stepScreenshot('01');
+        GeneralPage.stepScreenshot('1');
         pagePage.clickFirstElementPage();
-        GeneralPage.stepScreenshot('02');
+        GeneralPage.stepScreenshot('2');
         pagePage.openSettings();
-        GeneralPage.stepScreenshot('03');
+        GeneralPage.stepScreenshot('3');
         pagePage.addTag(tagName);
-        GeneralPage.stepScreenshot('04');
+        GeneralPage.stepScreenshot('4');
         pagePage.closeSettings();
-        GeneralPage.stepScreenshot('05');
+        GeneralPage.stepScreenshot('5');
         pagePage.openPublish();
-        GeneralPage.stepScreenshot('06');
+        GeneralPage.stepScreenshot('6');
         pagePage.publish();
         pagePage.returnList();
-        GeneralPage.stepScreenshot('07');
+        GeneralPage.stepScreenshot('7');
         cy.wait(1000);
         cy.get('ol.gh-list .gh-posts-list-item').should(($lis) => {
             expect($lis).to.contain.text(tagName)

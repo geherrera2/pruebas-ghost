@@ -12,17 +12,17 @@ context('escenario-19', () => {
     it('Agregar Menu Primario', () => {
         const menu = faker.lorem.word();
         loginPage.visitPage();
-        GeneralPage.stepScreenshot('01');
+        GeneralPage.stepScreenshot('1');
         loginPage.login();
-        GeneralPage.stepScreenshot('02');
+        GeneralPage.stepScreenshot('2');
         designPage.navigateToDesignPage();
         cy.get('#settings-navigation input').then(listing => {
             designPage.fillMenu(menu);
             designPage.save();
-            GeneralPage.stepScreenshot('03');
+            GeneralPage.stepScreenshot('3');
             cy.wait(1000);
             cy.get('#settings-navigation input').should('have.length', listing.length + 2)
-            GeneralPage.stepScreenshot('04');
+            GeneralPage.stepScreenshot('4');
         })
     })
 

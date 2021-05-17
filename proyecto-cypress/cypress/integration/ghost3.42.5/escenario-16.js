@@ -13,16 +13,16 @@ context('Scenario 16 - Staff - Edit User', () => {
         const name = faker.name.firstName();
 
         loginPage.visitPage();
-        GeneralPage.stepScreenshot('01');
+        GeneralPage.stepScreenshot('1');
         loginPage.login();
-        GeneralPage.stepScreenshot('02');
+        GeneralPage.stepScreenshot('2');
         staffPage.navigateToStaffPage();
-        GeneralPage.stepScreenshot('03');
+        GeneralPage.stepScreenshot('3');
         staffPage.clickFirstElementPage();
-        GeneralPage.stepScreenshot('04');
+        GeneralPage.stepScreenshot('4');
         staffPage.updateFullName(name);
-        GeneralPage.stepScreenshot('05');
+        GeneralPage.stepScreenshot('5');
         staffPage.assertGhostNameUpdated();
-        GeneralPage.stepScreenshot('06');
+        GeneralPage.stepScreenshot('6');
     })
 })
