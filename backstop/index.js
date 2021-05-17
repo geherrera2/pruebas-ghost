@@ -120,7 +120,7 @@ var scenarios = [
 scenarios.forEach( (e)=>{
     for (let index = 1; index <= e.step; index++) {
         dataScenarios.push({
-            "label": "step0"+index,
+            "label": e.nombre,
             "url": `../proyecto-cypress/cypress/screenshots/ghost3.3.0/${e.nombre}/${e.prefijo}${index}.png`,
             "referenceUrl": `../proyecto-cypress/cypress/screenshots/${versionFolderGhost}/${e.nombre}/${e.prefijo}${index}.png`,
             "misMatchThreshold" : valueMisMatchThreshold,
@@ -162,6 +162,6 @@ var dataBackstop = {
     var dictstring = JSON.stringify(dataBackstop);
 
 var fs = require('fs');
-fs.writeFile("backstop-test.json", dictstring, function(err, result) {
+fs.writeFile("backstop.json", dictstring, function(err, result) {
     if(err) console.log('error', err);
 });

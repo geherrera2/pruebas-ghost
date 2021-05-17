@@ -10,21 +10,21 @@ context('escenario-3', () => {
     it('Eliminar Post', () => {
 
         loginPage.visitPage();
-        GeneralPage.stepScreenshot('01');
+        GeneralPage.stepScreenshot('1');
         loginPage.login();
-        GeneralPage.stepScreenshot('02');
+        GeneralPage.stepScreenshot('2');
         cy.wait(1000);
         postPage.navigateToPostsPage();
-        GeneralPage.stepScreenshot('03');
+        GeneralPage.stepScreenshot('3');
         cy.get('ol.posts-list').then(listing => {
             let count = Cypress.$('.gh-posts-list-item').length;
             postPage.clickFirstElementPost();
-            GeneralPage.stepScreenshot('04');
+            GeneralPage.stepScreenshot('4');
             postPage.openSettings();
-            GeneralPage.stepScreenshot('05');
+            GeneralPage.stepScreenshot('5');
             postPage.clickDeletePage();
             cy.get('ol.posts-list').children('.gh-posts-list-item').should('have.length', count - 1)
-            GeneralPage.stepScreenshot('06');
+            GeneralPage.stepScreenshot('6');
         })
     })
 })
