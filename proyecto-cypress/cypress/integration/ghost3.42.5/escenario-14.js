@@ -12,7 +12,7 @@ context('escenario-14-eliminar tag', () => {
         const loginPage = new LoginPage();
         const tagPage = new TagPage();
 
-        loginPage.visitPage();
+        loginPage.visitPage("3.42.5");
         GeneralPage.stepScreenshot('1');
         loginPage.login();
         loginPage.navigateToPage('Tags');
@@ -29,7 +29,7 @@ context('escenario-14-eliminar tag', () => {
         const loginPage = new LoginPage();
         const tagPage = new TagPage();
 
-        loginPage.visitPage();
+        loginPage.visitPage("3.42.5");
         loginPage.login();
         loginPage.navigateToPage('Tags');
         GeneralPage.stepScreenshot('4');

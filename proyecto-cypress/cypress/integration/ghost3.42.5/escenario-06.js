@@ -16,7 +16,7 @@ context('escenario-6', () => {
         const loginPage = new LoginPage();
         const tagPage = new TagPage();
 
-        loginPage.visitPage();
+        loginPage.visitPage("3.42.5");
         GeneralPage.stepScreenshot('1');
         loginPage.login();
         loginPage.navigateToPage('Tags');
@@ -32,7 +32,7 @@ context('escenario-6', () => {
         const loginPage = new LoginPage();
         const postPage = new PostPage();
 
-        loginPage.visitPage();
+        loginPage.visitPage("3.42.5");
         loginPage.login();
         postPage.navigateToPostsPage();
         postPage.clickFirstElementPost();

@@ -11,7 +11,7 @@ context('escenario-19', () => {
 
     it('Agregar Menu Primario', () => {
         const menu = faker.lorem.word();
-        loginPage.visitPage();
+        loginPage.visitPage("3.42.5");
         GeneralPage.stepScreenshot('01');
         loginPage.login();
         GeneralPage.stepScreenshot('02');

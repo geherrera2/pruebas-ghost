@@ -5,8 +5,12 @@ export class LoginPage {
 
     loginURL = 'signin/'
 
-    visitPage() {
-        cy.visit(`${environment.baseURL}${this.loginURL}`);
+    visitPage(version = "3.3.0") {
+        if(version === "3.3.0"){
+            cy.visit(`${environment.baseURL}${this.loginURL}`);
+        }else {
+            cy.visit(`${environment.baseURLNew}${this.loginURL}`);
+        }
     }
 
 

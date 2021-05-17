@@ -12,7 +12,7 @@ context('Scenario 12 - Create Tag', () => {
     it('Create a tag', () => {
         const tagName = faker.lorem.words();
 
-        loginPage.visitPage();
+        loginPage.visitPage("3.42.5");
         GeneralPage.stepScreenshot('1');
         loginPage.login();
         GeneralPage.stepScreenshot('2');
