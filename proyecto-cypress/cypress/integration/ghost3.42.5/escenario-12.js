@@ -21,9 +21,8 @@ context('Scenario 12 - Create Tag', () => {
         tagPage.clickNewTag();
         GeneralPage.stepScreenshot('4');
         tagPage.insertName(tagName);
-        GeneralPage.stepScreenshot('5');
         tagPage.navigateToTagsList();
-        GeneralPage.stepScreenshot('6');
+        GeneralPage.stepScreenshot('5');
         tagPage.assertTagCreated(tagName);
  
     })
