@@ -112,16 +112,20 @@
 | Se genera en background y no demora mas de unos minutos dependiendo de la cantidad de escenarios |
 | Se pueden comparar varios escenarios al mismo tiempo |
 
-| Constras |
+| Contras |
 | :--------------: |
-|En caso de no contar con la misma cantidad de imagenes no se puede comparar|
-|Para el reporte se necesita contar con las imagenes en subdirectorios|
+|En caso de no contar con la misma cantidad de imagenes no se puede comparar |
+|Para el reporte se necesita contar con las imagenes en subdirectorios |
+|La generacion del reporte es manual |
 
 ## Pros y contras BackStop
 | Pros |
 | :--------------: |
-| |
+| Tiene unas utilidades para validar de forma manual la diferencia entre dos imágenes |
+| Puede llegar a emplearse como una herramienta completa para hacer VRT sin necesidad de utilizar otras |
+| La generación del reporte HTML con las diferencias encontradas es automática |
 
-| Ventajas |
+| Crontras |
 | :--------------: |
-||
+| La configuración del archivo backstop puede llegar a ser tediosa si se tienen varios pasos que se quieren comparar |
+| La ejecución de backstop puede llevar a resultados erroneos si no se conoce cómo es que backstop toma las imágenes de referencia |
