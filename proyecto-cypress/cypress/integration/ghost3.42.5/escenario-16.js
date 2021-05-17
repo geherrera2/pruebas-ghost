@@ -12,7 +12,7 @@ context('Scenario 16 - Staff - Edit User', () => {
     it('Edit admin user', () => {
         const name = faker.name.firstName();
 
-        loginPage.visitPage();
+        loginPage.visitPage("3.42.5");
         GeneralPage.stepScreenshot('1');
         loginPage.login();
         GeneralPage.stepScreenshot('2');

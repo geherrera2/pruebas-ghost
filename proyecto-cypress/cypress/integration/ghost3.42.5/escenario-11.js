@@ -13,7 +13,7 @@ context('escenario-11', () => {
     const tagName = faker.lorem.word();
 
     beforeEach(() => {
-        loginPage.visitPage();
+        loginPage.visitPage("3.42.5");
         loginPage.login();
     });
 
@@ -44,10 +44,6 @@ context('escenario-11', () => {
         cy.get('ol.gh-list .gh-posts-list-item').should(($lis) => {
             expect($lis).to.contain.text(tagName)
         });
-    })
-
-    Cypress.on('uncaught:exception', (err, runnable) => {
-        return false;
-      });
+    });
 
 })

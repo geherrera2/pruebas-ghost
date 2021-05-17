@@ -10,7 +10,6 @@ describe('Scenario 5 - This scenario is about adding a new author to a post', ()
     const loginPage = new LoginPage();
     const postPage = new PostPage();
     let postTitle = '';
-    let authorAdded = '';
     
     beforeEach(() => {
         loginPage.visitPage();

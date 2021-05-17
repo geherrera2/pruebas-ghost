@@ -11,7 +11,7 @@ context('Scenario 20 - Design - Delete Menu', () => {
         const loginPage = new LoginPage();
         const designPage = new DesignPage();
 
-        loginPage.visitPage();
+        loginPage.visitPage("3.42.5");
         GeneralPage.stepScreenshot('1');
         loginPage.login();
         GeneralPage.stepScreenshot('2');

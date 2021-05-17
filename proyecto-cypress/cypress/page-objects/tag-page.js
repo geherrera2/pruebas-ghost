@@ -1,3 +1,4 @@
+import { environment } from '../env';
 export class TagPage {
     clickNewTag() {
         cy.contains('New tag').first().click();
@@ -64,7 +65,7 @@ export class TagPage {
     }
 
     navigateToTagsList() {
-        cy.visit('http://localhost:2368/ghost/#/tags');
+        cy.visit(`${environment.baseURL}#/tags`);
     }
 }
 

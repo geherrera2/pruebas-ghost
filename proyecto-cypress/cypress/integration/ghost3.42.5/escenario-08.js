@@ -11,7 +11,7 @@ context('Scenario 8 - Edit Page', () => {
     it('Edit page', () => {
         const pageTitle = faker.lorem.words();
 
-        loginPage.visitPage();
+        loginPage.visitPage("3.42.5");
         GeneralPage.stepScreenshot('1');
         loginPage.login();
         GeneralPage.stepScreenshot('2');

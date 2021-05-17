@@ -7,13 +7,12 @@ context('escenario-3', () => {
 
     const loginPage = new LoginPage();
     const postPage = new PostPage();
-    it('Eliminar Post', () => {
 
+    it('Eliminar Post', () => {
         loginPage.visitPage();
         GeneralPage.stepScreenshot('1');
         loginPage.login();
         GeneralPage.stepScreenshot('2');
-        cy.wait(1000);
         postPage.navigateToPostsPage();
         cy.get('ol.posts-list').then(listing => {
             let count = Cypress.$('.gh-posts-list-item').length;
@@ -22,8 +21,8 @@ context('escenario-3', () => {
             postPage.openSettings();
             GeneralPage.stepScreenshot('4');
             postPage.clickDeletePage();
-            cy.get('ol.posts-list').children('.gh-posts-list-item').should('have.length', count - 1)
-            GeneralPage.stepScreenshot('5');
+            cy.get('ol.posts-list').children('.gh-posts-list-item').should('have.length', count - 1);
+            GeneralPage.stepScreenshot('6');
         })
-    })
+    });
 })

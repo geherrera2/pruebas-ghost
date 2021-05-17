@@ -12,7 +12,7 @@ context('escenario-17 revoke invitation to user', () => {
     const postPage = new PostPage();
 
     beforeEach(() => {
-        loginPage.visitPage();
+        loginPage.visitPage("3.42.5");
         GeneralPage.stepScreenshot('1');
         loginPage.login();
         GeneralPage.stepScreenshot('2');

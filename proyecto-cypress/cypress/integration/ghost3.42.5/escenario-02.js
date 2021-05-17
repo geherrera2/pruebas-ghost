@@ -15,7 +15,7 @@ context('escenario-2:Editar Post', () => {
           });
         const valueTitlePost = faker.lorem.sentence();
 
-        loginPage.visitPage();
+        loginPage.visitPage("3.42.5");
         GeneralPage.stepScreenshot('1');
         loginPage.login();
         postPage.navigateToPostsPage();
@@ -25,9 +25,7 @@ context('escenario-2:Editar Post', () => {
         GeneralPage.stepScreenshot('3',100);
         postPage.clickUpdatePost();
         postPage.navigateToPostsPage();
-        postPage.assertUpdatePost(valueTitlePost);
-        loginPage.logOut();
-        
+        postPage.assertUpdatePost(valueTitlePost);     
     
     })
   })

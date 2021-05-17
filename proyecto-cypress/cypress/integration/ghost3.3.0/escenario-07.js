@@ -34,10 +34,6 @@ context('escenario-7', () => {
             cy.wait(1000);
             cy.get('ol.gh-list').children('.gh-posts-list-item').should('have.length', count+1);
         })
-    })
-
-    Cypress.on('uncaught:exception', (err, runnable) => {
-        return false;
-      });
+    });
 
   })
