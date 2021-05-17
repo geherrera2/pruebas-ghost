@@ -13,7 +13,7 @@ describe('Scenario 5 - This scenario is about adding a new author to a post', ()
     let authorAdded = '';
     
     beforeEach(() => {
-        loginPage.visitPage();
+        loginPage.visitPage("3.42.5");
         GeneralPage.stepScreenshot('1');
         loginPage.login();
         GeneralPage.stepScreenshot('2');

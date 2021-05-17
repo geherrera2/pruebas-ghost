@@ -12,7 +12,7 @@ context('escenario-7', () => {
     it('Crear Page', () => {
         const valueTitlePage = faker.lorem.words(5);
         const valueBodyPage = faker.lorem.word();
-        loginPage.visitPage();
+        loginPage.visitPage("3.42.5");
         GeneralPage.stepScreenshot('1');
         loginPage.login();
         GeneralPage.stepScreenshot('2');

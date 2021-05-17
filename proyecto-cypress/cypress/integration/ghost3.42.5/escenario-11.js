@@ -13,7 +13,7 @@ context('escenario-11', () => {
     const tagName = faker.lorem.word();
 
     beforeEach(() => {
-        loginPage.visitPage();
+        loginPage.visitPage("3.42.5");
         loginPage.login();
     });
 
