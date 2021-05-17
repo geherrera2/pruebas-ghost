@@ -17,20 +17,19 @@ context('escenario-7', () => {
         loginPage.login();
         GeneralPage.stepScreenshot('2');
         pagePage.navigateToPagesPage();
-        GeneralPage.stepScreenshot('3');
         cy.get('ol.gh-list').then(listing => {
             let count = Cypress.$('.gh-posts-list-item').length;
             pagePage.clickNewPage();
-            GeneralPage.stepScreenshot('4');
+            GeneralPage.stepScreenshot('3');
             pagePage.fillPageTitle(valueTitlePage);
             pagePage.returnList();
             pagePage.clickFirstElementPage
             pagePage.fillPageBody(valueBodyPage);
-            GeneralPage.stepScreenshot('5');
+            GeneralPage.stepScreenshot('4');
             pagePage.openPublish();
-            GeneralPage.stepScreenshot('6');
+            GeneralPage.stepScreenshot('5');
             pagePage.publish();
-            GeneralPage.stepScreenshot('7');
+            GeneralPage.stepScreenshot('6');
             pagePage.returnList();
             cy.wait(1000);
             cy.get('ol.gh-list').children('.gh-posts-list-item').should('have.length', count+1);

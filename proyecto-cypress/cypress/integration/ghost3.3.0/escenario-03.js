@@ -16,16 +16,15 @@ context('escenario-3', () => {
         GeneralPage.stepScreenshot('2');
         cy.wait(500);
         postPage.navigateToPostsPage();
-        GeneralPage.stepScreenshot('3');
         cy.get('ol.posts-list').then(listing => {
             let count = Cypress.$('.gh-posts-list-item').length;
             postPage.clickFirstElementPost();
-            GeneralPage.stepScreenshot('4');
+            GeneralPage.stepScreenshot('3');
             postPage.openSettings();
-            GeneralPage.stepScreenshot('5');
+            GeneralPage.stepScreenshot('4');
             postPage.clickDeletePage();
             cy.get('ol.posts-list').children('.gh-posts-list-item').should('have.length', count - 1);
-            GeneralPage.stepScreenshot('6');
+            GeneralPage.stepScreenshot('5');
         })
     })
 })
