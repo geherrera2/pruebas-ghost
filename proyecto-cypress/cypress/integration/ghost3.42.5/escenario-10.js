@@ -13,7 +13,7 @@ context('escenario-10:Publicar Page', () => {
     let valueTitlePage = '';
 
     it('Crear page with title only', () => {
-        loginPage.visitPage("3.42.5");
+        loginPage.visitPage();
         GeneralPage.stepScreenshot('1');
         loginPage.login();
         pagePage.navigateToPagesPage();
@@ -30,7 +30,7 @@ context('escenario-10:Publicar Page', () => {
     })
 
     it('Publish page', () => {
-        loginPage.visitPage("3.42.5");
+        loginPage.visitPage();
         loginPage.login();
         pagePage.navigateToPagesPage();
 

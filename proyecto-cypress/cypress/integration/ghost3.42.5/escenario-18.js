@@ -13,7 +13,7 @@ context('escenario-18-Editar Title', () => {
         const loginPage = new LoginPage();
         const settingPage = new SettingPage();
 
-        loginPage.visitPage("3.42.5");
+        loginPage.visitPage();
         GeneralPage.stepScreenshot('1');
         loginPage.login();
         loginPage.navigateToPage('General');
