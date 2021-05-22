@@ -9,6 +9,10 @@ context('escenario-2:Editar Post', () => {
     const loginPage = new LoginPage();
     const postPage = new PostPage();
 
+    before(() => {
+        cy.task("createAllData");
+    });
+
     it('Editar Post', () => {
         const valueTitlePost = faker.lorem.sentence();
 
