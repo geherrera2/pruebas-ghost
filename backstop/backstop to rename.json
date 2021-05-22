@@ -12,7 +12,7 @@
   "scenarios": [
     {
       "label": "Escenario 1 - paso 1",
-      "url": "../proyecto-cypress/cypress/screenshots/ghost3.3.0/escenario-01.js/step01.png",
+      "url": "../proyecto-cypress/cypress/screenshots/ghost3.42.5/escenario-01.js/step01.png",
       "referenceUrl": "../proyecto-cypress/cypress/screenshots/ghost3.3.0/escenario-01.js/step01.png",
       "misMatchThreshold" : 0.2
     },
@@ -24,115 +24,109 @@
     },
     {
       "label": "Escenario 1 - paso 3",
-      "url": "../proyecto-cypress/cypress/screenshots/ghost3.3.0/escenario-01.js/step03.png",
+      "url": "../proyecto-cypress/cypress/screenshots/ghost3.42.5/escenario-01.js/step03.png",
       "referenceUrl": "../proyecto-cypress/cypress/screenshots/ghost3.3.0/escenario-01.js/step03.png",
       "misMatchThreshold" : 0.2
     },
     {
       "label": "Escenario 1 - paso 4",
-      "url": "../proyecto-cypress/cypress/screenshots/ghost3.3.0/escenario-01.js/step04.png",
+      "url": "../proyecto-cypress/cypress/screenshots/ghost3.42.5/escenario-01.js/step04.png",
       "referenceUrl": "../proyecto-cypress/cypress/screenshots/ghost3.3.0/escenario-01.js/step04.png",
       "misMatchThreshold" : 0.2
     },
     {
-      "label": "Escenario 1 - paso 5",
-      "url": "../proyecto-cypress/cypress/screenshots/ghost3.3.0/escenario-01.js/step05.png",
-      "referenceUrl": "../proyecto-cypress/cypress/screenshots/ghost3.3.0/escenario-01.js/step05.png",
-      "misMatchThreshold" : 0.2
-    },
-    {
       "label": "Escenario 5 - paso 1",
-      "url": "../proyecto-cypress/cypress/screenshots/ghost3.3.0/escenario-05.js/step01.png",
+      "url": "../proyecto-cypress/cypress/screenshots/ghost3.42.5/escenario-05.js/step01.png",
       "referenceUrl": "../proyecto-cypress/cypress/screenshots/ghost3.3.0/escenario-05.js/step01.png",
       "misMatchThreshold" : 0.2
     },
     {
       "label": "Escenario 5 - paso 2",
-      "url": "../proyecto-cypress/cypress/screenshots/ghost3.3.0/escenario-05.js/step02.png",
+      "url": "../proyecto-cypress/cypress/screenshots/ghost3.42.5/escenario-05.js/step02.png",
       "referenceUrl": "../proyecto-cypress/cypress/screenshots/ghost3.3.0/escenario-05.js/step02.png",
       "misMatchThreshold" : 0.2
     },
     {
       "label": "Escenario 5 - paso 3",
-      "url": "../proyecto-cypress/cypress/screenshots/ghost3.3.0/escenario-05.js/step03.png",
+      "url": "../proyecto-cypress/cypress/screenshots/ghost3.42.5/escenario-05.js/step03.png",
       "referenceUrl": "../proyecto-cypress/cypress/screenshots/ghost3.3.0/escenario-05.js/step03.png",
       "misMatchThreshold" : 0.2
     },
     {
       "label": "Escenario 5 - paso 4",
-      "url": "../proyecto-cypress/cypress/screenshots/ghost3.3.0/escenario-05.js/step04.png",
+      "url": "../proyecto-cypress/cypress/screenshots/ghost3.42.5/escenario-05.js/step04.png",
       "referenceUrl": "../proyecto-cypress/cypress/screenshots/ghost3.3.0/escenario-05.js/step04.png",
       "misMatchThreshold" : 0.2
     },
     {
       "label": "Escenario 5 - paso 5",
-      "url": "../proyecto-cypress/cypress/screenshots/ghost3.3.0/escenario-05.js/step05.png",
+      "url": "../proyecto-cypress/cypress/screenshots/ghost3.42.5/escenario-05.js/step05.png",
       "referenceUrl": "../proyecto-cypress/cypress/screenshots/ghost3.3.0/escenario-05.js/step05.png",
       "misMatchThreshold" : 0.2
     },
     {
       "label": "Escenario 5 - paso 6",
-      "url": "../proyecto-cypress/cypress/screenshots/ghost3.3.0/escenario-05.js/step06.png",
+      "url": "../proyecto-cypress/cypress/screenshots/ghost3.42.5/escenario-05.js/step06.png",
       "referenceUrl": "../proyecto-cypress/cypress/screenshots/ghost3.3.0/escenario-05.js/step06.png",
       "misMatchThreshold" : 0.2
     },
     {
       "label": "Escenario 5 - paso 7",
-      "url": "../proyecto-cypress/cypress/screenshots/ghost3.3.0/escenario-05.js/step07.png",
+      "url": "../proyecto-cypress/cypress/screenshots/ghost3.42.5/escenario-05.js/step07.png",
       "referenceUrl": "../proyecto-cypress/cypress/screenshots/ghost3.3.0/escenario-05.js/step07.png",
       "misMatchThreshold" : 0.2
     },
     {
       "label": "Escenario 5 - paso 8",
-      "url": "../proyecto-cypress/cypress/screenshots/ghost3.3.0/escenario-05.js/step08.png",
+      "url": "../proyecto-cypress/cypress/screenshots/ghost3.42.5/escenario-05.js/step08.png",
       "referenceUrl": "../proyecto-cypress/cypress/screenshots/ghost3.3.0/escenario-05.js/step08.png",
       "misMatchThreshold" : 0.2
     },
     {
       "label": "Escenario 5 - paso 9",
-      "url": "../proyecto-cypress/cypress/screenshots/ghost3.3.0/escenario-05.js/step09.png",
+      "url": "../proyecto-cypress/cypress/screenshots/ghost3.42.5/escenario-05.js/step09.png",
       "referenceUrl": "../proyecto-cypress/cypress/screenshots/ghost3.3.0/escenario-05.js/step09.png",
       "misMatchThreshold" : 0.2
     },
     {
       "label": "Escenario 9 - paso 1",
-      "url": "../proyecto-cypress/cypress/screenshots/ghost3.3.0/escenario-09.js/step01.png",
+      "url": "../proyecto-cypress/cypress/screenshots/ghost3.42.5/escenario-09.js/step01.png",
       "referenceUrl": "../proyecto-cypress/cypress/screenshots/ghost3.3.0/escenario-09.js/step01.png",
       "misMatchThreshold" : 0.2
     },
     {
       "label": "Escenario 9 - paso 2",
-      "url": "../proyecto-cypress/cypress/screenshots/ghost3.3.0/escenario-09.js/step02.png",
+      "url": "../proyecto-cypress/cypress/screenshots/ghost3.42.5/escenario-09.js/step02.png",
       "referenceUrl": "../proyecto-cypress/cypress/screenshots/ghost3.3.0/escenario-09.js/step02.png",
       "misMatchThreshold" : 0.2
     },
     {
       "label": "Escenario 9 - paso 3",
-      "url": "../proyecto-cypress/cypress/screenshots/ghost3.3.0/escenario-09.js/step03.png",
+      "url": "../proyecto-cypress/cypress/screenshots/ghost3.42.5/escenario-09.js/step03.png",
       "referenceUrl": "../proyecto-cypress/cypress/screenshots/ghost3.3.0/escenario-09.js/step03.png",
       "misMatchThreshold" : 0.2
     },
     {
       "label": "Escenario 9 - paso 4",
-      "url": "../proyecto-cypress/cypress/screenshots/ghost3.3.0/escenario-09.js/step04.png",
+      "url": "../proyecto-cypress/cypress/screenshots/ghost3.42.5/escenario-09.js/step04.png",
       "referenceUrl": "../proyecto-cypress/cypress/screenshots/ghost3.3.0/escenario-09.js/step04.png",
       "misMatchThreshold" : 0.2
     },
     {
       "label": "Escenario 9 - paso 5",
-      "url": "../proyecto-cypress/cypress/screenshots/ghost3.3.0/escenario-09.js/step05.png",
+      "url": "../proyecto-cypress/cypress/screenshots/ghost3.42.5/escenario-09.js/step05.png",
       "referenceUrl": "../proyecto-cypress/cypress/screenshots/ghost3.3.0/escenario-09.js/step05.png",
       "misMatchThreshold" : 0.2
     },
     {
       "label": "Escenario 9 - paso 6",
-      "url": "../proyecto-cypress/cypress/screenshots/ghost3.3.0/escenario-09.js/step06.png",
+      "url": "../proyecto-cypress/cypress/screenshots/ghost3.42.5/escenario-09.js/step06.png",
       "referenceUrl": "../proyecto-cypress/cypress/screenshots/ghost3.3.0/escenario-09.js/step06.png",
       "misMatchThreshold" : 0.2
     },
     {
       "label": "Escenario 9 - paso 7",
-      "url": "../proyecto-cypress/cypress/screenshots/ghost3.3.0/escenario-09.js/step07.png",
+      "url": "../proyecto-cypress/cypress/screenshots/ghost3.42.5/escenario-09.js/step07.png",
       "referenceUrl": "../proyecto-cypress/cypress/screenshots/ghost3.3.0/escenario-09.js/step07.png",
       "misMatchThreshold" : 0.2
     }
