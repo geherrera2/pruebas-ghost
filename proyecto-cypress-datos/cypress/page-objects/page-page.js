@@ -15,6 +15,7 @@ export class PagePage {
     }
 
     fillPageTitle(valueTitlePage) {
+        console.log(valueTitlePage);
         cy.get('[placeholder="Page Title"]').click().type(valueTitlePage);
         cy.wait(1000);
     }
