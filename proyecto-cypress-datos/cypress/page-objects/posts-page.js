@@ -18,8 +18,7 @@ export class PostPage {
         cy.wait(500);
     }
 
-    fillPostBody() {
-        let postBodyText = faker.lorem.word();
+    fillPostBody(postBodyText) {
         cy.get('[data-kg="editor"]').first().click().type(postBodyText);
     }
 
@@ -52,16 +51,15 @@ export class PostPage {
 
     assertUpdatePost(value) {
         cy.wait(1000);
-        let found = false;
         cy.get('ol.posts-list').children('.gh-posts-list-item').each(($el, index, $list) => {
             let texto = $el.children('.gh-list-data').children('h3').text().trim();
+            console.log(texto, 'valueeee', value);
             if (texto === value) {
-                found = expect($list.eq(index)).to.contain(value);
+                console.log('found ', value);
+                expect($list.eq(index)).to.contain(value);
             }
-        });
-        if(!found) {
-            throw new Error('assert update post failed');
         }
+        );
     }
 
     openSettings() {
