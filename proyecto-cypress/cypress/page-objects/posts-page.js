@@ -9,8 +9,12 @@ export class PostPage {
     }
 
     fillPostTitle() {
-        let postTitle = faker.lorem.sentence();
-        cy.get('[placeholder="Post Title"]').click().type(postTitle);
+        let postTitle = '';
+        cy.task("getTitle").then(title => {
+            postTitle = title;
+            cy.get('[placeholder="Post Title"]').click().type(postTitle);
+        });
+        
         cy.wait(1000);
         cy.get('[data-kg="editor"]').first().click();
         return postTitle;
@@ -22,8 +26,10 @@ export class PostPage {
     }
 
     fillPostBody() {
-        let postBodyText = faker.lorem.word();
-        cy.get('[data-kg="editor"]').first().click().type(postBodyText);
+        cy.task("getParagraph").then(body => {
+            console.log('ddgdgdgdgdg', body);
+            cy.get('[data-kg="editor"]').first().click().type(body);
+        });
     }
 
     returnToPostList() {
