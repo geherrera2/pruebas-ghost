@@ -11,7 +11,9 @@ describe('Escenario-07: Update content page and publish (positive)', () => {
     let valueContentPage;
    
     before(() => {
-        cy.task("getTitle", 100).then(title => {
+
+        cy.task("createAllData");
+        cy.task("getTitle", 1000).then(title => {
             valueTitlePage = title;
         });
 

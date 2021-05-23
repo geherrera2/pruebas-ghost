@@ -28,6 +28,14 @@ export class PageDataPage extends PagePage {
 
     }
 
+    sizeListPage(callback) {
+       let cosa = "o"
+        cy.get('ol.gh-list ').children('.gh-posts-list-item').each(($el, index, $list) => {
+           cosa = "2o"
+        });
+        return cosa;
+    }
+
     validateNotExistPageIn(titlePage,status = 'Draft') {
         let valueItemStatus;
         cy.get('ol.gh-list ').children('.gh-posts-list-item').each(($el, index, $list) => {
@@ -40,7 +48,7 @@ export class PageDataPage extends PagePage {
                 if(valueItemStatus){
                     expect(valueItemStatus).to.not.equal(status);
                 }else{
-                    expect("No existe el item").to.equal(status);
+                    expect("No existe el item").to.not.equal(status);
                 } 
             }
         });
