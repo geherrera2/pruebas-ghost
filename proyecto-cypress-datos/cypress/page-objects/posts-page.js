@@ -9,11 +9,11 @@ export class PostPage {
     }
 
     fillPostTitle() {
-        let postTitle = faker.lorem.sentence();
-        cy.get('[placeholder="Post Title"]').click().type(postTitle);
-        cy.wait(1000);
-        cy.get('[data-kg="editor"]').first().click();
-        return postTitle;
+        let postTitle = '';
+        cy.task("getTitle", 100).then(title => {
+            postTitle = title;
+            cy.get('[placeholder="Post Title"]').click().type(postTitle);
+        });
     }
 
     navigateToPostsPage() {
