@@ -1,6 +1,7 @@
 node_modules/
 cypress/screenshots
 env_local.js
+env.js
 proyecto-cypress/cypress/videos/
 proyecto-cypress/cypress/screenshots/
 proyecto-cypress-datos/cypress/videos/

@@ -10,4 +10,5 @@ export class GeneralPage {
         //     GeneralPage.screenShootsTaken.push(fileName);
         // }
     }
+    
 }
