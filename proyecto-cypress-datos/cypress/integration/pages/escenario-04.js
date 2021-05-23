@@ -4,12 +4,17 @@ import {LoginPage} from '../../page-objects/login-page';
 import faker from 'faker';
 import { PageDataPage } from '../../page-objects/page-data-page';
 
-describe('Escenario-01: Crate page draft (negative)', () => {
+describe('Escenario-04: Create page and publish (positive)', () => {
     const loginPage = new LoginPage();
     const pagePage = new PageDataPage();
-    const valueTitlePage = faker.lorem.words(1000);
-
-
+    let valueTitlePage;
+   
+    before(() => {
+        cy.task("getTitle").then(title => {
+            valueTitlePage = title;
+        });
+    });
+    
     beforeEach(() => {
         loginPage.visitPage();
         loginPage.login();
@@ -18,8 +23,18 @@ describe('Escenario-01: Crate page draft (negative)', () => {
 
     it('Create page with title only', () => {
         pagePage.clickNewPage();
-        pagePage.test(valueTitlePage);
-        // pagePage.returnList('Pages');
+        pagePage.fillPageTitle(valueTitlePage);
+        pagePage.returnList('Pages');
+    })
+
+    it('Publish page', () => {
+
+        pagePage.selectPage(valueTitlePage);
+        pagePage.openPublish();
+        pagePage.publish();
+        pagePage.returnList('Pages');
+        pagePage.validateExistPageIn(valueTitlePage,'Published' );
+       
     })
 
     // it('Validate page in draft', () => {
