@@ -81,6 +81,10 @@ export class PagePage {
         cy.get('button.gh-publishmenu-button').click();
     }
 
+    setDateScheduled(date){
+        cy.get('.gh-publishmenu-section [placeholder="YYYY-MM-DD"]').click().clear().type(date);
+    }
+
     openSettings() {
         cy.wait(500);
         cy.get('[title=Settings]').click();
