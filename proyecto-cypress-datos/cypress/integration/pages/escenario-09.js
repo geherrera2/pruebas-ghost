@@ -4,16 +4,9 @@ import {LoginPage} from '../../page-objects/login-page';
 import faker from 'faker';
 import { PageDataPage } from '../../page-objects/page-data-page';
 
-describe('Escenario-01: Create page draft (positive)', () => {
+describe('Escenario-09: Create page empty title draft (positive)', () => {
     const loginPage = new LoginPage();
     const pagePage = new PageDataPage();
-    let valueTitlePage;
-   
-    before(() => {
-        cy.task("getTitle").then(title => {
-            valueTitlePage = title;
-        });
-    });
     
     beforeEach(() => {
         loginPage.visitPage();
@@ -23,11 +16,10 @@ describe('Escenario-01: Create page draft (positive)', () => {
 
     it('Create page with title only', () => {
         pagePage.clickNewPage();
-        pagePage.fillPageTitle(valueTitlePage);
-        pagePage.returnList('Pages');
+        pagePage.fillPageContent(' ');
     })
 
     it('Validate page in draft', () => {
-        pagePage.validateExistPageIn(valueTitlePage);
+        pagePage.validateExistPageIn('(Untitled)');
     })
 });

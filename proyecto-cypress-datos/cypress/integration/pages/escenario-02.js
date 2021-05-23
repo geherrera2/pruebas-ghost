@@ -4,23 +4,22 @@ import {LoginPage} from '../../page-objects/login-page';
 import faker from 'faker';
 import { PageDataPage } from '../../page-objects/page-data-page';
 
-describe('Escenario-01: Crate page draft (negative)', () => {
+describe('Escenario-02: Create page title (size 1998) draft (negative)', () => {
     const loginPage = new LoginPage();
     const pagePage = new PageDataPage();
-    const valueTitlePage = faker.lorem.words(2100);
-    let itemPage = {
-        title: ''
-    };
+    let valueTitlePage;
+    let sizeListPage = 0;
+
+    before(() => {
+        cy.task("getTitle", 1998).then(title => {
+            valueTitlePage = title;
+        });
+    });
 
     beforeEach(() => {
         loginPage.visitPage();
         loginPage.login();
         pagePage.navigateToPagesPage();
-
-        //  cy.readFile('./cypress/pool/apriori.json').then( (srt)=>{
-        //     console.log(srt);
-        //     itemPage.title = srt[0].title;
-        // } );
     });
 
     it('Create page with title only', () => {
@@ -30,6 +29,6 @@ describe('Escenario-01: Crate page draft (negative)', () => {
     })
 
     it('Validate page in draft', () => {
-        pagePage.validateExistPageInDraff(valueTitlePage);
+        pagePage.validateNotExistPageIn(valueTitlePage);
     })
 });

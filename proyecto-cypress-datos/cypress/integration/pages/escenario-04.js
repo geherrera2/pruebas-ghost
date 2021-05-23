@@ -4,7 +4,7 @@ import {LoginPage} from '../../page-objects/login-page';
 import faker from 'faker';
 import { PageDataPage } from '../../page-objects/page-data-page';
 
-describe('Escenario-01: Create page draft (positive)', () => {
+describe('Escenario-04: Create page and publish (positive)', () => {
     const loginPage = new LoginPage();
     const pagePage = new PageDataPage();
     let valueTitlePage;
@@ -27,7 +27,13 @@ describe('Escenario-01: Create page draft (positive)', () => {
         pagePage.returnList('Pages');
     })
 
-    it('Validate page in draft', () => {
-        pagePage.validateExistPageIn(valueTitlePage);
+    it('Publish page', () => {
+
+        pagePage.selectPage(valueTitlePage);
+        pagePage.openPublish();
+        pagePage.publish();
+        pagePage.returnList('Pages');
+        pagePage.validateExistPageIn(valueTitlePage,'Published' );
+       
     })
 });
