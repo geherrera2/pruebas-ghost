@@ -4,7 +4,7 @@ import {LoginPage} from '../../page-objects/login-page';
 import faker from 'faker';
 import { PageDataPage } from '../../page-objects/page-data-page';
 
-describe('Escenario-01: Crate page draft (negative)', () => {
+describe('Escenario-01: Create page draft (negative)', () => {
     const loginPage = new LoginPage();
     const pagePage = new PageDataPage();
     const valueTitlePage = faker.lorem.words(1000);

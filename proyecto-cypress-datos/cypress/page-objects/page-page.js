@@ -49,7 +49,7 @@ export class PagePage {
 
     fillPageContent(valueTitlePage) {
         cy.wait(1000);
-        cy.get('[data-placeholder="Begin writing your page..."]').click().type(valueTitlePage);
+        cy.get('[data-placeholder="Begin writing your page..."]').click().clear().type(valueTitlePage);
     }
 
     returnList() {
@@ -139,12 +139,11 @@ export class PagePage {
     }
 
     selectPage(value) {
+        console.log("value", value);
         cy.wait(500)
         cy.get('ol.gh-list ').children('.gh-posts-list-item').each(($el, index, $list) => {
             let texto = $el.children('.gh-post-list-title').children('h3').text().trim();
-            console.log("selectPage texto :", texto);
             if (texto === value) {
-                console.log("despues de if,selectPage texto :", texto);
                 let idElemento = $el.children('.gh-post-list-title').attr('id');
                 console.log("que pasa con idElemento", idElemento);
                 cy.get(`#${idElemento}`).first().click({ force: true })

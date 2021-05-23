@@ -64,6 +64,10 @@ export class PageDataPage extends PagePage {
     clickBody(){
         cy.get('.gh-koenig-editor-pane').click();
     }
+
+    wait(time){
+        cy.wait(time);
+    }
    
 
 }
