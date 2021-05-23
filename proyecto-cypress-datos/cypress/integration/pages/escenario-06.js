@@ -4,18 +4,20 @@ import {LoginPage} from '../../page-objects/login-page';
 import faker from 'faker';
 import { PageDataPage } from '../../page-objects/page-data-page';
 
-describe('Escenario-02: Create page title (size 1998) draft (negative)', () => {
+describe('Escenario-06: Create page and Scheduled (negative)', () => {
+    const dayjs = require('dayjs')
     const loginPage = new LoginPage();
     const pagePage = new PageDataPage();
     let valueTitlePage;
-    let sizeListPage = 0;
+    const fecha = dayjs(faker.date.past()).format('YYYY-MM-DD')
+    // const todaysDate = Cypress.moment().format('MMM DD, YYYY')
 
     before(() => {
-        cy.task("getTitle", 1998).then(title => {
+        cy.task("getTitle").then(title => {
             valueTitlePage = title;
         });
     });
-
+    
     beforeEach(() => {
         loginPage.visitPage();
         loginPage.login();
@@ -28,7 +30,13 @@ describe('Escenario-02: Create page title (size 1998) draft (negative)', () => {
         pagePage.returnList('Pages');
     })
 
-    it('Validate page in draft', () => {
-        pagePage.validateNotExistPageIn(valueTitlePage);
+    it('Publish page', () => {
+        pagePage.selectPage(valueTitlePage);
+        pagePage.openPublish();
+        pagePage.setDateScheduled(fecha);
+        pagePage.publish();
+        pagePage.returnList('Pages');
+        pagePage.validateNotExistPageIn(valueTitlePage,'Scheduled' );
+       
     })
 });
