@@ -58,41 +58,25 @@ function createTagsData() {
 }
 
 function getTitle(numCharacters=100) {
-    if(numCharacters <= 100) {
+    if(!TITLE_SIZES.includes(numCharacters)) {
         numCharacters = 100;
-    } else if(numCharacters <= 1999) {
-        numCharacters = 1999;
-    } else if(numCharacters < 2100) {
-        numCharacters = 2000;
-    } else {
-        numCharacters = 2100;
     }
     titles_json = utils.readFileAsJSON(TITLES_FILE);
     return titles_json.titles[numCharacters][utils.getRandNumber(AMOUNT_DATA_PER_FILE / TITLE_SIZES.length)];
 }
 
 function getParagraph(numParagraphs=1) {
-    if(numParagraphs < 10) {
+    if(!PARAGRAPH_SIZES.includes(numParagraphs)) {
         numParagraphs = 1;
-    } else if(numParagraphs <= 100) {
-        numParagraphs = 100;
-    } else if(numParagraphs <= 200) {
-        numParagraphs = 200;
-    } else {
-        numParagraphs = 500;
     }
     content_json = utils.readFileAsJSON(CONTENT_FILE);
     return content_json.content[numParagraphs][utils.getRandNumber(AMOUNT_PARAGRAPHS_PER_FILE / PARAGRAPH_SIZES.length)];
 }
 
 function getTag(tagSize=10) {
-    if(tagSize <= 10) {
+    if(!TAG_SIZES.includes(tagSize)) {
         tagSize = 10;
-    } else if(tagSize < 190) {
-        tagSize = 190;
-    } else if(tagSize > 192) {
-        tagSize = 200;
-    }
+    } 
     tags_json = utils.readFileAsJSON(TAGS_FILE);
     return tags_json.tags[tagSize][utils.getRandNumber(AMOUNT_DATA_PER_FILE / TAG_SIZES.length)];
 }
