@@ -25,14 +25,14 @@ module.exports = (on, config) => {
   // `config` is the resolved Cypress config
 
   on("task", {
-    getTitle() {
-      return getTitle();
+    getTitle(numCharacters=10) {
+      return getTitle(numCharacters);
     },
-    getTag() {
-      return getTag();
+    getTag(tagSize=10) {
+      return getTag(tagSize);
     },
-    getParagraph() {
-      return getParagraph();
+    getParagraph(numParagraphs=1) {
+      return getParagraph(numParagraphs);
     },
     createAllData() {
       return createAllData();
