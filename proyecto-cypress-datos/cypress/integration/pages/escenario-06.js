@@ -4,12 +4,12 @@ import {LoginPage} from '../../page-objects/login-page';
 import faker from 'faker';
 import { PageDataPage } from '../../page-objects/page-data-page';
 
-describe('Escenario-05: Create page and Scheduled (positive)', () => {
+describe('Escenario-05: Create page and Scheduled (negative)', () => {
     const dayjs = require('dayjs')
     const loginPage = new LoginPage();
     const pagePage = new PageDataPage();
     let valueTitlePage;
-    const fecha = dayjs(faker.date.future()).format('YYYY-MM-DD')
+    const fecha = dayjs(faker.date.past()).format('YYYY-MM-DD')
     // const todaysDate = Cypress.moment().format('MMM DD, YYYY')
 
     before(() => {
@@ -36,7 +36,7 @@ describe('Escenario-05: Create page and Scheduled (positive)', () => {
         pagePage.setDateScheduled(fecha);
         pagePage.publish();
         pagePage.returnList('Pages');
-        pagePage.validateExistPageIn(valueTitlePage,'Scheduled' );
+        pagePage.validateNotExistPageIn(valueTitlePage,'Scheduled' );
        
     })
 });

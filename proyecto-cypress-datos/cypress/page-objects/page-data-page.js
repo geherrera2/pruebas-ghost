@@ -28,19 +28,19 @@ export class PageDataPage extends PagePage {
 
     }
 
-    validateNotExistPageInDraff(value) {
+    validateNotExistPageIn(titlePage,status = 'Draft') {
         let valueItemStatus;
         cy.get('ol.gh-list ').children('.gh-posts-list-item').each(($el, index, $list) => {
             const texto = $el.children('.gh-post-list-title').children('h3').text().trim();
-            if (texto === value) {
+            if (texto === titlePage) {
                 valueItemStatus = $el.children(`.gh-post-list-status`).text().trim();
             }
 
             if(index === ($list.length-1)){
                 if(valueItemStatus){
-                    expect(valueItemStatus).to.equal('Draft');
+                    expect(valueItemStatus).to.not.equal(status);
                 }else{
-                    expect("No existe el item").to.equal('Draft');
+                    expect("No existe el item").to.equal(status);
                 } 
             }
         });
