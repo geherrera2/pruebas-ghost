@@ -4,19 +4,16 @@ import {LoginPage} from '../../page-objects/login-page';
 import faker from 'faker';
 import { PageDataPage } from '../../page-objects/page-data-page';
 
-describe('Escenario-028: Update settings excerpt page and publish (positive)', () => {
+describe('Escenario-16: Update content page one character and publish (apriori)', () => {
     const loginPage = new LoginPage();
     const pagePage = new PageDataPage();
     let valueTitlePage;
     let valueContentPage;
    
     before(() => {
-        cy.task("getTitle", 100).then(title => {
+        cy.task("getTitle", 1).then(title => {
             valueTitlePage = title;
-        });
-
-        cy.task("getParagraph",1).then(resp => {
-            valueContentPage = resp;
+            valueContentPage = title;
         });
     });
     
@@ -34,8 +31,7 @@ describe('Escenario-028: Update settings excerpt page and publish (positive)', (
     
     it('Publish page', () => {
         pagePage.selectPage(valueTitlePage);
-        pagePage.openSettings();
-        pagePage.selectExcerpt(valueContentPage);
+        pagePage.fillPageContent(valueContentPage)
         pagePage.wait(1000)
         pagePage.openPublish();
         pagePage.publish();

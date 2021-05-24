@@ -3,20 +3,15 @@
 import {LoginPage} from '../../page-objects/login-page';
 import { PageDataPage } from '../../page-objects/page-data-page';
 
-describe('Escenario-23: Create page and Scheduled (negative)', () => {
-
+describe('Escenario-11: Create page and publish (aleatorio dinámico)', () => {
     const loginPage = new LoginPage();
     const pagePage = new PageDataPage();
     let valueTitlePage;
-    let fecha;
- 
+   
     before(() => {
         cy.task("createAllData");
-        cy.task("getDatePass").then(resp => {
-            fecha = resp;
-        });
-        cy.task("getTitle").then(resp => {
-            valueTitlePage = resp;
+        cy.task("getTitle").then(title => {
+            valueTitlePage = title;
         });
     });
     
@@ -33,12 +28,12 @@ describe('Escenario-23: Create page and Scheduled (negative)', () => {
     })
 
     it('Publish page', () => {
+
         pagePage.selectPage(valueTitlePage);
         pagePage.openPublish();
-        pagePage.setDateScheduled(fecha);
         pagePage.publish();
         pagePage.returnList('Pages');
-        pagePage.validateNotExistPageIn(valueTitlePage,'Scheduled' );
+        pagePage.validateExistPageIn(valueTitlePage,'Published' );
        
     })
 });

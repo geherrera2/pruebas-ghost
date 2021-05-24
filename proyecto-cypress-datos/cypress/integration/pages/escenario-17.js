@@ -4,15 +4,19 @@ import {LoginPage} from '../../page-objects/login-page';
 import faker from 'faker';
 import { PageDataPage } from '../../page-objects/page-data-page';
 
-describe('Escenario-011: Update content page one character and publish (positive)', () => {
+describe('Escenario-17: Update content page one character and publish (aleatorio dinámico)', () => {
     const loginPage = new LoginPage();
     const pagePage = new PageDataPage();
     let valueTitlePage;
     let valueContentPage;
    
     before(() => {
-        valueTitlePage = faker.lorem.word(2);
-        valueContentPage = faker.lorem.word(1);
+        cy.task("createAllData");
+        cy.task("getTitle", 1).then(title => {
+            valueTitlePage = title;
+            valueContentPage = title;
+        });
+
     });
     
     beforeEach(() => {

@@ -1,10 +1,9 @@
 /// <reference types="cypress" />
 
 import {LoginPage} from '../../page-objects/login-page';
-import faker from 'faker';
 import { PageDataPage } from '../../page-objects/page-data-page';
 
-describe('Escenario-03: Update content page draft (positive)', () => {
+describe('Escenario-07: Update content page draft (a-priori)', () => {
     const loginPage = new LoginPage();
     const pagePage = new PageDataPage();
     let valueTitlePage;

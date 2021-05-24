@@ -1,21 +1,22 @@
 /// <reference types="cypress" />
 
 import {LoginPage} from '../../page-objects/login-page';
-import faker from 'faker';
 import { PageDataPage } from '../../page-objects/page-data-page';
 
-describe('Escenario-25: Update content page and change status Scheduled (positive)', () => {
-    const dayjs = require('dayjs')
+describe('Escenario-20: Create page and Scheduled (aleatorio dinámico)', () => {
     const loginPage = new LoginPage();
     const pagePage = new PageDataPage();
-    let fecha;
     let valueTitlePage;
-    let valueContentPage;
-   
+    let fecha;
+
     before(() => {
-        fecha = dayjs(faker.date.future()).format('YYYY-MM-DD');
-        valueTitlePage = faker.lorem.word(5);
-        valueContentPage = faker.lorem.word(5);
+        cy.task("createAllData");
+        cy.task("getDateFuture").then(resp => {
+            fecha = resp;
+        });
+        cy.task("getTitle").then(resp => {
+            valueTitlePage = resp;
+        });
     });
     
     beforeEach(() => {
@@ -29,11 +30,9 @@ describe('Escenario-25: Update content page and change status Scheduled (positiv
         pagePage.fillPageTitle(valueTitlePage);
         pagePage.returnList('Pages');
     })
-    
+
     it('Publish page', () => {
         pagePage.selectPage(valueTitlePage);
-        pagePage.fillPageContent(valueContentPage)
-        pagePage.wait(1000)
         pagePage.openPublish();
         pagePage.setDateScheduled(fecha);
         pagePage.publish();

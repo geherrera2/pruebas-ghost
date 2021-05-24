@@ -4,18 +4,22 @@ import {LoginPage} from '../../page-objects/login-page';
 import faker from 'faker';
 import { PageDataPage } from '../../page-objects/page-data-page';
 
-describe('Escenario-028: Update settings excerpt page and publish (positive)', () => {
+describe('Escenario-25: Update content page and change status Scheduled (apriori)', () => {
+    const dayjs = require('dayjs')
     const loginPage = new LoginPage();
     const pagePage = new PageDataPage();
+    let fecha;
     let valueTitlePage;
     let valueContentPage;
    
     before(() => {
-        cy.task("createAllData");
+        cy.task("getDateFuture").then(resp => {
+            fecha = resp;
+        });
         cy.task("getTitle", 100).then(title => {
             valueTitlePage = title;
         });
-        cy.task("getParagraph",1).then(resp => {
+        cy.task("getParagraph").then(resp => {
             valueContentPage = resp;
         });
     });
@@ -34,12 +38,13 @@ describe('Escenario-028: Update settings excerpt page and publish (positive)', (
     
     it('Publish page', () => {
         pagePage.selectPage(valueTitlePage);
-        pagePage.openSettings();
-        pagePage.selectExcerpt(valueContentPage);
+        pagePage.fillPageContent(valueContentPage)
         pagePage.wait(1000)
         pagePage.openPublish();
+        pagePage.setDateScheduled(fecha);
         pagePage.publish();
         pagePage.returnList('Pages');
-        pagePage.validateExistPageIn(valueTitlePage,'Published' );
+        pagePage.validateExistPageIn(valueTitlePage,'Scheduled' );
+       
     })
 });

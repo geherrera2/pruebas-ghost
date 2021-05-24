@@ -1,17 +1,17 @@
 /// <reference types="cypress" />
 
 import {LoginPage} from '../../page-objects/login-page';
-import faker from 'faker';
 import { PageDataPage } from '../../page-objects/page-data-page';
 
-describe('Escenario-19: Create page and Scheduled (positive)', () => {
+describe('Escenario-22: Create page and Scheduled -negative (apriori)', () => {
+
     const loginPage = new LoginPage();
     const pagePage = new PageDataPage();
     let valueTitlePage;
     let fecha;
 
     before(() => {
-        cy.task("getDateFuture").then(resp => {
+        cy.task("getDatePass").then(resp => {
             fecha = resp;
         });
         cy.task("getTitle").then(resp => {
@@ -37,7 +37,7 @@ describe('Escenario-19: Create page and Scheduled (positive)', () => {
         pagePage.setDateScheduled(fecha);
         pagePage.publish();
         pagePage.returnList('Pages');
-        pagePage.validateExistPageIn(valueTitlePage,'Scheduled' );
+        pagePage.validateNotExistPageIn(valueTitlePage,'Scheduled' );
        
     })
 });

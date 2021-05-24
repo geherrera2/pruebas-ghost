@@ -4,16 +4,15 @@ import {LoginPage} from '../../page-objects/login-page';
 import faker from 'faker';
 import { PageDataPage } from '../../page-objects/page-data-page';
 
-describe('Escenario-22: Create page and Scheduled (negative)', () => {
-    const dayjs = require('dayjs')
+describe('Escenario-30: Update settings excerpt page and publish (aleatorio)', () => {
     const loginPage = new LoginPage();
     const pagePage = new PageDataPage();
     let valueTitlePage;
-    let fecha;
-
+    let valueContentPage;
+   
     before(() => {
-        fecha = dayjs(faker.date.past()).format('YYYY-MM-DD');
         valueTitlePage = faker.lorem.word(5);
+        valueContentPage = faker.lorem.word(5);
     });
     
     beforeEach(() => {
@@ -27,14 +26,15 @@ describe('Escenario-22: Create page and Scheduled (negative)', () => {
         pagePage.fillPageTitle(valueTitlePage);
         pagePage.returnList('Pages');
     })
-
+    
     it('Publish page', () => {
         pagePage.selectPage(valueTitlePage);
+        pagePage.openSettings();
+        pagePage.selectExcerpt(valueContentPage);
+        pagePage.wait(1000)
         pagePage.openPublish();
-        pagePage.setDateScheduled(fecha);
         pagePage.publish();
         pagePage.returnList('Pages');
-        pagePage.validateNotExistPageIn(valueTitlePage,'Scheduled' );
-       
+        pagePage.validateExistPageIn(valueTitlePage,'Published' );
     })
 });
