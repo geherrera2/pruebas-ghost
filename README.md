@@ -1,3 +1,54 @@
+# Entrega Semana 7 
+
+## Estategia pool de datos a-priori 
+
+## Estategia pool de datos aleatorio - dinámico 
+
+## Estategia escenario aleagorio 
+
+## Paso para la ejecución de los escenarios de prueba utilizando estrategias de pool de datos 
+
+### Paso 1 - Generar archivos pool de datos a-priori
+
+Este módulo crea datos de tipo título, tags y contenido para posts o pages para ser utilizado en los
+escenarios de prueba de la aplicación Ghost.
+
+Para usarlo, realice los siguientes pasos:
+
+1. Usando la línea de comandos ubíquese en la carpeta **data-pool**
+2. Ejecute la instrucción **npm install** para instalar las dependencias necesarias
+3. Diríjase a la carpeta **proyecto-cypress** y ejecute el comando node **node ../data-pool/start.js**
+Esto creará una nueva carpeta llamada "data" donde se alojarán, en archivos separados,
+datos para título, tags y contenido. Al final, aparecerá un título, párrafo y tag en la consola.
+
+- getTitle(): retorna un título
+- getParagraph(): retorna un párrafo
+- getTag(): retorna un tag
+- getUrl(): retorna una url
+- getDateFuture(): retorna una fecha futura
+- getDatePass(): retorna una fecha pasada
+
+
+### Paso 2  correr las pruebas con la versión 3.42.5 de Ghost con la herramienta Cypress
+| Paso # | Descripción |
+| :--------------: | :--------- |
+|1| Ingresar a la carpeta proyecto-cypress-datos |
+|2| Configuarar los archivos env :|
+|| Ingresar a la carpeta cypress y editar el archivo env.js   |
+|| Colocar el valor la url del servidor en la variable "baseURL" |
+|| Ingresar a la carpeta cypress y crear el archivo env_local.js con la estructura de el archivo  env_local_example.js |
+|| Colocar el valor de usuario y contraseña en las variables "username" y "password"|
+|3| Recuerde previamente tener corriendo la versión 3.42.5 de Ghost sobre la cual va ejecutar los escenarios | 
+|4| Ejecutar el comando cypress run  |
+
+## Tabla escenarios Page
+| # | Funcionalidad | Escenario | Detalles del flujo | Estrategia Pool | 
+| -------------- | :--------- | :---------- | :--------- |  :--------- |
+|  1 |  Post                | Crear Post                | Hacer sign in, - Post, - Crear post, - Regresarse out  | a-priori |
+|  2 |  Post                | Editar Post               |  Hacer sign in,Post,Buscar post,Editar el post,Listar posts,Log out | a-priori |
+
+
+# Entrega Semana 5-6
 # Implementación de pruebas automatizadas con Kraken y Cypress
 ## Tabla funcionalidades
 | Funcionalidad | Descripción | Automatizada  |
