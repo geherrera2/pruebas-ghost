@@ -147,6 +147,42 @@ datos para título, tags y contenido. Al final, aparecerá un título, párrafo 
 |  29 |  Crear tag con la opcion "Stay"|   Hacer sign in, - Tags, - Crear tag,  - Regresarse out |  Pool de datos aleatorio dinámico |
 |  30 |  Cancelar la eliminacion de un tag |   Hacer sign in, - Tags, - Crear tag, - Buscar Tag, -Eliminar Tag,  - Regresarse out |  Pool de datos a-priori |
 
+
+## Tabla escenarios Posts
+
+| # | Escenario                                              | Descripción del flujo                        | Estrategia                        |  
+|-|------------------------------------------------------- | -------------------------------------------- | -------------------------------- |  
+|1| Crear post con título longitud 100 caracteres                        | Hacer sign in, Post, Crear post, Asignar titulo | Pool de datos a-priori           |
+|2| Crear post con título longitud 100 caracteres                        | Hacer sign in, Post, Crear post, Asignar titulo | Pool de datos aleatorio dinámico | 
+|3|Crear post con título longitud 100 caracteres                        | Hacer sign in, Post, Crear post, Asignar titulo | Escenario aleatorio              |
+|4|Crear post con título caracteres especiales            | Hacer sign in, Post, Crear post, Asignar titulo | Escenario aleatorio              |
+|5| Crear post con título longitud 1998 chars                       | Hacer sign in, Post, Crear post, Asignar titulo | Pool de datos a-priori           |
+|6|Crear post con título longitud 1998 chars                       | \Hacer sign in, Post, Crear post, Asignar titulo | Pool de datos aleatorio dinámico |
+|7|Crear post con título longitud 1998 chars                       | Hacer sign in, Post, Crear post, Asignar titulo | Escenario aleatorio              |
+|8|Crear post con título longitud 1999 chars                       | Hacer sign in, Post, Crear post, Asignar titulo | Pool de datos a-priori           | 
+|9|Crear post con título longitud 1999 chars                       | Hacer sign in, Post, Crear post, Asignar titulo | Pool de datos aleatorio dinámico |
+|10|Crear post con título longitud 1999 chars                       | Hacer sign in, Post, Crear post, Asignar titulo | Escenario aleatorio              |
+|11|Crear post con título longitud 2000 chars                       | Hacer sign in, Post, Crear post, Asignar titulo | Pool de datos a-priori           |
+|12|Crear post con título longitud 2000 chars                       | Hacer sign in, Post, Crear post, Asignar titulo | Pool de datos aleatorio dinámico |
+|13|Crear post con título longitud 2000 chars                       | Hacer sign in, Post, Crear post, Asignar titulo | Escenario aleatorio              |
+|14|Crar post con título longitud 2001 chars                        | Hacer sign in, Post, Crear post, Asignar titulo | Pool de datos a-priori           |
+|15|Crar post con título longitud 2001 chars                        |Hacer sign in, Post, Crear post, Asignar titulo | Pool de datos aleatorio dinámico |
+|16|Crar post con título longitud 2001 chars                        | Hacer sign in, Post, Crear post, Asignar titulo | Escenario aleatorio              |
+|17|Editar post título, de 100 chars a 1999 chars          | Hacer sign in, Post, Crear post, Editar titulo | Pool de datos a-priori           |
+|18|Editar post título, de 100 chars a 1999 chars          | Hacer sign in, Post, Crear post, Editar titulo | Pool de datos aleatorio dinámico |
+|19|Editar post título, de 100 chars a 1999 chars          | Hacer sign in, Post, Crear post, Editar titulo | Escenario aleatorio              |
+|20|Editar post título, de 100 chars a 1999 chars y cuerpo 100 párrafos | Hacer sign in, Post, Crear post, Editar titulo, Editar cuerpo | Pool de datos a-priori 
+|21|Editar post título, de 100 chars a 1999 chars y cuerpo 100 párrafos | Hacer sign in, Post, Crear post, Editar titulo, Editar cuerpo| Pool de datos aleatorio dinámico |
+|22|Editar post título, de 100 chars a 1999 chars y cuerpo 100 párrafos |Hacer sign in, Post, Crear post, Editar titulo, Editar cuerpo| Escenario aleatorio              |
+|23|Editar post titulo 100 chars y cuerpo 100 párrafos |Hacer sign in, Post, Crear post, Editar titulo, Editar cuerpo | Pool de datos a-priori           |
+|24| Editar post titulo 100 chars y cuerpo 100 párrafos     | Hacer sign in, Post, Crear post, Editar titulo, Editar cuerpo | Pool de datos aleatorio dinámico |
+|25|Editar post titulo 100 chars y cuerpo 100 párrafos    | Hacer sign in, Post, Crear post, Editar titulo, Editar cuerpo | Escenario aleatorio              |
+|26|Editar post titulo 100 chars y cuerpo 500 párrafos  |Hacer sign in, Post, Crear post, Editar titulo, Editar cuerpo | Pool de datos a-priori           |
+|27|Editar post titulo 100 chars y cuerpo 500 párrafos  |Hacer sign in, Post, Crear post, Editar titulo, Editar cuerpo | Pool de datos aleatorio dinámico |
+|28|Editar post titulo 100 chars y cuerpo 500 párrafos    |Hacer sign in, Post, Crear post, Editar titulo, Editar cuerpo | Escenario aleatorio              |
+|29|Editar post y publicar con fecha futura         |Hacer sign in, Post, Crear post, Editar titulo, Editar cuerpo, publicar fecha futura | Pool de datos a-priori|
+|30|Editar post y publicar con fecha futura  | Hacer sign in, Post, Crear post, Editar titulo, Editar cuerpo, publicar fecha futura | Escenario aleatorio|
+
 # Entrega Semana 5-6
 # Implementación de pruebas automatizadas con Kraken y Cypress
 ## Tabla funcionalidades
