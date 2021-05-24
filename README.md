@@ -36,13 +36,14 @@ datos para título, tags y contenido. Al final, aparecerá un título, párrafo 
 | Paso # | Descripción |
 | :--------------: | :--------- |
 |1| Ingresar a la carpeta proyecto-cypress-datos |
-|2| Configuarar los archivos env :|
+|2|  Ejecute la instrucción **npm install** |
+|3| Configuarar los archivos env :|
 || Ingresar a la carpeta cypress y editar el archivo env.js   |
 || Colocar el valor la url del servidor en la variable "baseURL" |
 || Ingresar a la carpeta cypress y crear el archivo env_local.js con la estructura de el archivo  env_local_example.js |
 || Colocar el valor de usuario y contraseña en las variables "username" y "password"|
-|3| Recuerde previamente tener corriendo la versión 3.42.5 de Ghost sobre la cual va ejecutar los escenarios | 
-|4| Ejecutar el comando cypress run  |
+|4| Recuerde previamente tener corriendo la versión 3.42.5 de Ghost sobre la cual va ejecutar los escenarios | 
+|5| Ejecutar el comando cypress run  |
 
 ## Tabla escenarios Page
 | #  | Funcionalidad                                   | Detalles del flujo                                          | Estrategia                       |
