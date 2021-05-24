@@ -12,9 +12,17 @@ describe('Escenario-05: Create page and Scheduled (positive)', () => {
     const fecha = dayjs(faker.date.future()).format('YYYY-MM-DD')
 
     before(() => {
-        cy.task("getTitle").then(title => {
-            valueTitlePage = title;
+        cy.task("getDateFuture").then(title => {
+           console.log(title);
         });
+
+        cy.task("getDatePass").then(title => {
+            console.log(title);
+         });
+        
+        // cy.task("getTitle").then(title => {
+        //     valueTitlePage = title;
+        // });
     });
     
     beforeEach(() => {
@@ -24,18 +32,18 @@ describe('Escenario-05: Create page and Scheduled (positive)', () => {
     });
 
     it('Create page with title only', () => {
-        pagePage.clickNewPage();
-        pagePage.fillPageTitle(valueTitlePage);
-        pagePage.returnList('Pages');
+        // pagePage.clickNewPage();
+        // pagePage.fillPageTitle(valueTitlePage);
+        // pagePage.returnList('Pages');
     })
 
     it('Publish page', () => {
-        pagePage.selectPage(valueTitlePage);
-        pagePage.openPublish();
-        pagePage.setDateScheduled(fecha);
-        pagePage.publish();
-        pagePage.returnList('Pages');
-        pagePage.validateExistPageIn(valueTitlePage,'Scheduled' );
+        // pagePage.selectPage(valueTitlePage);
+        // pagePage.openPublish();
+        // pagePage.setDateScheduled(fecha);
+        // pagePage.publish();
+        // pagePage.returnList('Pages');
+        // pagePage.validateExistPageIn(valueTitlePage,'Scheduled' );
        
     })
 });

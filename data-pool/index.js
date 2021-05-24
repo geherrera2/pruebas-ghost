@@ -8,6 +8,8 @@ const TAGS_FILE = require('./constants').TAGS_FILE;
 const AMOUNT_PARAGRAPHS_PER_FILE = require('./constants').AMOUNT_PARAGRAPHS_PER_FILE;
 const TAG_SIZES = require('./constants').TAG_SIZES;
 const URLS_FILE = require('./constants').URLS_FILE;
+const DATA_FUTURE = require('./constants').DATA_FUTURE;
+const DATA_PASS = require('./constants').DATA_PASS;
 var utils = require('./utils');
 
 
@@ -18,7 +20,11 @@ function createTitlesData() {
         let titlesCreated = 0;
         titles[titleSize] = []
         while (titlesCreated < Math.floor(AMOUNT_DATA_PER_FILE / TITLE_SIZES.length)) {
-            possibleTitle = faker.lorem.sentence(Math.floor(titleSize / estimateWordsLength)).slice(0, titleSize);
+            if(titleSize === 1){
+                possibleTitle = faker.lorem.word(3)[0];
+            }else{
+                possibleTitle = faker.lorem.sentence(Math.floor(titleSize / estimateWordsLength)).slice(0, titleSize);
+            }
             if (possibleTitle.length == titleSize) {
                 titles[titleSize].push(possibleTitle);
                 titlesCreated++;
@@ -59,7 +65,25 @@ function createTagsData() {
     utils.writeToFile(TAGS_FILE, { "tags": tags });
 }
 
+function createFileDate(){
+    const dayjs = require('dayjs')
+    dateFuture = [];
+    datePass = [];
+    for (let i = 0; i < AMOUNT_DATA_PER_FILE; i++) {
+        const item = dayjs(faker.date.future()).format('YYYY-MM-DD');
+        dateFuture.push(item);
+    }
+
+    for (let i = 0; i < AMOUNT_DATA_PER_FILE; i++) {
+        const item = dayjs(faker.date.past()).format('YYYY-MM-DD')
+        datePass.push(item);
+    }
+    utils.writeToFile(DATA_FUTURE, { "dataFuture": dateFuture });
+    utils.writeToFile(DATA_PASS, { "dataPass": datePass });
+}
+
 function createUrlsData() {
+   
     urls = [];
     for (let i = 0; i < AMOUNT_DATA_PER_FILE; i++) {
         url = faker.internet.url();
@@ -97,12 +121,23 @@ function getUrl() {
     return urls_json.urls[utils.getRandNumber(AMOUNT_DATA_PER_FILE)];
 }
 
+function getDateFuture() {
+    const date_future = utils.readFileAsJSON(DATA_FUTURE);
+    return date_future.dataFuture[utils.getRandNumber(AMOUNT_DATA_PER_FILE)];
+}
+
+function getDatePass() {
+    const date_pass = utils.readFileAsJSON(DATA_PASS);
+    return date_pass.dataPass[utils.getRandNumber(AMOUNT_DATA_PER_FILE)];
+}
+
 function createAllData() {
     createContentData();
     createTagsData();
     createTitlesData();
     createUrlsData();
+    createFileDate();
     return true;
 }
 
-module.exports = { getTitle, getTag, getParagraph, getUrl, createTagsData, createContentData, createTitlesData, createUrlsData, createAllData };
+module.exports = { getTitle, getTag, getParagraph, getUrl, getDateFuture, getDatePass, createTagsData, createContentData, createTitlesData, createUrlsData, createAllData , createFileDate };
