@@ -57,7 +57,7 @@ export class PageDataPage extends PagePage {
 
     selectPage(value) {
         let idElemento;
-        cy.wait(500)
+        cy.wait(1000)
         cy.get('ol.gh-list ').children('.gh-posts-list-item').each(($el, index, $list) => {
             let texto = $el.children('.gh-post-list-title').children('h3').text().trim();
             if (texto === value) {
@@ -65,6 +65,7 @@ export class PageDataPage extends PagePage {
             }
 
             if(index === ($list.length-1)){
+                cy.wait(1000)
                 cy.get(`#`+idElemento).click({ force: true })
             }
         })
