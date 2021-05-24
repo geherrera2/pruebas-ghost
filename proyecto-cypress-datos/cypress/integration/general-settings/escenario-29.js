@@ -1,7 +1,7 @@
 import { LoginPage } from '../../page-objects/login-page';
 import { SettingPage } from '../../page-objects/setting-page'
 
-context('Scenario 29 - General Settings', () => {
+context('Scenario 29 - General Settings - Pool de datos aleatorio dinámico', () => {
 
     const loginPage = new LoginPage();
     const settingsPage = new SettingPage();
