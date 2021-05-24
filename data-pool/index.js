@@ -7,50 +7,65 @@ const CONTENT_FILE = require('./constants').CONTENT_FILE;
 const TAGS_FILE = require('./constants').TAGS_FILE;
 const AMOUNT_PARAGRAPHS_PER_FILE = require('./constants').AMOUNT_PARAGRAPHS_PER_FILE;
 const TAG_SIZES = require('./constants').TAG_SIZES;
+const URLS_FILE = require('./constants').URLS_FILE;
 var utils = require('./utils');
 
 
 function createTitlesData() {
-    titles = [];
-    maxNumberOfWords = 10;
-    for (let i = 0; i < constants.AMOUNT_DATA_PER_FILE; i++) {
-        possibleTitle = faker.lorem.words(utils.getRandNumber(maxNumberOfWords));
-        if (possibleTitle.length < constants.MAX_SIZE_TITLE) {
-            titles.push(possibleTitle);
+    let titles = {};
+    TITLE_SIZES.forEach(titleSize => {
+        let estimateWordsLength = 4;
+        let titlesCreated = 0;
+        titles[titleSize] = []
+        while (titlesCreated < Math.floor(AMOUNT_DATA_PER_FILE / TITLE_SIZES.length)) {
+            possibleTitle = faker.lorem.sentence(Math.floor(titleSize / estimateWordsLength)).slice(0, titleSize);
+            if (possibleTitle.length == titleSize) {
+                titles[titleSize].push(possibleTitle);
+                titlesCreated++;
+            }
         }
-    }
-    utils.writeToFile(constants.TITLES_FILE, { "titles": titles });
+    });
+    utils.writeToFile(TITLES_FILE, { "titles": titles });
 }
 
 function createContentData() {
-    content = [];
-    maxAmountParagraphs = 3;
-    for (let i = 0; i < constants.AMOUNT_DATA_PER_FILE; i++) {
-        cont = faker.lorem.paragraphs(utils.getRandNumber(maxAmountParagraphs));
-        content.push(cont);
-    }
-    utils.writeToFile(constants.CONTENT_FILE, { "content": content });
+    let content = {};
+    PARAGRAPH_SIZES.forEach(numberParagraphs => {
+        let paragraphsCreated = 0;
+        content[numberParagraphs] = []
+        while (paragraphsCreated < Math.floor(AMOUNT_PARAGRAPHS_PER_FILE / PARAGRAPH_SIZES.length)) {
+            cont = faker.lorem.paragraphs(numberParagraphs);
+            content[numberParagraphs].push(cont);
+            paragraphsCreated++;
+        }
+    });
+    utils.writeToFile(CONTENT_FILE, { "content": content });
 }
 
 function createTagsData() {
-    tags = [];
-    maxNumberOfWords = 5;
-    for (let i = 0; i < constants.AMOUNT_DATA_PER_FILE; i++) {
-        possibleTagName = faker.lorem.words(utils.getRandNumber(maxNumberOfWords));
-        if (possibleTagName.length < constants.MAX_SIZE_TAG_NAME) {
-            tags.push(possibleTagName);
+    let tags = {};
+    let estimateWordsLength = 4;
+    TAG_SIZES.forEach(tagSize => {
+        let tagsCreated = 0;
+        tags[tagSize] = [];
+        while (tagsCreated < Math.floor(AMOUNT_DATA_PER_FILE / TAG_SIZES.length)) {
+            possibleTagName = faker.lorem.sentence(Math.floor(tagSize / estimateWordsLength)).slice(0, tagSize);
+            if (possibleTagName.length == tagSize) {
+                tags[tagSize].push(possibleTagName);
+                tagsCreated++;
+            }
         }
-    }
-    utils.writeToFile(constants.TAGS_FILE, { "tags": tags });
+    });
+    utils.writeToFile(TAGS_FILE, { "tags": tags });
 }
 
 function createUrlsData() {
     urls = [];
-    for (let i = 0; i < constants.AMOUNT_DATA_PER_FILE; i++) {
+    for (let i = 0; i < AMOUNT_DATA_PER_FILE; i++) {
         url = faker.internet.url();
         urls.push(url);
     }
-    utils.writeToFile(constants.URLS_FILE, { "urls": urls });
+    utils.writeToFile(URLS_FILE, { "urls": urls });
 }
 
 function getTitle(numCharacters = 100) {
@@ -78,8 +93,8 @@ function getTag(tagSize = 10) {
 }
 
 function getUrl() {
-    urls_json = utils.readFileAsJSON(constants.URLS_FILE);
-    return urls_json.urls[utils.getRandNumber(constants.AMOUNT_DATA_PER_FILE)];
+    urls_json = utils.readFileAsJSON(URLS_FILE);
+    return urls_json.urls[utils.getRandNumber(AMOUNT_DATA_PER_FILE)];
 }
 
 function createAllData() {
