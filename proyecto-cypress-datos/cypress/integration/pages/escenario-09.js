@@ -4,9 +4,16 @@ import {LoginPage} from '../../page-objects/login-page';
 import faker from 'faker';
 import { PageDataPage } from '../../page-objects/page-data-page';
 
-describe('Escenario-09: Create page empty title draft (positive)', () => {
+describe('Escenario-09: Update content page draft (aleatorio)', () => {
     const loginPage = new LoginPage();
     const pagePage = new PageDataPage();
+    let valueTitlePage;
+    let valueContentPage;
+   
+    before(() => {
+        valueTitlePage = faker.lorem.words(10);
+        valueContentPage = faker.lorem.words(10);
+    });
     
     beforeEach(() => {
         loginPage.visitPage();
@@ -16,10 +23,19 @@ describe('Escenario-09: Create page empty title draft (positive)', () => {
 
     it('Create page with title only', () => {
         pagePage.clickNewPage();
-        pagePage.fillPageContent(' ');
+        pagePage.fillPageTitle(valueTitlePage);
+        pagePage.returnList('Pages');
     })
 
-    it('Validate page in draft', () => {
-        pagePage.validateExistPageIn('(Untitled)');
+    it('Update content page in draft', () => {
+        pagePage.selectPage(valueTitlePage);
+        pagePage.fillPageContent(valueContentPage);
+        pagePage.returnList('Pages');
+    })
+
+    it('Validate content', ()=>{
+        pagePage.navigateToPagesPage();
+        pagePage.selectPage(valueTitlePage);
+        pagePage.validateExistConentPage(valueContentPage);
     })
 });

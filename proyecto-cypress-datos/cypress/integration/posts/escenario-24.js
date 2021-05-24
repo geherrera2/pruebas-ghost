@@ -27,15 +27,15 @@ context('Edit post title 100 chars with 100 paragraphs in the content - random d
     });
 
     it('Edit post title 100 chars', () => {
-        postPage.clickFirstElementPost();
         cy.task("getTitle", 100).then(titleToSet => {
+            postPage.selectPost(title);
             title = titleToSet;
             postPage.updateTitlePost(titleToSet);
-        });
-        cy.task("getParagraph", 100).then(contentBody => {
-            postPage.fillPostBody(contentBody);
-            postPage.openPublish();
-            postPage.publish();
+            cy.task("getParagraph", 100).then(contentBody => {
+                postPage.fillPostBody(contentBody);
+                postPage.openPublish();
+                postPage.publish();
+            });
         });
     });
 

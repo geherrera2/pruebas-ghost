@@ -4,16 +4,10 @@ import {LoginPage} from '../../page-objects/login-page';
 import faker from 'faker';
 import { PageDataPage } from '../../page-objects/page-data-page';
 
-describe('Escenario-03: Update content page draft (positive)', () => {
+describe('Escenario-03: Create page draft (aleatorio)', () => {
     const loginPage = new LoginPage();
     const pagePage = new PageDataPage();
-    let valueTitlePage;
-    let valueContentPage;
-   
-    before(() => {
-        cy.task("getTitle").then(resp => valueTitlePage = resp === '' || !resp ? 'vacio' :resp );
-        cy.task("getParagraph").then(resp => valueContentPage = resp === '' || !resp ? 'vacio' :resp );
-    });
+    let valueTitlePage = faker.lorem.words(25);
     
     beforeEach(() => {
         loginPage.visitPage();
@@ -27,15 +21,7 @@ describe('Escenario-03: Update content page draft (positive)', () => {
         pagePage.returnList('Pages');
     })
 
-    it('Update content page in draft', () => {
-        pagePage.selectPage(valueTitlePage);
-        pagePage.fillPageContent(valueContentPage);
-        pagePage.returnList('Pages');
-    })
-
-    it('Validate content', ()=>{
-        pagePage.navigateToPagesPage();
-        pagePage.selectPage(valueTitlePage);
-        pagePage.validateExistConentPage(valueContentPage);
+    it('Validate page in draft', () => {
+        pagePage.validateExistPageIn(valueTitlePage);
     })
 });

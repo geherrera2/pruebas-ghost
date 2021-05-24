@@ -1,8 +1,7 @@
 import { LoginPage } from '../../page-objects/login-page';
 import { SettingPage } from '../../page-objects/setting-page'
-import faker from 'faker';
 
-context('Scenario 17 - General Settings', () => {
+context('Scenario 17 - General Settings  - Pool de datos aleatorio dinámico', () => {
 
     const loginPage = new LoginPage();
     const settingsPage = new SettingPage();

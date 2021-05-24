@@ -23,8 +23,8 @@ context('Edit post title from 100 to 1999 chars - apriori data pool', () => {
     });
 
     it('Edit post from 100 chars to 1999', () => {
-        postPage.clickFirstElementPost();
         cy.task("getTitle", 1999).then(titleToSet => {
+            postPage.selectPost(title);
             title = titleToSet;
             postPage.updateTitlePost(titleToSet);
             postPage.openPublish();

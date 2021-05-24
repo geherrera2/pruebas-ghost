@@ -4,17 +4,18 @@ import {LoginPage} from '../../page-objects/login-page';
 import faker from 'faker';
 import { PageDataPage } from '../../page-objects/page-data-page';
 
-describe('Escenario-04: Create page and publish (positive)', () => {
+describe('Escenario-04: Create page title (size 1998) draft', () => {
     const loginPage = new LoginPage();
     const pagePage = new PageDataPage();
     let valueTitlePage;
-   
+    let sizeListPage = 0;
+
     before(() => {
-        cy.task("getTitle").then(title => {
+        cy.task("getTitle", 1998).then(title => {
             valueTitlePage = title;
         });
     });
-    
+
     beforeEach(() => {
         loginPage.visitPage();
         loginPage.login();
@@ -27,13 +28,7 @@ describe('Escenario-04: Create page and publish (positive)', () => {
         pagePage.returnList('Pages');
     })
 
-    it('Publish page', () => {
-
-        pagePage.selectPage(valueTitlePage);
-        pagePage.openPublish();
-        pagePage.publish();
-        pagePage.returnList('Pages');
-        pagePage.validateExistPageIn(valueTitlePage,'Published' );
-       
+    it('Validate page in draft', () => {
+        pagePage.validateNotExistPageIn(valueTitlePage);
     })
 });

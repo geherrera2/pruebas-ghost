@@ -8,7 +8,7 @@ context('Edit post title 100 chars publish future date - random scenario', () =>
     const loginPage = new LoginPage();
     const postPage = new PostPage();
     let title = '';
-    let contentBody = ''
+    let contentBody = '';
     const futureDate = dayjs(faker.date.future()).format('YYYY-MM-DD');
 
     beforeEach(() => {

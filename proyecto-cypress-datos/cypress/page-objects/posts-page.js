@@ -52,11 +52,16 @@ export class PostPage {
     assertUpdatePost(value) {
         cy.wait(1000);
         cy.get('ol.posts-list').children('.gh-posts-list-item').each(($el, index, $list) => {
-            let texto = $el.children('.gh-list-data').children('h3').text().trim();
-            console.log(texto, 'valueeee', value);
-            if (texto === value) {
-                console.log('found ', value);
+            let text = $el.children('.gh-list-data').children('h3').text().trim();
+            if (text === value) {
                 expect($list.eq(index)).to.contain(value);
+            }
+            if(index === ($list.length-1)){
+                if(text){
+                    expect(text).to.equal(value);
+                }else{
+                    expect("post title does not exist").to.equal(value);
+                } 
             }
         }
         );

@@ -8,7 +8,8 @@ context('Edit post title 100 chars with 500 paragraphs in the content - random s
     const loginPage = new LoginPage();
     const postPage = new PostPage();
     let title = '';
-
+    let newTitle = '';
+    
     beforeEach(() => {
         loginPage.visitPage();
         loginPage.login();
@@ -17,24 +18,22 @@ context('Edit post title 100 chars with 500 paragraphs in the content - random s
 
     it('Create post with title of 100 chars', () => {
         postPage.clickNewPost();
-        cy.task("getTitle", 100).then(titleToSet => {
-            title = titleToSet;
-            postPage.fillPostTitle(titleToSet);
-        });
+        title = faker.lorem.words(10).slice(0, 100);
+        postPage.fillPostTitle(title);
     });
 
     it('Edit post title 100 chars', () => {
-        title = faker.lorem.words(10).slice(0, 100);
+        newTitle = faker.lorem.words(10).slice(0, 100);
         contentBody = faker.lorem.paragraphs(500);
 
-        postPage.clickFirstElementPost();
-        postPage.updateTitlePost(title);
+        postPage.selectPost(title);
+        postPage.updateTitlePost(newTitle);
         postPage.fillPostBody(contentBody);
         postPage.openPublish();
         postPage.publish();
     });
 
     it('assert new title', () => {
-        postPage.assertUpdatePost(title);
+        postPage.assertUpdatePost(newTitle);
     });
   })

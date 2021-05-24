@@ -22,10 +22,11 @@ context('Edit post title 100 chars with 100 paragraphs in the content - random s
     });
 
     it('Edit post title 100 chars', () => {
+        postPage.selectPost(title);
+
         title = faker.lorem.words(10).slice(0, 100);
         contentBody = faker.lorem.paragraphs(100);
 
-        postPage.clickFirstElementPost();
         postPage.updateTitlePost(title);
         postPage.fillPostBody(contentBody);
         postPage.openPublish();
@@ -33,6 +34,6 @@ context('Edit post title 100 chars with 100 paragraphs in the content - random s
     });
 
     it('assert new title', () => {
-        postPage.assertUpdatePost(title);
+        postPage.validateExistPostIn(title,'Published');
     });
   })

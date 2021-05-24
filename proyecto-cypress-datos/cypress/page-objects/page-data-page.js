@@ -55,6 +55,22 @@ export class PageDataPage extends PagePage {
 
     }
 
+    selectPage(value) {
+        let idElemento;
+        cy.wait(1000)
+        cy.get('ol.gh-list ').children('.gh-posts-list-item').each(($el, index, $list) => {
+            let texto = $el.children('.gh-post-list-title').children('h3').text().trim();
+            if (texto === value) {
+                idElemento = $el.children('.gh-post-list-title').attr('id');
+            }
+
+            if(index === ($list.length-1)){
+                cy.wait(1000)
+                cy.get(`#`+idElemento).click({ force: true })
+            }
+        })
+    }
+
     validateExistConentPage(valueTitlePage){
         cy.get('[data-placeholder="Begin writing your page..."]').should(($p)=>{
             expect($p.first()).to.contain(valueTitlePage)
@@ -75,6 +91,13 @@ export class PageDataPage extends PagePage {
 
     wait(time){
         cy.wait(time);
+    }
+
+    selectExcerpt(value){
+        cy.wait(500);
+        cy.get('[name="post-setting-custom-excerpt"]').click().type(value);
+        cy.wait(500);
+        cy.get('.settings-menu-header-action').click();
     }
    
 

@@ -1,6 +1,5 @@
 import {LoginPage} from '../../page-objects/login-page';
 import {PostPage} from '../../page-objects/posts-page';
-import faker from 'faker';
 
 
 context('Edit post title 100 chars publish future date - apriori data pool', () => {
@@ -8,8 +7,6 @@ context('Edit post title 100 chars publish future date - apriori data pool', () 
     const loginPage = new LoginPage();
     const postPage = new PostPage();
     let title = '';
-    let contentBody = ''
-    const futureDate = dayjs(faker.date.future()).format('YYYY-MM-DD');
 
     beforeEach(() => {
         loginPage.visitPage();
@@ -19,17 +16,22 @@ context('Edit post title 100 chars publish future date - apriori data pool', () 
 
     it('Create post with title of 100 chars', () => {
         postPage.clickNewPost();
-        title = faker.lorem.words(10).slice(0, 100);
-        postPage.fillPostTitle(title);
+        cy.task("getTitle", 100).then(titleToSet => {
+            title = titleToSet;
+            postPage.fillPostTitle(titleToSet);
+        });
     });
 
     it('Edit post and publish future date', () => {
-        contentBody = faker.lorem.paragraphs(1);
-        postPage.selectPost(title);
-        postPage.fillPostBody(contentBody);
-        postPage.openPublish();
-        postPage.setDateScheduled(futureDate);
-        postPage.publish();
+        cy.task("getParagraph", 1).then(contentBody => {
+            postPage.selectPost(title);
+            postPage.fillPostBody(contentBody);
+            postPage.openPublish();
+            cy.task("getDateFuture").then(futureDate => {
+                postPage.setDateScheduled(futureDate);
+                postPage.publish();
+            });
+        });
     });
 
     it('assert scheduled', () => {

@@ -21,10 +21,11 @@ context('Edit post title 100 to 1999 with 100 paragraphs in the content - random
     });
 
     it('Edit post from 100 chars to 1999', () => {
+        postPage.selectPost(title);
+        
         title = faker.lorem.words(1000).slice(0, 1999);
         contentBody = faker.lorem.paragraphs(100);
 
-        postPage.clickFirstElementPost();
         postPage.updateTitlePost(title);
         postPage.fillPostBody(contentBody);
         postPage.openPublish();

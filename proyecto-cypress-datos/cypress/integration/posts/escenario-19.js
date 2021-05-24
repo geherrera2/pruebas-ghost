@@ -22,9 +22,10 @@ context('Edit post title from 100 to 1999 chars - random scenario', () => {
     });
 
     it('Edit post from 100 chars to 1999', () => {
+        postPage.selectPost(title);
+
         title = faker.lorem.words(1000).slice(0, 1999);
 
-        postPage.clickFirstElementPost();
         postPage.updateTitlePost(title);
         postPage.openPublish();
         postPage.publish();
