@@ -4,7 +4,7 @@
 Para generar un pool de datos previos a la ejecución de los escenarios de prueba, por favor remitase a las indicaciones del Paso 1. Esta estrategia y la ejecución del Paso 1 garantiza que los escenarios que usan este estilo van a tener unos datos que serán utilizados en el momento de ejecutar el escenario 
 
 ## Estategia pool de datos aleatorio - dinámico
-Esta estrategia básicamente hace uso de los metodos del proyecto data-pool encargados de generar todos los datos necesarios para ejecutar los casos de prueba, de tal manera que cuando un caso de prueba se ejecuta, este vuelve a crear los datos del pool y los usa según las necesidades del escenario
+Esta estrategia básicamente hace uso de los metodos del proyecto data-pool createContentData(),createTagsData(), createTitlesData(),  createUrlsData(), los cuales están encargados de generar todos los datos necesarios para ejecutar los casos de prueba, de tal manera que cuando un escenario se ejecuta, este vuelve a crear los datos del pool y los usa según las necesidades del escenario
 
 ## Estategia escenario aleatorio
 Esta estrategia permite generar datos de prueba mediante la utilización de la libreria faker, es decir que los datos son generados de manera dinámica y durante la ejecución del escenario
