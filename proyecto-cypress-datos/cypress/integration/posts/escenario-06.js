@@ -3,11 +3,15 @@
 import {LoginPage} from '../../page-objects/login-page';
 import {PostPage} from '../../page-objects/posts-page';
 
-describe('Test post creation with title 2001 chars', () => {
+describe('Test post creation with title 1998 chars - random data pool', () => {
     
     const loginPage = new LoginPage();
     const postPage = new PostPage();
     let title = '';
+
+    before(() => {
+        cy.task("createAllData");
+    });
 
     beforeEach(() => {
         loginPage.visitPage();
@@ -17,7 +21,7 @@ describe('Test post creation with title 2001 chars', () => {
 
     it('Create post with title only', () => {
         postPage.clickNewPost();
-        cy.task("getTitle", 2001).then(titleToSet => {
+        cy.task("getTitle", 1998).then(titleToSet => {
             title = titleToSet;
             postPage.fillPostTitle(titleToSet);
         });

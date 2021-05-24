@@ -3,7 +3,7 @@
 import {LoginPage} from '../../page-objects/login-page';
 import {PostPage} from '../../page-objects/posts-page';
 
-describe('Test post creation with title 100 chars', () => {
+describe('Test post creation with title 100 chars - apriori data pool', () => {
     
     const loginPage = new LoginPage();
     const postPage = new PostPage();

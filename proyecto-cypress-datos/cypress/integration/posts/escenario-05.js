@@ -3,7 +3,7 @@
 import {LoginPage} from '../../page-objects/login-page';
 import {PostPage} from '../../page-objects/posts-page';
 
-describe('Test post creation with title 2000 chars', () => {
+describe('Test post creation with title 1998 chars - apriori data pool', () => {
     
     const loginPage = new LoginPage();
     const postPage = new PostPage();
@@ -17,7 +17,7 @@ describe('Test post creation with title 2000 chars', () => {
 
     it('Create post with title only', () => {
         postPage.clickNewPost();
-        cy.task("getTitle", 2000).then(titleToSet => {
+        cy.task("getTitle", 1998).then(titleToSet => {
             title = titleToSet;
             postPage.fillPostTitle(titleToSet);
         });

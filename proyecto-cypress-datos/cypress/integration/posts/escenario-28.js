@@ -1,17 +1,13 @@
-/// <reference types="cypress" />
-
 import {LoginPage} from '../../page-objects/login-page';
 import {PostPage} from '../../page-objects/posts-page';
+import faker from 'faker';
 
-describe('Test post creation with title 100 chars - random data pool', () => {
-    
+
+context('Edit post title 100 chars with 500 paragraphs in the content - random scenario', () => {
+
     const loginPage = new LoginPage();
     const postPage = new PostPage();
     let title = '';
-
-    before(() => {
-        cy.task("createAllData");
-    });
 
     beforeEach(() => {
         loginPage.visitPage();
@@ -19,15 +15,26 @@ describe('Test post creation with title 100 chars - random data pool', () => {
         postPage.navigateToPostsPage();
     });
 
-    it('Create post with title only', () => {
+    it('Create post with title of 100 chars', () => {
         postPage.clickNewPost();
         cy.task("getTitle", 100).then(titleToSet => {
             title = titleToSet;
             postPage.fillPostTitle(titleToSet);
         });
     });
-    
-    it('Test post with this title now exists', () => {
+
+    it('Edit post title 100 chars', () => {
+        title = faker.lorem.words(10).slice(0, 100);
+        contentBody = faker.lorem.paragraphs(500);
+
+        postPage.clickFirstElementPost();
+        postPage.updateTitlePost(title);
+        postPage.fillPostBody(contentBody);
+        postPage.openPublish();
+        postPage.publish();
+    });
+
+    it('assert new title', () => {
         postPage.assertUpdatePost(title);
     });
-});
+  })

@@ -104,11 +104,18 @@ export class PostPage {
         cy.get('[placeholder="Post Title"]').click();
     }
 
-    clickOnPublishPost() {
+    openPublish() {
         cy.wait(500);
-        cy.get('.gh-publishmenu-trigger').click();
+        cy.get('.gh-publishmenu.ember-view').click();
+    }
+
+    publish() {
         cy.wait(500);
-        cy.get('.gh-publishmenu-button').click();
+        cy.get('button.gh-publishmenu-button').click();
+    }
+
+    setDateScheduled(date){
+        cy.get('.gh-publishmenu-section [placeholder="YYYY-MM-DD"]').click().clear().type(date);
     }
 
     assertPostPublished() {
@@ -121,6 +128,36 @@ export class PostPage {
             if (texto === postTitle) {
                 let idElemento = $el.children('.gh-post-list-title').attr('id');
                 cy.get(`#${idElemento}`).should('contain', authorAdded);
+            }
+        })
+    }
+
+    validateExistPostIn(titlePage, status = 'Draft') {
+        let valueItemStatus;
+        cy.get('ol.gh-list ').children('.gh-posts-list-item').each(($el, index, $list) => {
+            const texto = $el.children('.gh-post-list-title').children('h3').text().trim();
+            if (texto === titlePage) {
+                valueItemStatus = $el.children(`.gh-post-list-status`).text().trim();
+            }
+
+            if(index === ($list.length-1)){
+                if(valueItemStatus){
+                    expect(valueItemStatus).to.equal(status);
+                }else{
+                    expect("Post does not exist").to.equal(status);
+                } 
+            }
+        });
+
+    }
+
+    selectPost(value) {
+        cy.wait(500)
+        cy.get('ol.gh-list ').children('.gh-posts-list-item').each(($el, index, $list) => {
+            let texto = $el.children('.gh-post-list-title').children('h3').text().trim();
+            if (texto === value) {
+                let idElemento = $el.children('.gh-post-list-title').attr('id');
+                cy.get(`#${idElemento}`).first().click({ force: true })
             }
         })
     }

@@ -1,9 +1,11 @@
+/// <reference types="cypress" />
+
 import {LoginPage} from '../../page-objects/login-page';
 import {PostPage} from '../../page-objects/posts-page';
+import faker from 'faker';
 
-
-context('Edit post title from 100 to 1999 chars', () => {
-
+describe('Test post creation with title 1998 chars - random scenario', () => {
+    
     const loginPage = new LoginPage();
     const postPage = new PostPage();
     let title = '';
@@ -14,26 +16,13 @@ context('Edit post title from 100 to 1999 chars', () => {
         postPage.navigateToPostsPage();
     });
 
-    it('Create post with title of 100 chars', () => {
+    it('Create post with title only', () => {
         postPage.clickNewPost();
-        cy.task("getTitle", 100).then(titleToSet => {
-            title = titleToSet;
-            postPage.fillPostTitle(titleToSet);
-        });
+        title = faker.lorem.words(1000).slice(0, 1998);
+        postPage.fillPostTitle(title);
     });
-
-    it('Edit post from 100 chars to 1999', () => {
-        cy.wait(500);
-        postPage.clickFirstElementPost();
-        cy.task("getTitle", 1999).then(titleToSet => {
-            title = titleToSet;
-            postPage.updateTitlePost(titleToSet);
-            postPage.clickUpdatePost();
-            postPage.navigateToPostsPage();
-        });
-    });
-
-    it('assert new title', () => {
+    
+    it('Test post with this title now exists', () => {
         postPage.assertUpdatePost(title);
-    })
-  })
+    });
+});

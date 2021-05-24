@@ -2,9 +2,8 @@
 
 import {LoginPage} from '../../page-objects/login-page';
 import {PostPage} from '../../page-objects/posts-page';
-import faker from 'faker';
 
-describe('Test post creation with title 1999 chars  - random scenario', () => {
+describe('Test post creation with title 2001 chars - apriori data pool', () => {
     
     const loginPage = new LoginPage();
     const postPage = new PostPage();
@@ -18,8 +17,10 @@ describe('Test post creation with title 1999 chars  - random scenario', () => {
 
     it('Create post with title only', () => {
         postPage.clickNewPost();
-        title = faker.lorem.words(1000).slice(0, 1999);
-        postPage.fillPostTitle(title);
+        cy.task("getTitle", 2001).then(titleToSet => {
+            title = titleToSet;
+            postPage.fillPostTitle(titleToSet);
+        });
     });
     
     it('Test post with this title now exists', () => {
