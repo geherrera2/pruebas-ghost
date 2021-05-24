@@ -14,6 +14,7 @@
 const getTitle = require('../../../data-pool').getTitle;
 const getParagraph = require('../../../data-pool').getParagraph;
 const getTag = require('../../../data-pool').getTag;
+const getUrl = require('../../../data-pool').getUrl;
 const createAllData = require('../../../data-pool').createAllData;
 
 /**
@@ -34,10 +35,13 @@ module.exports = (on, config) => {
     getParagraph(numParagraphs=1) {
       return getParagraph(numParagraphs);
     },
+    getUrl() {
+      return getUrl();
+    },
     createAllData() {
       return createAllData();
     }
-    
-});
+
+  });
 
 }
