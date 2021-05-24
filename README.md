@@ -109,6 +109,40 @@ datos para título, tags y contenido. Al final, aparecerá un título, párrafo 
 |  29 | Edit URL of your publication's Twitter profile | - Hacer sign in, - Clic en General Settings, - Expander Social accounts, - Ingresar información en URL of your publication's Twitter profile, - Clic en Save settings, - Verificar que Saved es mostrado | Pool de datos aleatorio dinámico |
 |  30 | Edit URL of your publication's Twitter profile | - Hacer sign in, - Clic en General Settings, - Expander Social accounts, - Ingresar información en URL of your publication's Twitter profile, - Clic en Save settings, - Verificar que Saved es mostrado | Escenario aleatorio |
 
+## Tabla escenarios Tags
+| # | Funcionalidad |  Detalles del flujo | Estrategia Pool | 
+| -------------- | :--------- | :---------- | :--------- |  :--------- |
+|  1 |  Crear Tag solo name |  Hacer sign in, - Tags, - Crear tag, - Regresarse out   | Pool de datos a-priori |
+|  2 |  Crear Tag con toda la informacion   |   Hacer sign in, - Tags, - Crear tag, - Regresarse out | Escenario aleatorio |
+|  3 |  Crear Tag Interno   |   Hacer sign in, - Tags, - Crear tag, - Regresarse out | Escenario aleatorio |
+|  4 |  Crear Tag con 100 caracteres   |   Hacer sign in, - Tags, - Crear tag, - Regresarse out |  Pool de datos a-priori |
+|  5 |  Editar Tag   |   Hacer sign in, - Tags, - Crear tag, -buscar Tag, -modificar tag - Regresarse out |  Pool de datos a-priori |
+|  6 |  Editar Tag publico a internal   |   Hacer sign in, - Tags, - Crear tag, -buscar Tag, -modificar tag - Regresarse out |  Escenario aleatorio |
+|  7 |  Editar Tag descripcion con mas de 500 caracteres   |   Hacer sign in, - Tags, - Crear tag, - Regresarse out |  Escenario aleatorio |
+|  8 |  Eliminar Tag   |   Hacer sign in, - Tags, - Crear tag, - Buscar Tag, -Eliminar Tag,  - Regresarse out |  Escenario aleatorio |
+|  9 |  Crear Tag vacio   |   Hacer sign in, - Tags, - Crear tag,  - Regresarse out |  Escenario aleatorio |
+|  10 |  Crear Tag con valor de color no hexadeximal   |   Hacer sign in, - Tags, - Crear tag,  - Regresarse out |  Escenario aleatorio |
+|  11 |  Abandonar la creacion de un tag |   Hacer sign in, - Tags, - Crear tag,  - Regresarse out |  Escenario aleatorio |
+|  12 |  Crear tag con la opcion "Stay"|   Hacer sign in, - Tags, - Crear tag,  - Regresarse out |  Escenario aleatorio |
+|  13 |  Cancelar la eliminacion de un tag |   Hacer sign in, - Tags, - Crear tag, - Buscar Tag, -Eliminar Tag,  - Regresarse out |  Escenario aleatorio |
+|  14 |  Crear Tag solo name |  Hacer sign in, - Tags, - Crear tag, - Regresarse out   | Escenario aleatorio |
+|  15 |  Crear Tag solo name |  Hacer sign in, - Tags, - Crear tag, - Regresarse out   | Pool de datos aleatorio dinámico |
+|  16 |  Crear Tag Interno   |   Hacer sign in, - Tags, - Crear tag, - Regresarse out |  Pool de datos a-priori |
+|  17 |  Crear Tag Interno   |   Hacer sign in, - Tags, - Crear tag, - Regresarse out |  Pool de datos aleatorio dinámico |
+|  18 |  Crear Tag con 100 caracteres   |   Hacer sign in, - Tags, - Crear tag, - Regresarse out |  Escenario aleatorio |
+|  19 |  Crear Tag con 100 caracteres   |   Hacer sign in, - Tags, - Crear tag, - Regresarse out |  Pool de datos aleatorio dinámico |
+|  20 |  Editar Tag   |   Hacer sign in, - Tags, - Crear tag, -buscar Tag, -modificar tag - Regresarse out |  Escenario aleatorio |
+|  21 |  Editar Tag   |   Hacer sign in, - Tags, - Crear tag, -buscar Tag, -modificar tag - Regresarse out |  Pool de datos aleatorio dinámico |
+|  22 |  Editar Tag publico a internal   |   Hacer sign in, - Tags, - Crear tag, -buscar Tag, -modificar tag - Regresarse out |  Pool de datos a-priori  |
+|  23 |  Editar Tag publico a internal   |   Hacer sign in, - Tags, - Crear tag, -buscar Tag, -modificar tag - Regresarse out |  Pool de datos aleatorio dinámico  |
+|  24 |  Eliminar Tag   |   Hacer sign in, - Tags, - Crear tag, - Buscar Tag, -Eliminar Tag,  - Regresarse out |  Pool de datos a-priori |
+|  25 |  Eliminar Tag   |   Hacer sign in, - Tags, - Crear tag, - Buscar Tag, -Eliminar Tag,  - Regresarse out |  Pool de datos aleatorio dinámico |
+|  26 |  Abandonar la creacion de un tag |   Hacer sign in, - Tags, - Crear tag,  - Regresarse out |  Pool de datos a-priori  |
+|  27 |  Abandonar la creacion de un tag |   Hacer sign in, - Tags, - Crear tag,  - Regresarse out |  Pool de datos aleatorio dinámico  |
+|  28 |  Crear tag con la opcion "Stay"|   Hacer sign in, - Tags, - Crear tag,  - Regresarse out |  Pool de datos a-priori |
+|  29 |  Crear tag con la opcion "Stay"|   Hacer sign in, - Tags, - Crear tag,  - Regresarse out |  Pool de datos aleatorio dinámico |
+|  30 |  Cancelar la eliminacion de un tag |   Hacer sign in, - Tags, - Crear tag, - Buscar Tag, -Eliminar Tag,  - Regresarse out |  Pool de datos a-priori |
+
 # Entrega Semana 5-6
 # Implementación de pruebas automatizadas con Kraken y Cypress
 ## Tabla funcionalidades
