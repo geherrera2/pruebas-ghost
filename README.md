@@ -20,7 +20,7 @@ Para usarlo, realice los siguientes pasos:
 
 1. Usando la línea de comandos ubíquese en la carpeta **data-pool**
 2. Ejecute la instrucción **npm install** para instalar las dependencias necesarias
-3. Diríjase a la carpeta **proyecto-cypress** y ejecute el comando node **node ../data-pool/start.js**
+3. Diríjase a la carpeta **proyecto-cypress-datos** y ejecute el comando node **node ../data-pool/start.js**
 Esto creará una nueva carpeta llamada "data" donde se alojarán, en archivos separados,
 datos para título, tags y contenido. Al final, aparecerá un título, párrafo y tag en la consola.
 
