@@ -4,15 +4,15 @@ import {LoginPage} from '../../page-objects/login-page';
 import faker from 'faker';
 import { PageDataPage } from '../../page-objects/page-data-page';
 
-describe('Escenario-03: Update content page draft (positive)', () => {
+describe('Escenario-04: Create page and publish (positive)', () => {
     const loginPage = new LoginPage();
     const pagePage = new PageDataPage();
     let valueTitlePage;
-    let valueContentPage;
    
     before(() => {
-        valueTitlePage = faker.lorem.words(10);
-        valueContentPage = faker.lorem.words(10);
+        cy.task("getTitle").then(title => {
+            valueTitlePage = title;
+        });
     });
     
     beforeEach(() => {
@@ -27,15 +27,13 @@ describe('Escenario-03: Update content page draft (positive)', () => {
         pagePage.returnList('Pages');
     })
 
-    it('Update content page in draft', () => {
-        pagePage.selectPage(valueTitlePage);
-        pagePage.fillPageContent(valueContentPage);
-        pagePage.returnList('Pages');
-    })
+    it('Publish page', () => {
 
-    it('Validate content', ()=>{
-        pagePage.navigateToPagesPage();
         pagePage.selectPage(valueTitlePage);
-        pagePage.validateExistConentPage(valueContentPage);
+        pagePage.openPublish();
+        pagePage.publish();
+        pagePage.returnList('Pages');
+        pagePage.validateExistPageIn(valueTitlePage,'Published' );
+       
     })
 });
