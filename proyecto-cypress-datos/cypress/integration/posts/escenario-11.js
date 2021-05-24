@@ -2,14 +2,12 @@
 
 import {LoginPage} from '../../page-objects/login-page';
 import {PostPage} from '../../page-objects/posts-page';
-import faker from 'faker';
 
-describe('Test post creation with special characters', () => {
+describe('Test post creation with title 2000 chars - apriori data pool', () => {
     
     const loginPage = new LoginPage();
     const postPage = new PostPage();
     let title = '';
-    faker.locale = 'ru';
 
     beforeEach(() => {
         loginPage.visitPage();
@@ -18,9 +16,11 @@ describe('Test post creation with special characters', () => {
     });
 
     it('Create post with title only', () => {
-        title = faker.lorem.words(5);
         postPage.clickNewPost();
-        postPage.fillPostTitle(title);
+        cy.task("getTitle", 2000).then(titleToSet => {
+            title = titleToSet;
+            postPage.fillPostTitle(titleToSet);
+        });
     });
     
     it('Test post with this title now exists', () => {
