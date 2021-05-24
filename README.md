@@ -110,8 +110,8 @@ datos para título, tags y contenido. Al final, aparecerá un título, párrafo 
 |  30 | Edit URL of your publication's Twitter profile | - Hacer sign in, - Clic en General Settings, - Expander Social accounts, - Ingresar información en URL of your publication's Twitter profile, - Clic en Save settings, - Verificar que Saved es mostrado | Escenario aleatorio |
 
 ## Tabla escenarios Tags
-| # | Funcionalidad |  Detalles del flujo | Estrategia Pool | 
-| -------------- | :--------- | :---------- | :--------- |  :--------- |
+| # | Escenario | Detalles del flujo | Estrategia |
+| -------------- | :--------- | :---------- | :--------- |
 |  1 |  Crear Tag solo name |  Hacer sign in, - Tags, - Crear tag, - Regresarse out   | Pool de datos a-priori |
 |  2 |  Crear Tag con toda la informacion   |   Hacer sign in, - Tags, - Crear tag, - Regresarse out | Escenario aleatorio |
 |  3 |  Crear Tag Interno   |   Hacer sign in, - Tags, - Crear tag, - Regresarse out | Escenario aleatorio |
