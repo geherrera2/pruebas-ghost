@@ -76,6 +76,13 @@ export class PageDataPage extends PagePage {
     wait(time){
         cy.wait(time);
     }
+
+    selectExcerpt(value){
+        cy.wait(500);
+        cy.get('[name="post-setting-custom-excerpt"]').click().type(value);
+        cy.wait(500);
+        cy.get('.settings-menu-header-action').click();
+    }
    
 
 }

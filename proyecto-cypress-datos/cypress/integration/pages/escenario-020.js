@@ -1,18 +1,22 @@
 /// <reference types="cypress" />
 
 import {LoginPage} from '../../page-objects/login-page';
-import faker from 'faker';
 import { PageDataPage } from '../../page-objects/page-data-page';
 
-describe('Escenario-03: Update content page draft (positive)', () => {
+describe('Escenario-20: Create page and Scheduled (positive)', () => {
     const loginPage = new LoginPage();
     const pagePage = new PageDataPage();
     let valueTitlePage;
-    let valueContentPage;
-   
+    let fecha;
+
     before(() => {
-        valueTitlePage = faker.lorem.words(10);
-        valueContentPage = faker.lorem.words(10);
+        cy.task("createAllData");
+        cy.task("getDateFuture").then(resp => {
+            fecha = resp;
+        });
+        cy.task("getTitle").then(resp => {
+            valueTitlePage = resp;
+        });
     });
     
     beforeEach(() => {
@@ -27,15 +31,13 @@ describe('Escenario-03: Update content page draft (positive)', () => {
         pagePage.returnList('Pages');
     })
 
-    it('Update content page in draft', () => {
+    it('Publish page', () => {
         pagePage.selectPage(valueTitlePage);
-        pagePage.fillPageContent(valueContentPage);
+        pagePage.openPublish();
+        pagePage.setDateScheduled(fecha);
+        pagePage.publish();
         pagePage.returnList('Pages');
-    })
-
-    it('Validate content', ()=>{
-        pagePage.navigateToPagesPage();
-        pagePage.selectPage(valueTitlePage);
-        pagePage.validateExistConentPage(valueContentPage);
+        pagePage.validateExistPageIn(valueTitlePage,'Scheduled' );
+       
     })
 });

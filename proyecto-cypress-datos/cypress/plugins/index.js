@@ -15,6 +15,8 @@ const getTitle = require('../../../data-pool').getTitle;
 const getParagraph = require('../../../data-pool').getParagraph;
 const getTag = require('../../../data-pool').getTag;
 const getUrl = require('../../../data-pool').getUrl;
+const getDateFuture = require('../../../data-pool').getDateFuture;
+const getDatePass = require('../../../data-pool').getDatePass;
 const createAllData = require('../../../data-pool').createAllData;
 
 /**
@@ -40,6 +42,12 @@ module.exports = (on, config) => {
     },
     createAllData() {
       return createAllData();
+    },
+    getDateFuture(){
+      return getDateFuture();
+    },
+    getDatePass(){
+      return getDatePass();
     }
 
   });
