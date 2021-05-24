@@ -42,10 +42,38 @@ datos para título, tags y contenido. Al final, aparecerá un título, párrafo 
 |4| Ejecutar el comando cypress run  |
 
 ## Tabla escenarios Page
-| # | Funcionalidad | Escenario | Detalles del flujo | Estrategia Pool | 
-| -------------- | :--------- | :---------- | :--------- |  :--------- |
-|  1 |  Post                | Crear Post                | Hacer sign in, - Post, - Crear post, - Regresarse out  | a-priori |
-|  2 |  Post                | Editar Post               |  Hacer sign in,Post,Buscar post,Editar el post,Listar posts,Log out | a-priori |
+| #  | Funcionalidad                                   | Detalles del flujo                                          | Estrategia                       |
+| -- | ----------------------------------------------- | ----------------------------------------------------------- | -------------------------------- |
+| 1  | Create page draft                               | \- Hacer sign in<br>\- Page<br>\- Crear page                | Pool de datos a-priori           |
+| 2  | Create page draft                               | \- Hacer sign in<br>\- Page<br>\- Crear page                | Pool de datos aleatorio dinámico |
+| 3  | Create page draft                               | \- Hacer sign in<br>\- Page<br>\- Crear page                | Escenario aleatorio              |
+| 4  | Create page title (size 1998)                   | \- Hacer sign in<br>\- Page<br>\- Crear page                | Pool de datos a-priori           |
+| 5  | Create page title (size 1998)                   | \- Hacer sign in<br>\- Page<br>\- Crear page                | Pool de datos aleatorio dinámico |
+| 6  | Create page title (size 1998)                   | \- Hacer sign in<br>\- Page<br>\- Crear page                | Escenario aleatorio              |
+| 7  | Update content page draft                       | \- Hacer sign in<br>\- Page<br>\- Update page               | Pool de datos a-priori           |
+| 8  | Update content page draft                       | \- Hacer sign in<br>\- Page<br>\- Update page               | Pool de datos aleatorio dinámico |
+| 9  | Update content page draft                       | \- Hacer sign in<br>\- Page<br>\- Update page               | Escenario aleatorio              |
+| 10 | Create page and publish                         | \- Hacer sign in<br>\- Page<br>\- Crear page<br>\- Publish  | Pool de datos a-priori           |
+| 11 | Create page and publish                         | \- Hacer sign in<br>\- Page<br>\- Crear page<br>\- Publish  | Pool de datos aleatorio dinámico |
+| 12 | Create page and publish                         | \- Hacer sign in<br>\- Page<br>\- Crear page<br>\- Publish  | Escenario aleatorio              |
+| 13 | Update content page and publish                 | \- Hacer sign in<br>\- Page<br>\- Update page<br>\- Publish | Pool de datos a-priori           |
+| 14 | Update content page and publish                 | \- Hacer sign in<br>\- Page<br>\- Update page<br>\- Publish | Pool de datos aleatorio dinámico |
+| 15 | Update content page and publish                 | \- Hacer sign in<br>\- Page<br>\- Update page<br>\- Publish | Escenario aleatorio              |
+| 16 | Update content page one character and publish   | \- Hacer sign in<br>\- Page<br>\- Update page<br>\- Publish | Pool de datos a-priori           |
+| 17 | Update content page one character and publish   | \- Hacer sign in<br>\- Page<br>\- Update page<br>\- Publish | Pool de datos aleatorio dinámico |
+| 18 | Update content page one character and publish   | \- Hacer sign in<br>\- Page<br>\- Update page<br>\- Publish | Escenario aleatorio              |
+| 19 | Create page and Scheduled                       | \- Hacer sign in<br>\- Page<br>\- Crear page<br>\- Publish  | Pool de datos a-priori           |
+| 20 | Create page and Scheduled                       | \- Hacer sign in<br>\- Page<br>\- Crear page<br>\- Publish  | Pool de datos aleatorio dinámico |
+| 21 | Create page and Scheduled                       | \- Hacer sign in<br>\- Page<br>\- Crear page<br>\- Publish  | Escenario aleatorio              |
+| 22 | Create page and Scheduled -negative             | \- Hacer sign in<br>\- Page<br>\- Crear page<br>\- Publish  | Pool de datos a-priori           |
+| 23 | Create page and Scheduled -negative             | \- Hacer sign in<br>\- Page<br>\- Crear page<br>\- Publish  | Pool de datos aleatorio dinámico |
+| 24 | Create page and Scheduled -negative             | \- Hacer sign in<br>\- Page<br>\- Crear page<br>\- Publish  | Escenario aleatorio              |
+| 25 | Update content page and change status Scheduled | \- Hacer sign in<br>\- Page<br>\- Update page<br>\- Publish | Pool de datos a-priori           |
+| 26 | Update content page and change status Scheduled | \- Hacer sign in<br>\- Page<br>\- Update page<br>\- Publish | Pool de datos aleatorio dinámico |
+| 27 | Update content page and change status Scheduled | \- Hacer sign in<br>\- Page<br>\- Update page<br>\- Publish | Escenario aleatorio              |
+| 28 | Update settings excerpt page and publish        | \- Hacer sign in<br>\- Page<br>\- Update page<br>\- Publish | Pool de datos a-priori           |
+| 29 | Update settings excerpt page and publish        | \- Hacer sign in<br>\- Page<br>\- Update page<br>\- Publish | Pool de datos aleatorio dinámico |
+| 30 | Update settings excerpt page and publish        | \- Hacer sign in<br>\- Page<br>\- Update page<br>\- Publish | Escenario aleatorio              |
 
 
 # Entrega Semana 5-6
