@@ -10,7 +10,7 @@ describe('Escenario-06: Create page title (size 1998) draft', () => {
     let valueTitlePage;
 
     before(() => {
-        valueTitlePage = faker.lorem.words(1998);;
+        valueTitlePage = faker.lorem.words(500);
     });
 
     beforeEach(() => {
