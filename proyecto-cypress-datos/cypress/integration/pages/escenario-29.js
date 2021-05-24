@@ -4,17 +4,17 @@ import {LoginPage} from '../../page-objects/login-page';
 import faker from 'faker';
 import { PageDataPage } from '../../page-objects/page-data-page';
 
-describe('Escenario-012: Update settings excerpt page and publish (positive)', () => {
+describe('Escenario-029: Update settings excerpt page and publish (aleatorio dinámico)', () => {
     const loginPage = new LoginPage();
     const pagePage = new PageDataPage();
     let valueTitlePage;
     let valueContentPage;
    
     before(() => {
+        cy.task("createAllData");
         cy.task("getTitle", 100).then(title => {
             valueTitlePage = title;
         });
-
         cy.task("getParagraph",1).then(resp => {
             valueContentPage = resp;
         });
@@ -26,22 +26,20 @@ describe('Escenario-012: Update settings excerpt page and publish (positive)', (
         pagePage.navigateToPagesPage();
     });
 
-    // it('Create page with title only', () => {
-    //     pagePage.clickNewPage();
-    //     pagePage.fillPageTitle(valueTitlePage);
-    //     pagePage.returnList('Pages');
-    // })
+    it('Create page with title only', () => {
+        pagePage.clickNewPage();
+        pagePage.fillPageTitle(valueTitlePage);
+        pagePage.returnList('Pages');
+    })
     
     it('Publish page', () => {
-        pagePage.selectPage("Voluptatem est sed omnis harum sed non modi quibusdam recusandae voluptas illo necessitatibus doloru");
+        pagePage.selectPage(valueTitlePage);
         pagePage.openSettings();
         pagePage.selectExcerpt(valueContentPage);
-        // pagePage.fillPageContent(valueContentPage)
-        // pagePage.wait(1000)
-        // pagePage.openPublish();
-        // pagePage.publish();
-        // pagePage.returnList('Pages');
-        // pagePage.validateExistPageIn(valueTitlePage,'Published' );
-       
+        pagePage.wait(1000)
+        pagePage.openPublish();
+        pagePage.publish();
+        pagePage.returnList('Pages');
+        pagePage.validateExistPageIn(valueTitlePage,'Published' );
     })
 });

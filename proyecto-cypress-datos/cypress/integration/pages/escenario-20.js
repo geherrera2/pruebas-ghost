@@ -1,18 +1,21 @@
 /// <reference types="cypress" />
 
 import {LoginPage} from '../../page-objects/login-page';
-import faker from 'faker';
 import { PageDataPage } from '../../page-objects/page-data-page';
 
-describe('Escenario-04: Create page and publish (positive)', () => {
+describe('Escenario-20: Create page and Scheduled (aleatorio dinámico)', () => {
     const loginPage = new LoginPage();
     const pagePage = new PageDataPage();
     let valueTitlePage;
-   
+    let fecha;
+
     before(() => {
         cy.task("createAllData");
-        cy.task("getTitle").then(title => {
-            valueTitlePage = title;
+        cy.task("getDateFuture").then(resp => {
+            fecha = resp;
+        });
+        cy.task("getTitle").then(resp => {
+            valueTitlePage = resp;
         });
     });
     
@@ -29,12 +32,12 @@ describe('Escenario-04: Create page and publish (positive)', () => {
     })
 
     it('Publish page', () => {
-
         pagePage.selectPage(valueTitlePage);
         pagePage.openPublish();
+        pagePage.setDateScheduled(fecha);
         pagePage.publish();
         pagePage.returnList('Pages');
-        pagePage.validateExistPageIn(valueTitlePage,'Published' );
+        pagePage.validateExistPageIn(valueTitlePage,'Scheduled' );
        
     })
 });

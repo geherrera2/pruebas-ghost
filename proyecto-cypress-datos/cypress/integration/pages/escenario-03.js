@@ -4,7 +4,7 @@ import {LoginPage} from '../../page-objects/login-page';
 import faker from 'faker';
 import { PageDataPage } from '../../page-objects/page-data-page';
 
-describe('Escenario-01: Create page draft (aleatorio)', () => {
+describe('Escenario-03: Create page draft (aleatorio)', () => {
     const loginPage = new LoginPage();
     const pagePage = new PageDataPage();
     let valueTitlePage = faker.lorem.words(25);

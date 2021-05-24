@@ -1,18 +1,22 @@
 /// <reference types="cypress" />
 
 import {LoginPage} from '../../page-objects/login-page';
-import faker from 'faker';
 import { PageDataPage } from '../../page-objects/page-data-page';
 
-describe('Escenario-028: Update settings excerpt page and publish (positive)', () => {
+describe('Escenario-13: Update content page and publish (apriori)', () => {
     const loginPage = new LoginPage();
     const pagePage = new PageDataPage();
     let valueTitlePage;
     let valueContentPage;
    
     before(() => {
-        valueTitlePage = faker.lorem.word(5);
-        valueContentPage = faker.lorem.word(5);
+        cy.task("getTitle", 100).then(title => {
+            valueTitlePage = title;
+        });
+
+        cy.task("getParagraph",500).then(resp => {
+            valueContentPage = resp;
+        });
     });
     
     beforeEach(() => {
@@ -29,12 +33,12 @@ describe('Escenario-028: Update settings excerpt page and publish (positive)', (
     
     it('Publish page', () => {
         pagePage.selectPage(valueTitlePage);
-        pagePage.openSettings();
-        pagePage.selectExcerpt(valueContentPage);
+        pagePage.fillPageContent(valueContentPage)
         pagePage.wait(1000)
         pagePage.openPublish();
         pagePage.publish();
         pagePage.returnList('Pages');
         pagePage.validateExistPageIn(valueTitlePage,'Published' );
+       
     })
 });

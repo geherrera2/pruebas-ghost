@@ -4,13 +4,15 @@ import {LoginPage} from '../../page-objects/login-page';
 import faker from 'faker';
 import { PageDataPage } from '../../page-objects/page-data-page';
 
-describe('Escenario-010: Create page draft one charater (positive)', () => {
+describe('Escenario-18: Update content page one character and publish (aleatorio)', () => {
     const loginPage = new LoginPage();
     const pagePage = new PageDataPage();
     let valueTitlePage;
+    let valueContentPage;
    
     before(() => {
-        valueTitlePage = faker.lorem.word(1);
+        valueTitlePage = faker.lorem.word(2);
+        valueContentPage = faker.lorem.word(1);
     });
     
     beforeEach(() => {
@@ -24,8 +26,14 @@ describe('Escenario-010: Create page draft one charater (positive)', () => {
         pagePage.fillPageTitle(valueTitlePage);
         pagePage.returnList('Pages');
     })
-
-    it('Validate page in draft', () => {
-        pagePage.validateExistPageIn(valueTitlePage);
+    
+    it('Publish page', () => {
+        pagePage.selectPage(valueTitlePage);
+        pagePage.fillPageContent(valueContentPage)
+        pagePage.wait(1000)
+        pagePage.openPublish();
+        pagePage.publish();
+        pagePage.returnList('Pages');
+        pagePage.validateExistPageIn(valueTitlePage,'Published' );
     })
 });

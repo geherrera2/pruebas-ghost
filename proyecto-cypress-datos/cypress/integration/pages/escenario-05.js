@@ -4,7 +4,7 @@ import {LoginPage} from '../../page-objects/login-page';
 import faker from 'faker';
 import { PageDataPage } from '../../page-objects/page-data-page';
 
-describe('Escenario-02: Create page title (size 1998) draft (negative)', () => {
+describe('Escenario-05: Create page title (size 1998) draft', () => {
     const loginPage = new LoginPage();
     const pagePage = new PageDataPage();
     let valueTitlePage;

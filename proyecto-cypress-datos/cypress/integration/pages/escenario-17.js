@@ -4,7 +4,7 @@ import {LoginPage} from '../../page-objects/login-page';
 import faker from 'faker';
 import { PageDataPage } from '../../page-objects/page-data-page';
 
-describe('Escenario-07: Update content page and publish (positive)', () => {
+describe('Escenario-17: Update content page one character and publish (aleatorio dinámico)', () => {
     const loginPage = new LoginPage();
     const pagePage = new PageDataPage();
     let valueTitlePage;
@@ -12,13 +12,11 @@ describe('Escenario-07: Update content page and publish (positive)', () => {
    
     before(() => {
         cy.task("createAllData");
-        cy.task("getTitle", 100).then(title => {
+        cy.task("getTitle", 1).then(title => {
             valueTitlePage = title;
+            valueContentPage = title;
         });
 
-        cy.task("getParagraph",500).then(resp => {
-            valueContentPage = resp;
-        });
     });
     
     beforeEach(() => {
@@ -41,6 +39,5 @@ describe('Escenario-07: Update content page and publish (positive)', () => {
         pagePage.publish();
         pagePage.returnList('Pages');
         pagePage.validateExistPageIn(valueTitlePage,'Published' );
-       
     })
 });
