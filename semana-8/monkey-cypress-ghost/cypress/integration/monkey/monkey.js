@@ -7,8 +7,6 @@ const appName = Cypress.env('appName')|| "your app"
 const events = Cypress.env('events')|| 1000
 const delay = Cypress.env('delay') || 100
 var seed = Cypress.env('seed')
-const username = Cypress.env('username' || 'ge.herrera2@uniandes.edu.co')
-const password = Cypress.env('password' || 'bogota2020.')
 
 const pct_clicks = Cypress.env('pctClicks') || 36
 const pct_scrolls = Cypress.env('pctScroll') || 0
