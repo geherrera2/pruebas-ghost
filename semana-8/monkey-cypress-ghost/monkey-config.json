@@ -1,0 +1,24 @@
+{
+    "projectId":"TSDL-Monkey-with-cypress",
+    "baseUrl":"http://localhost:2368/ghost/#/signin",
+    "env":{
+        "username": "ge.herrera2@uniandes.edu.co",
+        "password": "bogota2020.",
+        "appName":"App prueba",
+        "events":1000,
+        "delay":300,
+        "seed":1234,
+        "pctClicks":36,
+        "pctScroll":0,
+        "pctSelectors":16,
+        "pctKeys":16,
+        "pctSpKeys":16,
+        "pctPgNav":16
+    },
+    "integrationFolder": "./cypress/integration/monkey",
+    "pluginsFile": "./cypress/plugins/index.js",
+    "pageLoadTimeout":120000,
+    "defaultCommandTimeout":120000,
+    "testFiles": "monkey.js",
+    "videosFolder":"./results"
+}
