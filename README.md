@@ -1,7 +1,84 @@
 # Entrega Semana 8
 
+## Estrategia de pruebas
+
+- https://drive.google.com/file/d/1tL5h6POe2XK1tyutxISG0d7oR_01sv16/view?usp=sharing
+
 ##  Inventario de pruebas exploratorias
  - https://drive.google.com/file/d/1RAOTETy0NyOG6Ar7D8tFJbLAu69eeDah/view?usp=sharing
+
+## Instrucciones para correr las pruebas de exploración sistematica
+
+    1. Ingresar a la carpeta “monkey-cypress-ghost”
+    2. Instalar las dependencias con el comando npm install
+    3. Configurar la url y las credenciales del sitio en el archivo semana-8/monkey-cypress-ghost/monkey-config.json
+    4. ejecuar el comando cypress open
+ 
+## Instrucciones para generación pruebas VRT  
+### Generar reporte de pruebas visuales de regresión usando ResembleJS
+| Paso # | Descripción |
+| :--------------: | :--------- |
+|1| Clonar el repositorio |
+|2| Ingresar en su sistema de archivos a la carpeta resemble |
+|3| (Optional) Editar el archivo config.json y en el nodo stories colocar los escenarios a los cuales desea comparar y obtener el reporte, por defecto este archivo tiene todos los 20 escenarios definidos en la documentación |
+|4| Asegurarse de haber ejecutado los escenarios de prueba usando Cypress en las dos versiones de Ghost (v3.3.0 y v.3.42.5) con la finalidad de tener los screenshots de las pruebas, recuerde que al ejecutar Cypress el tomará screenshots luego de cada paso o step en la ejecución de un escenario |
+|5| Abrir una consola de comandos dentro de la carpeta resemble |
+|6| Ejecutar el comando node index.js |
+|7| La generación del reporte tomara varios segundos, dependiendo de la cantidad de escenarios que vaya a comparar, así que debe esperar a que el comando previamente ejecutado se complete |
+|8| Para ver el reporte ingrese a la carpeta resemble/results en su sistema de archivos |
+|9| Podra observar que dentro de esa carpeta se crea una carpeta por cada ejecución del reporte |
+|10| Ingrese a la carpeta que se generó más reciente y abra el archivo html que corresponda al escenario del cual quiere ver el reporte (Ej: escenario-04.js.html)|
+
+
+### Generar reporte de pruebas visuales de regresión usando BackstopJS
+| Paso # | Descripción |
+| :--------------: | :--------- |
+|1| Clonar el repositorio |
+|2| Configurar las variables de entorno y asegurarse que los dos entornos de Ghost (versión 3.3.0 y 3.42.5) estén ejecutándose y tengan los mismos datos de acceso (usuario/contraseña)
+|3| Ubicarse en la carpeta **proyecto-cypress** |
+|4| Ejecutar el comando **cypress run** |
+|5| Una vez finalizado el paso anterior, deben haberse generado los screenshots respectivos en cada paso de cada escenario  |
+|5| Abrir una consola de comandos dentro de la carpeta backstop |
+|6| Ejecutar el comando **backstop test** |
+|7| Ejectuar el comando **backstop approve** |
+|8| Cambiar el nombre del archivo **backstop.json** por otro nombre |
+|9| Renombrar el archivo **backstop to rename.json** a **backstop.json** |
+|10| Ejecutar el comando **backstop test**|
+|11| Debe desplegarse una ventana en el navegador con el listado de las comparaciones para cado paso y cada escenario (1, 5 y 9)|
+
+### Paso 1 - Generar archivos pool de datos a-priori
+
+Este módulo crea datos de tipo título, tags y contenido para posts o pages para ser utilizado en los
+escenarios de prueba de la aplicación Ghost.
+
+Para usarlo, realice los siguientes pasos:
+
+1. Usando la línea de comandos ubíquese en la carpeta **data-pool**
+2. Ejecute la instrucción **npm install** para instalar las dependencias necesarias
+3. Diríjase a la carpeta **proyecto-cypress-datos** y ejecute el comando node **node ../data-pool/start.js**
+Esto creará una nueva carpeta llamada "data" donde se alojarán, en archivos separados,
+datos para título, tags y contenido. Al final, aparecerá un título, párrafo y tag en la consola.
+
+- getTitle(): retorna un título
+- getParagraph(): retorna un párrafo
+- getTag(): retorna un tag
+- getUrl(): retorna una url
+- getDateFuture(): retorna una fecha futura
+- getDatePass(): retorna una fecha pasada
+
+
+### Paso 2  correr las pruebas con la versión 3.42.5 de Ghost con la herramienta Cypress
+| Paso # | Descripción |
+| :--------------: | :--------- |
+|1| Ingresar a la carpeta proyecto-cypress-datos |
+|2|  Ejecute la instrucción **npm install** |
+|3| Configuarar los archivos env :|
+|| Ingresar a la carpeta cypress y editar el archivo env.js   |
+|| Colocar el valor la url del servidor en la variable "baseURL" |
+|| Ingresar a la carpeta cypress y crear el archivo env_local.js con la estructura de el archivo  env_local_example.js |
+|| Colocar el valor de usuario y contraseña en las variables "username" y "password"|
+|4| Recuerde previamente tener corriendo la versión 3.42.5 de Ghost sobre la cual va ejecutar los escenarios | 
+|5| Ejecutar el comando cypress run  |
 
 
 ##  Escenarios
