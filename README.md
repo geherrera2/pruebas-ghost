@@ -46,6 +46,8 @@
 |10| Ejecutar el comando **backstop test**|
 |11| Debe desplegarse una ventana en el navegador con el listado de las comparaciones para cado paso y cada escenario (1, 5 y 9)|
 
+
+## Instrucciones para pruebas de validación de datos
 ### Paso 1 - Generar archivos pool de datos a-priori
 
 Este módulo crea datos de tipo título, tags y contenido para posts o pages para ser utilizado en los
