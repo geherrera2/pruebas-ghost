@@ -1,4 +1,6 @@
 # Entrega Semana 8
+## Retrospectiva
+- [Retrospectiva](https://github.com/geherrera2/pruebas-ghost/wiki/Retrospectiva-DAKI)
 
 ## Estrategia de pruebas
 - [Video de la sustentación](https://youtu.be/JPKIIbdjUas)
