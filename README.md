@@ -1,6 +1,8 @@
 # Entrega Semana 8
 
 ## Estrategia de pruebas
+- [Video de la sustentación](https://youtu.be/JPKIIbdjUas)
+## Estrategia de pruebas
 
 - [Documento](https://drive.google.com/file/d/1tL5h6POe2XK1tyutxISG0d7oR_01sv16/view?usp=sharing)
 
