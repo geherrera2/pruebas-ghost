@@ -2,10 +2,10 @@
 
 ## Estrategia de pruebas
 
-- https://drive.google.com/file/d/1tL5h6POe2XK1tyutxISG0d7oR_01sv16/view?usp=sharing
+- [Documento](https://drive.google.com/file/d/1tL5h6POe2XK1tyutxISG0d7oR_01sv16/view?usp=sharing)
 
 ##  Inventario de pruebas exploratorias
- - https://drive.google.com/file/d/1RAOTETy0NyOG6Ar7D8tFJbLAu69eeDah/view?usp=sharing
+ - [Spreadsheet](https://drive.google.com/file/d/1RAOTETy0NyOG6Ar7D8tFJbLAu69eeDah/view?usp=sharing)
 
 ## Instrucciones para correr las pruebas de exploración sistematica
 
